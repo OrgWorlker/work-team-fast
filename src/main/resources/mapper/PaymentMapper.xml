@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wtf.interfaces.repository.IPaymentMapper">
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.wtf.domain.model.Payment">
+        <result column="name" property="name"/>
+        <result column="code" property="code"/>
+        <result column="wechat_num" property="wechatNum"/>
+        <result column="wechat_qrcode_url" property="wechatQrcodeUrl"/>
+        <result column="alipay_num" property="alipayNum"/>
+        <result column="alipay_qrcode_url" property="alipayQrcodeUrl"/>
+        <result column="bank_name" property="bankName"/>
+        <result column="bank_branch" property="bankBranch"/>
+        <result column="bank_account" property="bankAccount"/>
+        <result column="id" property="id"/>
+        <result column="upd_time" property="updTime"/>
+        <result column="crt_time" property="crtTime"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="all_column">
+        `name`,
+        `code`,
+        `wechat_num`,
+        `wechat_qrcode_url`,
+        `alipay_num`,
+        `alipay_qrcode_url`,
+        `bank_name`,
+        `bank_branch`,
+        `bank_account`,
+        `id`,
+        `upd_time`,
+        `crt_time`
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO payment (
+            `name`,
+            `code`,
+            `wechat_num`,
+            `wechat_qrcode_url`,
+            `alipay_num`,
+            `alipay_qrcode_url`,
+            `bank_name`,
+            `bank_branch`,
+            `bank_account`,
+            `id`,
+            `upd_time`,
+            `crt_time`
+        ) VALUES (
+            #{pojo.name},
+            #{pojo.code},
+            #{pojo.wechatNum},
+            #{pojo.wechatQrcode_Url},
+            #{pojo.alipayNum},
+            #{pojo.alipayQrcodeUrl},
+            #{pojo.bankName},
+            #{pojo.bankBranch},
+            #{pojo.bankAccount},
+            #{pojo.id},
+            #{pojo.updTime},
+            #{pojo.crtTime}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO payment
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.name!=null"> `name`,</if>
+            <if test="pojo.code!=null"> `code`,</if>
+            <if test="pojo.wechatNum!=null"> `wechat_num`,</if>
+            <if test="pojo.wechatQrcode_Url!=null"> `wechat_qrcode_url`,</if>
+            <if test="pojo.alipayNum!=null"> `alipay_num`,</if>
+            <if test="pojo.alipayQrcodeUrl!=null"> `alipay_qrcode_url`,</if>
+            <if test="pojo.bankName!=null"> `bank_name`,</if>
+            <if test="pojo.bankBranch!=null"> `bank_branch`,</if>
+            <if test="pojo.bankAccount!=null"> `bank_account`,</if>
+            <if test="pojo.id!=null"> `id`,</if>
+            <if test="pojo.updTime!=null"> `upd_time`,</if>
+            <if test="pojo.crtTime!=null"> `crt_time`,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.name!=null">#{pojo.name},</if>
+            <if test="pojo.code!=null">#{pojo.code},</if>
+            <if test="pojo.wechatNum!=null">#{pojo.wechatNum},</if>
+            <if test="pojo.wechatQrcode_Url!=null">#{pojo.wechatQrcode_Url},</if>
+            <if test="pojo.alipayNum!=null">#{pojo.alipayNum},</if>
+            <if test="pojo.alipayQrcodeUrl!=null">#{pojo.alipayQrcodeUrl},</if>
+            <if test="pojo.bankName!=null">#{pojo.bankName},</if>
+            <if test="pojo.bankBranch!=null">#{pojo.bankBranch},</if>
+            <if test="pojo.bankAccount!=null">#{pojo.bankAccount},</if>
+            <if test="pojo.id!=null">#{pojo.id},</if>
+            <if test="pojo.updTime!=null">#{pojo.updTime},</if>
+            <if test="pojo.crtTime!=null">#{pojo.crtTime},</if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO payment (
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.name},
+            #{pojo.code},
+            #{pojo.wechatNum},
+            #{pojo.wechatQrcode_Url},
+            #{pojo.alipayNum},
+            #{pojo.alipayQrcodeUrl},
+            #{pojo.bankName},
+            #{pojo.bankBranch},
+            #{pojo.bankAccount},
+            #{pojo.id},
+            #{pojo.updTime},
+            #{pojo.crtTime}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="update">
+        UPDATE payment
+        <set>
+            <if test="pojo.name != null"> `name` = #{pojo.name}, </if>
+            <if test="pojo.code != null"> `code` = #{pojo.code}, </if>
+            <if test="pojo.wechatNum != null"> `wechat_num` = #{pojo.wechatNum}, </if>
+            <if test="pojo.wechatQrcode_Url != null"> `wechat_qrcode_url` = #{pojo.wechatQrcode_Url}, </if>
+            <if test="pojo.alipayNum != null"> `alipay_num` = #{pojo.alipayNum}, </if>
+            <if test="pojo.alipayQrcodeUrl != null"> `alipay_qrcode_url` = #{pojo.alipayQrcodeUrl}, </if>
+            <if test="pojo.bankName != null"> `bank_name` = #{pojo.bankName}, </if>
+            <if test="pojo.bankBranch != null"> `bank_branch` = #{pojo.bankBranch}, </if>
+            <if test="pojo.bankAccount != null"> `bank_account` = #{pojo.bankAccount}, </if>
+            <if test="pojo.id != null"> `id` = #{pojo.id}, </if>
+            <if test="pojo.updTime != null"> `upd_time` = #{pojo.updTime}, </if>
+            <if test="pojo.crtTime != null"> `crt_time` = #{pojo.crtTime} </if>
+        </set>
+        WHERE id = #{pojo.id}
+    </update>
+
+    <select id="findById" resultMap="AllColumnMap" parameterType="Long" >
+        SELECT
+            <include refid="all_column" />
+        FROM payment
+        WHERE
+        id = #{id}
+    </select>
+</mapper>
+

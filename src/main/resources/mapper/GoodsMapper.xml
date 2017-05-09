@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wtf.interfaces.repository.IGoodsMapper">
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.wtf.domain.model.Goods">
+        <result column="name" property="name"/>
+        <result column="url" property="url"/>
+        <result column="img_url1" property="imgUrl1"/>
+        <result column="img_url2" property="imgUrl2"/>
+        <result column="buy_count" property="buyCount"/>
+        <result column="buy_price" property="buyPrice"/>
+        <result column="show_price" property="showPrice"/>
+        <result column="size" property="size"/>
+        <result column="id" property="id"/>
+        <result column="upd_time" property="updTime"/>
+        <result column="crt_time" property="crtTime"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="all_column">
+        `name`,
+        `url`,
+        `img_url1`,
+        `img_url2`,
+        `buy_count`,
+        `buy_price`,
+        `show_price`,
+        `size`,
+        `id`,
+        `upd_time`,
+        `crt_time`
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO goods (
+            `name`,
+            `url`,
+            `img_url1`,
+            `img_url2`,
+            `buy_count`,
+            `buy_price`,
+            `show_price`,
+            `size`,
+            `id`,
+            `upd_time`,
+            `crt_time`
+        ) VALUES (
+            #{pojo.name},
+            #{pojo.url},
+            #{pojo.imgUrl1},
+            #{pojo.imgUrl2},
+            #{pojo.buyCount},
+            #{pojo.buyPrice},
+            #{pojo.showPrice},
+            #{pojo.size},
+            #{pojo.id},
+            #{pojo.updTime},
+            #{pojo.crtTime}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO goods
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.name!=null"> `name`,</if>
+            <if test="pojo.url!=null"> `url`,</if>
+            <if test="pojo.imgUrl1!=null"> `img_url1`,</if>
+            <if test="pojo.imgUrl2!=null"> `img_url2`,</if>
+            <if test="pojo.buyCount!=null"> `buy_count`,</if>
+            <if test="pojo.buyPrice!=null"> `buy_price`,</if>
+            <if test="pojo.showPrice!=null"> `show_price`,</if>
+            <if test="pojo.size!=null"> `size`,</if>
+            <if test="pojo.id!=null"> `id`,</if>
+            <if test="pojo.updTime!=null"> `upd_time`,</if>
+            <if test="pojo.crtTime!=null"> `crt_time`,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.name!=null">#{pojo.name},</if>
+            <if test="pojo.url!=null">#{pojo.url},</if>
+            <if test="pojo.imgUrl1!=null">#{pojo.imgUrl1},</if>
+            <if test="pojo.imgUrl2!=null">#{pojo.imgUrl2},</if>
+            <if test="pojo.buyCount!=null">#{pojo.buyCount},</if>
+            <if test="pojo.buyPrice!=null">#{pojo.buyPrice},</if>
+            <if test="pojo.showPrice!=null">#{pojo.showPrice},</if>
+            <if test="pojo.size!=null">#{pojo.size},</if>
+            <if test="pojo.id!=null">#{pojo.id},</if>
+            <if test="pojo.updTime!=null">#{pojo.updTime},</if>
+            <if test="pojo.crtTime!=null">#{pojo.crtTime},</if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO goods (
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.name},
+            #{pojo.url},
+            #{pojo.imgUrl1},
+            #{pojo.imgUrl2},
+            #{pojo.buyCount},
+            #{pojo.buyPrice},
+            #{pojo.showPrice},
+            #{pojo.size},
+            #{pojo.id},
+            #{pojo.updTime},
+            #{pojo.crtTime}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="update">
+        UPDATE goods
+        <set>
+            <if test="pojo.name != null"> `name` = #{pojo.name}, </if>
+            <if test="pojo.url != null"> `url` = #{pojo.url}, </if>
+            <if test="pojo.imgUrl1 != null"> `img_url1` = #{pojo.imgUrl1}, </if>
+            <if test="pojo.imgUrl2 != null"> `img_url2` = #{pojo.imgUrl2}, </if>
+            <if test="pojo.buyCount != null"> `buy_count` = #{pojo.buyCount}, </if>
+            <if test="pojo.buyPrice != null"> `buy_price` = #{pojo.buyPrice}, </if>
+            <if test="pojo.showPrice != null"> `show_price` = #{pojo.showPrice}, </if>
+            <if test="pojo.size != null"> `size` = #{pojo.size}, </if>
+            <if test="pojo.id != null"> `id` = #{pojo.id}, </if>
+            <if test="pojo.updTime != null"> `upd_time` = #{pojo.updTime}, </if>
+            <if test="pojo.crtTime != null"> `crt_time` = #{pojo.crtTime} </if>
+        </set>
+        WHERE id = #{pojo.id}
+    </update>
+</mapper>
+
