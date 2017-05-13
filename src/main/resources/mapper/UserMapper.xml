@@ -131,6 +131,15 @@
         SELECT
             id, name, code, login_name, login_pwd, come_from, trade_pwd, user_level_id, user_info_id, payment_id, upd_time, crt_time
         FROM user u
+        <where>
+            <if test="id != null" >and id = #{id}</if>
+            <if test="name != null" >and name like '%#{name}%'</if>
+            <if test="comeFrom != null" >and come_from = #{comeFrom}</if>
+        </where>
     </select>
+
+    <delete id="delete" >
+        DELETE FROM user WHERE id = #{id}
+    </delete>
 </mapper>
 

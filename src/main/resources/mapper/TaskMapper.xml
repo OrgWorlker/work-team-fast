@@ -116,5 +116,8 @@
         </set>
         WHERE id = #{pojo.id}
     </update>
+    <delete id="delete">
+        DELETE FROM task WHERE id=#{id}
+    </delete>
 </mapper>
 

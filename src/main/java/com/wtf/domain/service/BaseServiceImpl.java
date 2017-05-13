@@ -61,6 +61,26 @@ public class BaseServiceImpl<T, M extends BaseMapper<T>> implements IBaseService
     }
 
     /**
+     * Find all list.
+     *
+     * @param pojo the t
+     * @return the list
+     */
+   public List<T> findAll(T pojo){
+        return  this.getMapper().findAll(pojo);
+    }
+
+
+    /**
+     * Delete int.
+     *
+     * @param id the id
+     * @return the int
+     */
+   public int delete(Long id){
+       return this.getMapper().delete(id);
+   }
+    /**
      * Sets mapper.
      *
      * @param mapper the mapper

@@ -29,7 +29,7 @@ public class IUserMapperTest {
     @Test
     public void findAll() throws Exception {
         PageHelper.startPage(0, 10);
-        final List<User> all = this.usersMapper.findAll();
+        final List<User> all = this.usersMapper.findAll(new User());
         for (User user : all) {
             System.out.println("user = " + user);
         }

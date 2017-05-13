@@ -8,6 +8,7 @@ import com.wtf.interfaces.service.IUserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * The type User manager.
@@ -48,5 +49,10 @@ public class UserManagerImpl implements IUserManager {
         final String tradPwdMd5 = MD5Util.md5Encode(tradePwd);
         //对加密串与用户信息中的交易密码进行比较，并返回
         return user != null && user.getTradePwd().equals(tradPwdMd5);
+    }
+
+    @Override
+    public List<User> findAll(User user) {
+        return this.userService.findAll(user);
     }
 }

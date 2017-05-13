@@ -35,11 +35,11 @@ public class SellersUserController {
      */
     @GetMapping("list")
     @ResponseBody
-    public List<User> findUserList(User user, @RequestParam int startNum, @RequestParam int pageSize) {
-        if (pageSize > 0) {
+    public List<User> findUserList(User user,  Integer startNum,  Integer pageSize) {
+        if (pageSize != null && pageSize > 0) {
             PageHelper.startPage(startNum, pageSize);
         }
-        return new ArrayList<>();
+        return this.userManager.findAll( user);
     }
 
     @GetMapping("login")

@@ -116,5 +116,9 @@
         FROM user_level ul
         WHERE id = #{id}
     </select>
+
+    <delete id="delete">
+        DELETE FROM user_level WHERE id=#{id}
+    </delete>
 </mapper>
 

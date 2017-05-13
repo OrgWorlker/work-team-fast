@@ -1,6 +1,9 @@
 package com.wtf.interfaces.manager;
 
 import com.wtf.domain.dto.UserLoginDto;
+import com.wtf.domain.model.User;
+
+import java.util.List;
 
 /**
  * The interface User manager.
@@ -26,4 +29,11 @@ public interface IUserManager {
      */
     boolean checkUserTradePwd(Long userId, String tradePwd);
 
+    /**
+     * Find all list.
+     *
+     * @param user the user
+     * @return the list
+     */
+    List<User> findAll(User user);
 }

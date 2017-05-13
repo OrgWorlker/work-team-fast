@@ -137,5 +137,9 @@
         FROM user_info
         WHERE id = #{id}
     </select>
+
+    <delete id="delete">
+        DELETE FROM user_info WHERE id=#{id}
+    </delete>
 </mapper>
 

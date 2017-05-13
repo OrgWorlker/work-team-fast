@@ -20,11 +20,5 @@ public interface IUserMapper extends BaseMapper<User> {
      */
     User findByUserName(String userName);
 
-    /**
-     * Find all list.
-     *
-     * @return the list
-     */
-    List<User> findAll();
 }
 

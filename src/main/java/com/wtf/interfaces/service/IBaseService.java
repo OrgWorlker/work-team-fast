@@ -50,4 +50,21 @@ public interface IBaseService<T> {
      * @return the t
      */
     T findById(Long id);
+
+    /**
+     * Find all list.
+     *
+     * @param pojo the pojo
+     * @return the list
+     */
+    List<T> findAll(T pojo);
+
+
+    /**
+     * Delete int.
+     *
+     * @param id the id
+     * @return the int
+     */
+    int delete(Long id);
 }

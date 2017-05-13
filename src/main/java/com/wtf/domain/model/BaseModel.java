@@ -2,6 +2,7 @@ package com.wtf.domain.model;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +15,7 @@ import java.util.Date;
  */
 @Setter
 @Getter
+@JsonIgnoreProperties({"handler"})
 class BaseModel implements Serializable {
 
     private Long id;

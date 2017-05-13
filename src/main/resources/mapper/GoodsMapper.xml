@@ -132,5 +132,9 @@
         </set>
         WHERE id = #{pojo.id}
     </update>
+
+    <delete id="delete">
+        DELETE FROM goods WHERE id=#{id}
+    </delete>
 </mapper>
 
