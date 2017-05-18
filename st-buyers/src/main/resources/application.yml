@@ -1,6 +1,6 @@
 # 设置服务端口
 server:
-  port: 8083
+  port: 8082
 
 spring:
   ##数据源配置
