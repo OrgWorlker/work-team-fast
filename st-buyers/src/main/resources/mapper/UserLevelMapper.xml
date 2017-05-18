@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wtf.core.interfaces.repository.IUserLevelMapper">
+    <cache />
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.wtf.core.domain.model.UserLevel">
+        <result column="vip" property="vip"/>
+        <result column="gold" property="gold"/>
+        <result column="usable_gold" property="usableGold"/>
+        <result column="integral" property="integral"/>
+        <result column="usable_integral" property="usableIntegral"/>
+        <result column="id" property="id"/>
+        <result column="upd_time" property="updTime"/>
+        <result column="crt_time" property="crtTime"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="all_column">
+        vip,
+        gold,
+        usable_gold,
+        integral,
+        usable_integral,
+        id,
+        upd_time,
+        crt_time
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO user_level (
+            vip,
+            gold,
+            usable_gold,
+            integral,
+            usable_integral,
+            id,
+            upd_time,
+            crt_time
+        ) VALUES (
+            #{pojo.vip},
+            #{pojo.gold},
+            #{pojo.usableGold},
+            #{pojo.integral},
+            #{pojo.usableIntegral},
+            #{pojo.id},
+            #{pojo.updTime},
+            #{pojo.crtTime}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO user_level
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.vip!=null">vip,</if>
+            <if test="pojo.gold!=null">gold,</if>
+            <if test="pojo.usableGold!=null">usable_gold,</if>
+            <if test="pojo.integral!=null">integral,</if>
+            <if test="pojo.usableIntegral!=null">usable_integral,</if>
+            <if test="pojo.id!=null">id,</if>
+            <if test="pojo.updTime!=null">upd_time,</if>
+            <if test="pojo.crtTime!=null">crt_time,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.vip!=null">#{pojo.vip},</if>
+            <if test="pojo.gold!=null">#{pojo.gold},</if>
+            <if test="pojo.usableGold!=null">#{pojo.usableGold},</if>
+            <if test="pojo.integral!=null">#{pojo.integral},</if>
+            <if test="pojo.usableIntegral!=null">#{pojo.usableIntegral},</if>
+            <if test="pojo.id!=null">#{pojo.id},</if>
+            <if test="pojo.updTime!=null">#{pojo.updTime},</if>
+            <if test="pojo.crtTime!=null">#{pojo.crtTime},</if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO user_level (
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.vip},
+            #{pojo.gold},
+            #{pojo.usableGold},
+            #{pojo.integral},
+            #{pojo.usableIntegral},
+            #{pojo.id},
+            #{pojo.updTime},
+            #{pojo.crtTime}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="update">
+        UPDATE user_level
+        <set>
+            <if test="pojo.vip != null">vip = #{pojo.vip},</if>
+            <if test="pojo.gold != null">gold = #{pojo.gold},</if>
+            <if test="pojo.usableGold != null">usable_gold = #{pojo.usableGold},</if>
+            <if test="pojo.integral != null">integral = #{pojo.integral},</if>
+            <if test="pojo.usableIntegral != null">usable_integral = #{pojo.usableIntegral},</if>
+            <if test="pojo.id != null">id = #{pojo.id},</if>
+            <if test="pojo.updTime != null">upd_time = #{pojo.updTime},</if>
+            <if test="pojo.crtTime != null">crt_time = #{pojo.crtTime}</if>
+        </set>
+        WHERE id = #{pojo.id}
+    </update>
+
+    <!--根据ID获取user_level-->
+    <select id="findById" parameterType="Long" resultMap="AllColumnMap">
+        SELECT *
+        FROM user_level ul
+        WHERE id = #{id}
+    </select>
+
+    <delete id="delete">
+        DELETE FROM user_level WHERE id=#{id}
+    </delete>
+</mapper>
+

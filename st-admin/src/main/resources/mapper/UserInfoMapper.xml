@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wtf.core.interfaces.repository.IUserInfoMapper">
+    <cache />
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.wtf.core.domain.model.UserInfo">
+        <result column="real_name" property="realName"/>
+        <result column="cid" property="cid"/>
+        <result column="cid_img_1" property="cidImg1"/>
+        <result column="cid_img_2" property="cidImg2"/>
+        <result column="birth_day" property="birthDay"/>
+        <result column="sex" property="sex"/>
+        <result column="telphone" property="telphone"/>
+        <result column="city" property="city"/>
+        <result column="cid_flag" property="cidFlag"/>
+        <result column="id" property="id"/>
+        <result column="upd_time" property="updTime"/>
+        <result column="crt_time" property="crtTime"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="all_column">
+        `id`, `real_name`, `cid`, `cid_img_1`, `cid_img_2`, `birth_day`, `sex`, `telphone`, `city`, `cid_flag`, `upd_time`, `crt_time`
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO user_info (
+            `real_name`,
+            `cid`,
+            `cid_img_1`,
+            `cid_img_2`,
+            `birth_day`,
+            `sex`,
+            `telphone`,
+            `city`,
+            `cid_flag`,
+            `id`,
+            `upd_time`,
+            `crt_time`
+        ) VALUES (
+            #{pojo.realName},
+            #{pojo.cid},
+            #{pojo.cidImg1},
+            #{pojo.cidImg2},
+            #{pojo.birthDay},
+            #{pojo.sex},
+            #{pojo.telphone},
+            #{pojo.city},
+            #{pojo.cidFlag},
+            #{pojo.id},
+            #{pojo.updTime},
+            #{pojo.crtTime}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO user_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id!=null">`id`,</if>
+            <if test="pojo.realName!=null">`real_name`,</if>
+            <if test="pojo.cid!=null">`cid`,</if>
+            <if test="pojo.cidImg1!=null">`cid_img_1`,</if>
+            <if test="pojo.cidImg2!=null">`cid_img_2`,</if>
+            <if test="pojo.birthDay!=null">`birth_day`,</if>
+            <if test="pojo.sex!=null">`sex`,</if>
+            <if test="pojo.telphone!=null">`telphone`,</if>
+            <if test="pojo.city!=null">`city`,</if>
+            <if test="pojo.cidFlag!=null">`cid_flag`,</if>
+            <if test="pojo.updTime!=null">`upd_time`,</if>
+            <if test="pojo.crtTime!=null">`crt_time`,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.id!=null">#{pojo.id},</if>
+            <if test="pojo.realName!=null">#{pojo.realName},</if>
+            <if test="pojo.cid!=null">#{pojo.cid},</if>
+            <if test="pojo.cidImg1!=null">#{pojo.cidImg1},</if>
+            <if test="pojo.cidImg2!=null">#{pojo.cidImg2},</if>
+            <if test="pojo.birthDay!=null">#{pojo.birthDay},</if>
+            <if test="pojo.sex!=null">#{pojo.sex},</if>
+            <if test="pojo.telphone!=null">#{pojo.telphone},</if>
+            <if test="pojo.city!=null">#{pojo.city},</if>
+            <if test="pojo.cidFlag!=null">#{pojo.cidFlag},</if>
+            <if test="pojo.updTime!=null">#{pojo.updTime},</if>
+            <if test="pojo.crtTime!=null">#{pojo.crtTime},</if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO user_info (
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.id},
+            #{pojo.realName},
+            #{pojo.cid},
+            #{pojo.cidImg1},
+            #{pojo.cidImg2},
+            #{pojo.birthDay},
+            #{pojo.sex},
+            #{pojo.telphone},
+            #{pojo.city},
+            #{pojo.cidFlag},
+            #{pojo.updTime},
+            #{pojo.crtTime}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="update">
+        UPDATE user_info
+        <set>
+            <if test="pojo.realName != null">`real_name` = #{pojo.realName},</if>
+            <if test="pojo.cid != null">`cid` = #{pojo.cid},</if>
+            <if test="pojo.cidImg1 != null">`cid_img1` = #{pojo.cidImg1},</if>
+            <if test="pojo.cidImg2 != null">`cid_img2` = #{pojo.cidImg2},</if>
+            <if test="pojo.birthDay != null">`birth_day` = #{pojo.birthDay},</if>
+            <if test="pojo.sex != null">`sex` = #{pojo.sex},</if>
+            <if test="pojo.telphone != null">`telphone` = #{pojo.telphone},</if>
+            <if test="pojo.city != null">`city` = #{pojo.city},</if>
+            <if test="pojo.cidFlag != null">`cid_flag` = #{pojo.cidFlag},</if>
+            <if test="pojo.id != null">`id` = #{pojo.id},</if>
+            <if test="pojo.updTime != null">`upd_time` = #{pojo.updTime},</if>
+            <if test="pojo.crtTime != null">`crt_time` = #{pojo.crtTime}</if>
+        </set>
+        WHERE id = #{pojo.id}
+    </update>
+
+    <!--根据ID获取user_info-->
+    <select id="findById" resultMap="AllColumnMap" resultType="com.wtf.core.domain.model.UserInfo" parameterType="Long">
+        SELECT
+        <include refid="all_column"/>
+        FROM user_info
+        WHERE id = #{id}
+    </select>
+
+    <delete id="delete">
+        DELETE FROM user_info WHERE id=#{id}
+    </delete>
+</mapper>
+

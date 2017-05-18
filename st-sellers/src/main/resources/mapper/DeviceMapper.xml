@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wtf.core.interfaces.repository.IDeviceMapper">
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.wtf.core.domain.model.Device">
+        <result column="name" property="name"/>
+        <result column="code" property="code"/>
+        <result column="user_id" property="userId"/>
+        <result column="id" property="id"/>
+        <result column="upd_time" property="updTime"/>
+        <result column="crt_time" property="crtTime"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="all_column">
+        `name`,
+        `code`,
+        `user_id`,
+        `id`,
+        `upd_time`,
+        `crt_time`
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO device (
+            `name`,
+            `code`,
+            `user_id`,
+            `id`,
+            `upd_time`,
+            `crt_time`
+        ) VALUES (
+            #{pojo.name},
+            #{pojo.code},
+            #{pojo.userId},
+            #{pojo.id},
+            #{pojo.updTime},
+            #{pojo.crtTime}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO device
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.name!=null"> `name`,</if>
+            <if test="pojo.code!=null"> `code`,</if>
+            <if test="pojo.userId!=null"> `user_id`,</if>
+            <if test="pojo.id!=null"> `id`,</if>
+            <if test="pojo.updTime!=null"> `upd_time`,</if>
+            <if test="pojo.crtTime!=null"> `crt_time`,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.name!=null">#{pojo.name},</if>
+            <if test="pojo.code!=null">#{pojo.code},</if>
+            <if test="pojo.userId!=null">#{pojo.userId},</if>
+            <if test="pojo.id!=null">#{pojo.id},</if>
+            <if test="pojo.updTime!=null">#{pojo.updTime},</if>
+            <if test="pojo.crtTime!=null">#{pojo.crtTime},</if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO device (
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.name},
+            #{pojo.code},
+            #{pojo.userId},
+            #{pojo.id},
+            #{pojo.updTime},
+            #{pojo.crtTime}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="update">
+        UPDATE device
+        <set>
+            <if test="pojo.name != null"> `name` = #{pojo.name}, </if>
+            <if test="pojo.code != null"> `code` = #{pojo.code}, </if>
+            <if test="pojo.userId != null"> `user_id` = #{pojo.userId}, </if>
+            <if test="pojo.id != null"> `id` = #{pojo.id}, </if>
+            <if test="pojo.updTime != null"> `upd_time` = #{pojo.updTime}, </if>
+            <if test="pojo.crtTime != null"> `crt_time` = #{pojo.crtTime} </if>
+        </set>
+        WHERE id = #{pojo.id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM device WHERE id=#{id}
+    </delete>
+</mapper>
+

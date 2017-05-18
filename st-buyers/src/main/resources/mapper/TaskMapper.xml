@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wtf.core.interfaces.repository.ITaskMapper">
+
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.wtf.core.domain.model.Task">
+        <result column="name" property="name"/>
+        <result column="shop_url" property="shopUrl"/>
+        <result column="consignor" property="consignor"/>
+        <result column="shipping_address" property="shippingAddress"/>
+        <result column="shipping_area" property="shippingArea"/>
+        <result column="shipping_call" property="shippingCall"/>
+        <result column="id" property="id"/>
+        <result column="upd_time" property="updTime"/>
+        <result column="crt_time" property="crtTime"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="all_column">
+        `name`,
+        `shop_url`,
+        `consignor`,
+        `shipping_address`,
+        `shipping_area`,
+        `shipping_call`,
+        `id`,
+        `upd_time`,
+        `crt_time`
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO task (
+            `name`,
+            `shop_url`,
+            `consignor`,
+            `shipping_address`,
+            `shipping_area`,
+            `shipping_call`,
+            `id`,
+            `upd_time`,
+            `crt_time`
+        ) VALUES (
+            #{pojo.name},
+            #{pojo.shopUrl},
+            #{pojo.consignor},
+            #{pojo.shippingAddress},
+            #{pojo.shippingArea},
+            #{pojo.shippingCall},
+            #{pojo.id},
+            #{pojo.updTime},
+            #{pojo.crtTime}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO task
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.name!=null">`name`,</if>
+            <if test="pojo.shopUrl!=null">`shop_url`,</if>
+            <if test="pojo.consignor!=null">`consignor`,</if>
+            <if test="pojo.shippingAddress!=null">`shipping_address`,</if>
+            <if test="pojo.shippingArea!=null">`shipping_area`,</if>
+            <if test="pojo.shippingCall!=null">`shipping_call`,</if>
+            <if test="pojo.id!=null">`id`,</if>
+            <if test="pojo.updTime!=null">`upd_time`,</if>
+            <if test="pojo.crtTime!=null">`crt_time`,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.name!=null">#{pojo.name},</if>
+            <if test="pojo.shopUrl!=null">#{pojo.shopUrl},</if>
+            <if test="pojo.consignor!=null">#{pojo.consignor},</if>
+            <if test="pojo.shippingAddress!=null">#{pojo.shippingAddress},</if>
+            <if test="pojo.shippingArea!=null">#{pojo.shippingArea},</if>
+            <if test="pojo.shippingCall!=null">#{pojo.shippingCall},</if>
+            <if test="pojo.id!=null">#{pojo.id},</if>
+            <if test="pojo.updTime!=null">#{pojo.updTime},</if>
+            <if test="pojo.crtTime!=null">#{pojo.crtTime},</if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO task (
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.name},
+            #{pojo.shopUrl},
+            #{pojo.consignor},
+            #{pojo.shippingAddress},
+            #{pojo.shippingArea},
+            #{pojo.shippingCall},
+            #{pojo.id},
+            #{pojo.updTime},
+            #{pojo.crtTime}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="update">
+        UPDATE task
+        <set>
+            <if test="pojo.name != null">`name` = #{pojo.name},</if>
+            <if test="pojo.shopUrl != null">`shop_url` = #{pojo.shopUrl},</if>
+            <if test="pojo.consignor != null">`consignor` = #{pojo.consignor},</if>
+            <if test="pojo.shippingAddress != null">`shipping_address` = #{pojo.shippingAddress},</if>
+            <if test="pojo.shippingArea != null">`shipping_area` = #{pojo.shippingArea},</if>
+            <if test="pojo.shippingCall != null">`shipping_call` = #{pojo.shippingCall},</if>
+            <if test="pojo.id != null">`id` = #{pojo.id},</if>
+            <if test="pojo.updTime != null">`upd_time` = #{pojo.updTime},</if>
+            <if test="pojo.crtTime != null">`crt_time` = #{pojo.crtTime}</if>
+        </set>
+        WHERE id = #{pojo.id}
+    </update>
+    <delete id="delete">
+        DELETE FROM task
+        WHERE id = #{id}
+    </delete>
+</mapper>
+
