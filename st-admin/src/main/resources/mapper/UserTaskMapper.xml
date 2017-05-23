@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wtf.core.interfaces.repository.IUserTaskMapper">
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.wtf.core.domain.model.UserTask">
+        <result column="buyer_id" property="buyerId"/>
+        <result column="task_id" property="taskId"/>
+        <result column="order_time" property="orderTime"/>
+        <result column="finish_time" property="finishTime"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="status" property="status"/>
+        <result column="id" property="id"/>
+        <result column="upd_time" property="updTime"/>
+        <result column="crt_time" property="crtTime"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="all_column">
+        `buyer_id`,
+        `task_id`,
+        `order_time`,
+        `finish_time`,
+        `start_time`,
+        `end_time`,
+        `status`,
+        `id`,
+        `upd_time`,
+        `crt_time`
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO user_task (
+            `buyer_id`,
+            `task_id`,
+            `order_time`,
+            `finish_time`,
+            `start_time`,
+            `end_time`,
+            `status`,
+            `id`,
+            `upd_time`,
+            `crt_time`
+        ) VALUES (
+            #{pojo.buyerId},
+            #{pojo.taskId},
+            #{pojo.orderTime},
+            #{pojo.finishTime},
+            #{pojo.startTime},
+            #{pojo.endTime},
+            #{pojo.status},
+            #{pojo.id},
+            #{pojo.updTime},
+            #{pojo.crtTime}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO user_task
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.buyerId!=null">`buyer_id`,</if>
+            <if test="pojo.taskId!=null">`task_id`,</if>
+            <if test="pojo.orderTime!=null">`order_time`,</if>
+            <if test="pojo.finishTime!=null">`finish_time`,</if>
+            <if test="pojo.startTime!=null">`start_time`,</if>
+            <if test="pojo.endTime!=null">`end_time`,</if>
+            <if test="pojo.status!=null">`status`,</if>
+            <if test="pojo.id!=null">`id`,</if>
+            <if test="pojo.updTime!=null">`upd_time`,</if>
+            <if test="pojo.crtTime!=null">`crt_time`,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.buyerId!=null">#{pojo.buyerId},</if>
+            <if test="pojo.taskId!=null">#{pojo.taskId},</if>
+            <if test="pojo.orderTime!=null">#{pojo.orderTime},</if>
+            <if test="pojo.finishTime!=null">#{pojo.finishTime},</if>
+            <if test="pojo.startTime!=null">#{pojo.startTime},</if>
+            <if test="pojo.endTime!=null">#{pojo.endTime},</if>
+            <if test="pojo.status!=null">#{pojo.status},</if>
+            <if test="pojo.id!=null">#{pojo.id},</if>
+            <if test="pojo.updTime!=null">#{pojo.updTime},</if>
+            <if test="pojo.crtTime!=null">#{pojo.crtTime},</if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO user_task (
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.buyerId},
+            #{pojo.taskId},
+            #{pojo.orderTime},
+            #{pojo.finishTime},
+            #{pojo.startTime},
+            #{pojo.endTime},
+            #{pojo.status},
+            #{pojo.id},
+            #{pojo.updTime},
+            #{pojo.crtTime}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="update">
+        UPDATE user_task
+        <set>
+            <if test="pojo.buyerId != null">`buyer_id` = #{pojo.buyerId},</if>
+            <if test="pojo.taskId != null">`task_id` = #{pojo.taskId},</if>
+            <if test="pojo.orderTime != null">`order_time` = #{pojo.orderTime},</if>
+            <if test="pojo.finishTime != null">`finish_time` = #{pojo.finishTime},</if>
+            <if test="pojo.startTime != null">`start_time` = #{pojo.startTime},</if>
+            <if test="pojo.endTime != null">`end_time` = #{pojo.endTime},</if>
+            <if test="pojo.status != null">`status` = #{pojo.status},</if>
+            <if test="pojo.id != null">`id` = #{pojo.id},</if>
+            <if test="pojo.updTime != null">`upd_time` = #{pojo.updTime},</if>
+            <if test="pojo.crtTime != null">`crt_time` = #{pojo.crtTime}</if>
+        </set>
+        WHERE id = #{pojo.id}
+    </update>
+
+    <delete id="delete">
+        DELETE user_task
+        WHERE
+        id = #{id}
+    </delete>
+
+    <select id="findAll" parameterType="com.wtf.core.domain.model.UserTask" resultMap="AllColumnMap" >
+        SELECT <include refid="all_column" />
+        FROM user_task
+        <where>
+            <if test="id != null">
+                id = #{pojo.id}
+            </if>
+        </where>
+    </select>
+
+    <select id="findOrderByNullBuyersAndStartTime" parameterType="String" resultMap="AllColumnMap" >
+        SELECT <include refid="all_column" />
+        FROM user_task
+        WHERE buyer_id IS NULL
+        AND start_time &lt;=   #{startTime}
+            AND end_time &gt;  #{startTime}
+    </select>
+
+</mapper>

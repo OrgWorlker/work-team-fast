@@ -10,9 +10,9 @@
         <result column="id" property="id"/>
         <result column="upd_time" property="updTime"/>
         <result column="crt_time" property="crtTime"/>
-        <association column="user_info_id" property="userInfo" javaType="UserInfo"  select="com.wtf.interfaces.repository.IUserInfoMapper.findById" />
-        <association column="user_level_id" property="userLevel" javaType="UserLevel" select="com.wtf.interfaces.repository.IUserLevelMapper.findById" />
-        <association column="payment_id" property="payment" javaType="Payment" select="com.wtf.interfaces.repository.IPaymentMapper.findById" />
+        <association column="user_info_id" property="userInfo" javaType="UserInfo"  select="com.wtf.core.interfaces.repository.IUserInfoMapper.findById" />
+        <association column="user_level_id" property="userLevel" javaType="UserLevel" select="com.wtf.core.interfaces.repository.IUserLevelMapper.findById" />
+        <association column="payment_id" property="payment" javaType="Payment" select="com.wtf.core.interfaces.repository.IPaymentMapper.findById" />
     </resultMap>
 
     <!--auto generated Code-->

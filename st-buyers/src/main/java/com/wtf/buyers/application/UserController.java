@@ -32,7 +32,7 @@ public class UserController {
     @GetMapping("list")
     @ResponseBody
     public List<User> findUserList(User user, Integer startNum, Integer pageSize) {
-        if (pageSize != null && pageSize > 0) {
+        if (pageSize != null && startNum != null) {
             PageHelper.startPage(startNum, pageSize);
         }
         return this.userManager.findAll( user);

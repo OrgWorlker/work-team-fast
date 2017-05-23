@@ -2,10 +2,10 @@ package com.wtf.core.domain.manager;
 
 import com.wtf.core.domain.dto.UserLoginDto;
 import com.wtf.core.domain.model.User;
+import com.wtf.core.infrastructure.stereotype.Manager;
 import com.wtf.core.infrastructure.util.MD5Util;
 import com.wtf.core.interfaces.manager.IUserManager;
 import com.wtf.core.interfaces.service.IUserService;
-import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * The type User manager.
  */
-@Service
+@Manager
 public class UserManagerImpl implements IUserManager {
 
     @Resource
