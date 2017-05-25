@@ -1,51 +1,65 @@
 package com.wtf.buyers.application;
 
-import com.github.pagehelper.PageHelper;
 import com.wtf.core.domain.dto.UserLoginDto;
-import com.wtf.core.domain.model.User;
+import com.wtf.core.infrastructure.adapter.ControllerAdapter;
 import com.wtf.core.infrastructure.constant.Constant;
 import com.wtf.core.interfaces.manager.IUserManager;
-import org.springframework.stereotype.Controller;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
-@Controller
+/**
+ * The type User controller.
+ */
+@RestController
 @RequestMapping("user")
-public class UserController {
+@Slf4j
+public class UserController extends ControllerAdapter {
     @Resource
     private IUserManager userManager;
 
     /**
-     * Find user list list.
+     * Login string.
+     * 用户登录的方法，成功返回success，失败返回error
      *
-     * @param user     the user
-     * @param startNum the start num
-     * @param pageSize the page size
-     * @return the list
+     * @param username the username
+     * @param checknum the checknum
+     * @param model    the model
+     * @param request  the request
+     * @return the string
+     * @throws Exception the exception
      */
-    @GetMapping("list")
-    @ResponseBody
-    public List<User> findUserList(User user, Integer startNum, Integer pageSize) {
-        if (pageSize != null && startNum != null) {
-            PageHelper.startPage(startNum, pageSize);
-        }
-        return this.userManager.findAll( user);
-    }
-
-    @GetMapping("login")
-    public String login(String username, String checknum, Model model, HttpServletRequest request) {
+    @RequestMapping("login")
+    public String login(String username, String checknum, Model model, HttpServletRequest request) throws Exception {
         final UserLoginDto userLoginDto = this.userManager.checkUserNameAndLoginPassword(username, checknum, 1);
+        model.addAttribute(Constant.CURRENT_USER, userLoginDto);
         if (userLoginDto != null) {
             userLoginDto.clearPwd();
             request.getSession().setAttribute(Constant.CURRENT_USER, userLoginDto);
+            return SUCCESS;
         }
-        model.addAttribute(Constant.CURRENT_USER, userLoginDto);
-        return "hello";
+        return ERROR;
+    }
+
+    /**
+     * Update login string.
+     *
+     * @param oldPwd the old pwd
+     * @param newPwd the new pwd
+     * @param type   the type 0:LOGIN_PWD, 1:TRAD_PWD
+     * @return the string
+     */
+    @RequestMapping("update/{userId}/{type}")
+    public String updateLogin(String oldPwd, String newPwd, @PathVariable Long userId, @PathVariable Integer type) {
+        final int resultNum = this.userManager.checkAndUpdatePwd(userId, oldPwd, newPwd, type);
+        if (resultNum > 0) {
+            return SUCCESS;
+        }
+        return FAILD;
     }
 }

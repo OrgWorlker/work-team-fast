@@ -22,14 +22,12 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         final Object currentUser = request.getSession().getAttribute(Constant.CURRENT_USER);
-        final String requestURI = request.getRequestURI();
-        final String redirectLogin = this.getRequestDomain(request);
+        final String redirectLogin = "/login";
         if (currentUser == null) {
             log.debug("用户未登录");
             response.sendRedirect(redirectLogin);
             return false;
         }
-        log.debug("已登录用户： {}", currentUser);
         final UserLoginDto userLoginDto = (UserLoginDto) currentUser;
         final User user = userLoginDto.getUser();
         if (user == null) {
@@ -37,12 +35,5 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
             return false;
         }
         return true;
-    }
-
-    private String getRequestDomain(HttpServletRequest request) {
-//        final String requestURI = request.getRequestURI();
-//        final String requestURL = request.getRequestURL().toString();
-//        final String domainUrl = requestURL.replace(requestURI, "");
-        return "/login";
     }
 }

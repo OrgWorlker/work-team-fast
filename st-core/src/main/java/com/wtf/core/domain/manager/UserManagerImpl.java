@@ -28,7 +28,7 @@ public class UserManagerImpl implements IUserManager {
      * @return the int
      */
     @Override
-    public UserLoginDto checkUserNameAndLoginPassword(String userName, String pwd, int comeFrom) {
+    public UserLoginDto checkUserNameAndLoginPassword(String userName, String pwd, int comeFrom) throws Exception {
         //根据userName获取user信息
         final User user = this.userService.findByUserName(userName);
         //对传入的pwd进行MD5加密
@@ -59,5 +59,22 @@ public class UserManagerImpl implements IUserManager {
     @Override
     public User findById(Long id) {
         return this.userService.findById(id);
+    }
+
+    @Override
+    public int checkAndUpdatePwd(Long id, String oldPwd, String newPwd, Integer type) {
+        final User user = this.userService.findById(id);
+        if (type == 0) {
+            if(!MD5Util.md5Encode(oldPwd) .equals(user.getLoginPwd())) {
+                return -1;
+            }
+            user.setLoginPwd(newPwd);
+        } else if (type == 1){
+            if(!MD5Util.md5Encode(oldPwd) .equals(user.getLoginPwd())) {
+                return -1;
+            }
+            user.setTradePwd(newPwd);
+        }
+        return this.userService.update(user);
     }
 }

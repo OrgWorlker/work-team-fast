@@ -26,12 +26,12 @@ public class SqlStatementInterceptor implements Interceptor {
     private Properties properties;
 
     @Override
-    public Object intercept(Invocation arg0) throws Throwable {
+    public Object intercept(Invocation invocation) throws Throwable {
         Object returnValue;
         long start = System.currentTimeMillis();
-        returnValue = arg0.proceed();
+        returnValue = invocation.proceed();
         if (log.isDebugEnabled()) {
-            final MappedStatement mappedStatement = (MappedStatement) arg0.getArgs()[0];
+            final MappedStatement mappedStatement = (MappedStatement) invocation.getArgs()[0];
             final String sqlId = mappedStatement.getId();
             final Logger logger = LoggerFactory.getLogger(sqlId);
             logger.debug("<==       Time: " + (System.currentTimeMillis() - start) + "(ms)");

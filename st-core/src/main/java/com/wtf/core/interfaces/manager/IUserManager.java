@@ -18,8 +18,9 @@ public interface IUserManager {
      * @param pwd      the pwd
      * @param comeFrom the come from 手机端2，卖家端1，运营商0, 3是超级管理员
      * @return the int
+     * @throws Exception the exception
      */
-    UserLoginDto checkUserNameAndLoginPassword(String userName, String pwd, int comeFrom);
+    UserLoginDto checkUserNameAndLoginPassword(String userName, String pwd, int comeFrom) throws Exception;
 
     /**
      * Check user trade pwd boolean.
@@ -46,4 +47,14 @@ public interface IUserManager {
      * @return the user
      */
     User findById(Long id);
+
+    /**
+     * Check and update pwd.
+     *
+     * @param id the user id
+     * @param oldPwd the old pwd
+     * @param newPwd the new pwd
+     * @param type   the type
+     */
+    int checkAndUpdatePwd(Long id, String oldPwd, String newPwd, Integer type);
 }

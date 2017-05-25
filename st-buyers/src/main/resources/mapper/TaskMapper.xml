@@ -4,42 +4,44 @@
 
     <!--auto generated Code-->
     <resultMap id="AllColumnMap" type="com.wtf.core.domain.model.Task">
+        <result column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="shop_url" property="shopUrl"/>
         <result column="consignor" property="consignor"/>
         <result column="shipping_address" property="shippingAddress"/>
         <result column="shipping_area" property="shippingArea"/>
         <result column="shipping_call" property="shippingCall"/>
-        <result column="id" property="id"/>
         <result column="upd_time" property="updTime"/>
         <result column="crt_time" property="crtTime"/>
+        <result column="user_id" property="userId"/>
     </resultMap>
 
     <!--auto generated Code-->
     <sql id="all_column">
-        `name`,
-        `shop_url`,
-        `consignor`,
-        `shipping_address`,
-        `shipping_area`,
-        `shipping_call`,
-        `id`,
-        `upd_time`,
-        `crt_time`
+        name,
+        shop_url,
+        consignor,
+        shipping_address,
+        shipping_area,
+        shipping_call,
+        user_id,
+        id,
+        upd_time,
+        crt_time
     </sql>
 
     <!--auto generated Code-->
     <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id">
         INSERT INTO task (
-            `name`,
-            `shop_url`,
-            `consignor`,
-            `shipping_address`,
-            `shipping_area`,
-            `shipping_call`,
-            `id`,
-            `upd_time`,
-            `crt_time`
+            name,
+            shop_url,
+            consignor,
+            shipping_address,
+            shipping_area,
+            shipping_call,
+            id,
+            upd_time,
+            crt_time
         ) VALUES (
             #{pojo.name},
             #{pojo.shopUrl},
@@ -57,15 +59,15 @@
     <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.id">
         INSERT INTO task
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="pojo.name!=null">`name`,</if>
-            <if test="pojo.shopUrl!=null">`shop_url`,</if>
-            <if test="pojo.consignor!=null">`consignor`,</if>
-            <if test="pojo.shippingAddress!=null">`shipping_address`,</if>
-            <if test="pojo.shippingArea!=null">`shipping_area`,</if>
-            <if test="pojo.shippingCall!=null">`shipping_call`,</if>
-            <if test="pojo.id!=null">`id`,</if>
-            <if test="pojo.updTime!=null">`upd_time`,</if>
-            <if test="pojo.crtTime!=null">`crt_time`,</if>
+            <if test="pojo.name!=null">name,</if>
+            <if test="pojo.shopUrl!=null">shop_url,</if>
+            <if test="pojo.consignor!=null">consignor,</if>
+            <if test="pojo.shippingAddress!=null">shipping_address,</if>
+            <if test="pojo.shippingArea!=null">shipping_area,</if>
+            <if test="pojo.shippingCall!=null">shipping_call,</if>
+            <if test="pojo.id!=null">id,</if>
+            <if test="pojo.updTime!=null">upd_time,</if>
+            <if test="pojo.crtTime!=null">crt_time,</if>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -105,15 +107,15 @@
     <update id="update">
         UPDATE task
         <set>
-            <if test="pojo.name != null">`name` = #{pojo.name},</if>
-            <if test="pojo.shopUrl != null">`shop_url` = #{pojo.shopUrl},</if>
-            <if test="pojo.consignor != null">`consignor` = #{pojo.consignor},</if>
-            <if test="pojo.shippingAddress != null">`shipping_address` = #{pojo.shippingAddress},</if>
-            <if test="pojo.shippingArea != null">`shipping_area` = #{pojo.shippingArea},</if>
-            <if test="pojo.shippingCall != null">`shipping_call` = #{pojo.shippingCall},</if>
-            <if test="pojo.id != null">`id` = #{pojo.id},</if>
-            <if test="pojo.updTime != null">`upd_time` = #{pojo.updTime},</if>
-            <if test="pojo.crtTime != null">`crt_time` = #{pojo.crtTime}</if>
+            <if test="pojo.name != null">name = #{pojo.name},</if>
+            <if test="pojo.shopUrl != null">shop_url = #{pojo.shopUrl},</if>
+            <if test="pojo.consignor != null">consignor = #{pojo.consignor},</if>
+            <if test="pojo.shippingAddress != null">shipping_address = #{pojo.shippingAddress},</if>
+            <if test="pojo.shippingArea != null">shipping_area = #{pojo.shippingArea},</if>
+            <if test="pojo.shippingCall != null">shipping_call = #{pojo.shippingCall},</if>
+            <if test="pojo.id != null">id = #{pojo.id},</if>
+            <if test="pojo.updTime != null">upd_time = #{pojo.updTime},</if>
+            <if test="pojo.crtTime != null">crt_time = #{pojo.crtTime}</if>
         </set>
         WHERE id = #{pojo.id}
     </update>

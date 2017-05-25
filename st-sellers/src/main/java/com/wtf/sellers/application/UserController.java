@@ -43,7 +43,7 @@ public class UserController {
     }
 
     @GetMapping("login")
-    public String login(String username, String checknum, Model model, HttpServletRequest request) {
+    public String login(String username, String checknum, Model model, HttpServletRequest request) throws Exception {
         final UserLoginDto userLoginDto = this.userManager.checkUserNameAndLoginPassword(username, checknum, 1);
         if (userLoginDto != null) {
             userLoginDto.clearPwd();

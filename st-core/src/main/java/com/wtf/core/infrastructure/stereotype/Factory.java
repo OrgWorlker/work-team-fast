@@ -4,13 +4,12 @@ import org.springframework.stereotype.Component;
 
 import java.lang.annotation.*;
 
-
 /**
- * The interface Manager.
+ * The interface Factory.
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Component
-public @interface Manager {
+public @interface Factory {
 }

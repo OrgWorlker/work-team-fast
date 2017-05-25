@@ -5,14 +5,12 @@ import com.wtf.core.domain.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 /**
  * The type User login dto.
  */
 @Setter
 @Getter
-@ToString
 @AllArgsConstructor
 public class UserLoginDto {
     private int flag;
@@ -39,4 +37,5 @@ public class UserLoginDto {
             this.user.setTradePwd("");
         }
     }
+
 }
