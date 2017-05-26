@@ -1,0 +1,108 @@
+.operate{ width:100%; min-height: 100%; font-size: 16px;}
+[data-dpr="2"] .operate{font-size:32px}
+[data-dpr="3"] .operate{font-size:48px}
+.operate .top{ width:100%; height:1.2rem; text-align: center; padding: .32rem 0 0 0rem; background-color: #fdfdfd;}
+.operate .top i{float: left; font-size: .7rem; margin-left: .2rem;}
+.operate .top span{line-height: 1rem;}
+.operate .top button{float: right; margin: .1rem .2rem 0 0; padding: .16rem .28rem; border:2px solid #d6d6d6; border-radius: 5px; font-size:12px; background-color: #fdfdfd; color: #464646;}
+[data-dpr="2"] .operate .top button{font-size:24px}
+[data-dpr="3"] .operate .top button{font-size:36px}
+
+.operate .title{ width:100%; height:.933rem; background-color: #f1f0f5;}
+.operate .title i{font-size: .5rem; line-height: .9rem; margin-left: .4rem;}
+.operate .title span{margin-left: .3rem; font-size: 12px;}
+[data-dpr="2"] .operate .title span{font-size:24px}
+[data-dpr="3"] .operate .title span{font-size:36px}
+.operate .title .ps{float: right; line-height: 1rem; font-size: 12px;}
+[data-dpr="2"] .operate .title .ps{font-size: 16px;}
+[data-dpr="3"] .operate .title .ps{font-size: 24px;}
+
+.operate .product-info{width:100%; height: 5.067rem;}
+.operate .product-info .p_top{width:92%; height: .84rem; border-bottom: 2px solid #efefef; font-size: 12px; line-height: 1rem; margin: 0 auto;}
+[data-dpr="2"] .operate .product-info .p_top{font-size:24px}
+[data-dpr="3"] .operate .product-info .p_top{font-size:36px}
+.operate .product-info .p_top .s_left{float: left;}
+.operate .product-info .p_top .s_right{float: right;}
+.operate .product-info .p_top .s_right .red{ color: red;}
+.operate .product-info .content{ width:96%; margin: .2rem 0 0 4%; color: #8d8d8d;}
+.operate .product-info .content .c_left, .operate .product-info .content .c_middle{ width:32.7%; float: left; font-size: 12px;}
+[data-dpr="2"] .operate .product-info .content .c_left, [data-dpr="2"] .operate .product-info .content .c_middle{font-size: 24px;}
+[data-dpr="3"] .operate .product-info .content .c_left, [data-dpr="3"] .operate .product-info .content .c_middle{font-size: 36px;}
+.operate .product-info .content .c_middle{margin-left: 3%}
+.operate .product-info .content img{ width:3.146rem; height: 3.146rem; border:1px solid #d0d0d0;}
+.operate .product-info .content .c_right{width:27%; height: 3.09rem; float: right; font-size: 14px; margin-top: .4rem; line-height: .75rem; text-align: left;}
+[data-dpr="2"] .operate .product-info .content .c_right{font-size: 28px;}
+[data-dpr="3"] .operate .product-info .content .c_right{font-size: 42px;}
+.operate .product-info .content .c_right p{color: #000000;}
+.operate .product-info .content .c_left .price{ color: red; float: left; font-size: 16px;}
+[data-dpr="2"] .operate .product-info .content .c_left .price{font-size:32px;}
+[data-dpr="3"] .operate .product-info .content .c_left .price{font-size:48px;}
+.operate .product-info .content .c_left .sale-num{ float: right;}
+
+/*二维码*/
+.operate .task{width:92%; height: 5.95rem; margin: 0 auto;}
+/*手淘*/
+.operate .task_shoutao{width:92%; height: 7rem; margin: 0 auto;}
+/*淘口令*/
+.operate .task_command{width:92%; height: 3.13rem; margin: 0 auto;}
+.operate .task .task_top, .operate .task_shoutao .task_top, .operate .task_command .task_top{width: 100%; height: .87rem; border-bottom: 2px solid #efefef; padding-top: .4rem;}
+.operate .task .task_top .task_top_left, .operate .task_shoutao .task_top .task_top_left, .operate .task_command .task_top .task_top_left{float:left; font-size: 12px;}
+[data-dpr="2"] .operate .task .task_top .task_top_left{font-size: 24px;}
+[data-dpr="3"] .operate .task .task_top .task_top_left{font-size: 36px;}
+[data-dpr="2"] .operate .task_shoutao .task_top .task_top_left{font-size: 24px;}
+[data-dpr="3"] .operate .task_shoutao .task_top .task_top_left{font-size: 36px;}
+[data-dpr="2"] .operate .task_command .task_top .task_top_left{font-size: 24px;}
+[data-dpr="3"] .operate .task_command .task_top .task_top_left{font-size: 36px;}
+.operate .task .task_top .task_top_right, .operate .task_shoutao .task_top .task_top_right, .operate .task_command .task_top .task_top_right{float:right; font-size: 12px;}
+[data-dpr="2"] .operate .task .task_top .task_top_right{font-size: 24px;}
+[data-dpr="3"] .operate .task .task_top .task_top_right{font-size: 36px;}
+[data-dpr="2"] .operate .task_shoutao .task_top .task_top_right{font-size: 24px;}
+[data-dpr="3"] .operate .task_shoutao .task_top .task_top_right{font-size: 36px;}
+[data-dpr="2"] .operate .task_command .task_top .task_top_right{font-size: 24px;}
+[data-dpr="3"] .operate .task_command .task_top .task_top_right{font-size: 36px;}
+.operate .task .task_top i, .operate .task_shoutao .task_top i, .operate .task_command .task_top i{float: right; font-size: .5rem; margin-top: -.1rem; font-weight: bold;}
+.operate .task .task_middle{width: 100%; height: 2.68rem; padding-top: .32rem;}
+.operate .task .task_middle .task_middle_left{float:left; width: 28%;}
+.operate .task .task_middle .task_middle_left img{width:2.5rem; height: 2.5rem;}
+.operate .task .task_middle .task_middle_middle{float: left; width:40%; margin-left: 2%; font-size: 12px;}
+[data-dpr="2"] .operate .task .task_middle .task_middle_middle{font-size: 24px;}
+[data-dpr="3"] .operate .task .task_middle .task_middle_middle{font-size: 36px;}
+.operate .task .task_bottom, .operate .task_shoutao .task_bottom, .operate .task_command .task_bottom{padding-top: .4rem; height:1.3rem;}
+.operate .task .task_bottom .task_bottom_left, .operate .task_shoutao .task_bottom .task_bottom_left, .operate .task_command .task_bottom .task_bottom_left{float: left; width:85%; font-size: 12px;}
+[data-dpr="2"] .operate .task .task_bottom .task_bottom_left{font-size: 24px;}
+[data-dpr="3"] .operate .task .task_bottom .task_bottom_left{font-size: 36px;}
+[data-dpr="2"] .operate .task_shoutao .task_bottom .task_bottom_left{font-size: 24px;}
+[data-dpr="3"] .operate .task_shoutao .task_bottom .task_bottom_left{font-size: 36px;}
+[data-dpr="2"] .operate .task_command .task_bottom .task_bottom_left{font-size: 24px;}
+[data-dpr="3"] .operate .task_command .task_bottom .task_bottom_left{font-size: 36px;}
+.operate .task .task_bottom .task_bottom_left span, .operate .task_shoutao .task_bottom .task_bottom_left span, .operate .task_command .task_bottom .task_bottom_left span{color: #8e8e8e;}
+.operate .task .task_bottom .task_bottom_right, .operate .task_shoutao .task_bottom .task_bottom_right, .operate .task_command .task_bottom .task_bottom_right{float: right; width:15%;}
+.operate .task .task_bottom .task_bottom_right button, .operate .task_shoutao .task_bottom .task_bottom_right button, .operate .task_command .task_bottom .task_bottom_right button{float: right; padding: .16rem .28rem; border:2px solid #d6d6d6; border-radius: 5px; font-size:12px; background-color: #fdfdfd; color: #464646;}
+[data-dpr="2"] .operate .task .task_bottom .task_bottom_right button{font-size:24px}
+[data-dpr="3"] .operate .task .task_bottom .task_bottom_right button{font-size:36px}
+[data-dpr="2"] .operate .task_shoutao .task_bottom .task_bottom_right button{font-size:24px}
+[data-dpr="3"] .operate .task_shoutao .task_bottom .task_bottom_right button{font-size:36px}
+[data-dpr="2"] .operate .task_command .task_bottom .task_bottom_right button{font-size:24px}
+[data-dpr="3"] .operate .task_command .task_bottom .task_bottom_right button{font-size:36px}
+
+.operate .item{ padding:.48rem 0; height: 2.67rem; width:90%; margin:0 auto; font-size: 12px; line-height: .5rem; color: #adadad;}
+[data-dpr="2"] .operate .item{font-size: 24px;}
+[data-dpr="3"] .operate .item{font-size: 36px;}
+.operate .item li{list-style: disc;}
+.operate .item li span{ color: red;}
+
+.operate .screenshot{ width:92%; height: 7.65rem; margin: 0 auto; font-size: 12px;}
+[data-dpr="2"] .operate .screenshot{font-size: 24px;}
+[data-dpr="3"] .operate .screenshot{font-size: 36px;}
+.operate .screenshot .screenshot_top{width: 100%; height:1.08rem; line-height: 1rem;}
+.operate .screenshot .screenshot_top .screenshot_top_left{float: left; }
+.operate .screenshot .screenshot_top .screenshot_top_right{float: right;}
+.operate .screenshot .screenshot_middle{width: 100%; height: 3.16rem; border-bottom: 1px solid #f1f0f5;}
+.operate .screenshot .screenshot_middle .content{width: 26.1%; height: 3.16rem; float: left; color: #8c8c8c;}
+.operate .screenshot .screenshot_middle .content img{width: 2.26rem; height: 2.26rem;}
+.operate .screenshot .screenshot_middle .content p{text-align: center;}
+.operate .screenshot .screenshot_bottom{width: 100%; height:3.13rem; color: #8c8c8c;}
+.operate .screenshot .screenshot_bottom p{margin-top: .2rem;}
+.operate .screenshot .screenshot_bottom button{font-size: 16px; background-color: #46b49b; color: #fff; height: 1.09rem; width: 9.067rem; margin-top: .68rem; background: url("../images/button.png") no-repeat; background-size: cover; border: none;}
+[data-dpr="2"] .operate .screenshot .screenshot_bottom button{font-size: 32px;}
+[data-dpr="3"] .operate .screenshot .screenshot_bottom button{font-size: 48px;}
