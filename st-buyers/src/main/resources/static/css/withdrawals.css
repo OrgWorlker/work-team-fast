@@ -1,0 +1,32 @@
+.withdrawals{width: 100%; min-height: 100%; font-size: 12px;}
+[data-dpr="2"] .withdrawals{font-size: 24px;}
+[data-dpr="3"] .withdrawals{font-size: 36px;}
+.withdrawals .header{width: 100%; height:.88rem; text-align: center; border-bottom: 1px solid #f3f3f3; padding-top:.333rem; line-height: .6rem; }
+.withdrawals .header i{font-size: .6rem; float: left;}
+.withdrawals .title{ width:100%; height:.88rem; background-color: #f1f0f5; font-size: 16px; line-height: .8rem;}
+[data-dpr="2"] .withdrawals .title{font-size: 32px;}
+[data-dpr="3"] .withdrawals .title{font-size: 48px;}
+.withdrawals .title span{margin-left: .4rem;}
+.withdrawals .content{width: 84%; margin: 0 auto;}
+.withdrawals .content .top{width: 100%; padding-top: .83rem; height: 5.25rem; border-bottom: 1px solid #f1f0f5;}
+.withdrawals .content .top .left, .withdrawals .content .bottom .left{width: 50%; float: left;}
+.withdrawals .content .top .left .radio, .withdrawals .content .bottom .left .radio{width: 100%; height: 1.66rem;}
+.withdrawals .content .top .left .radio input, .withdrawals .content .bottom .left .radio input{width:.4rem; height: .4rem; float: left; margin: .64rem .2rem 0 0;}
+.withdrawals .content .top .left .radio .text, .withdrawals .content .bottom .left .radio .text{width: 3.47rem; height: 1.65rem; background-color: #44b299; float: left; text-align: center; line-height: .9rem;}
+.withdrawals .content .bottom .left .radio .text{background-color: #fff; border: 1px solid #969696;}
+.withdrawals .content .top .left .radio .text .cash, .withdrawals .content .bottom .left .radio .text .cash{font-size: 24px;}
+[data-dpr="2"] .withdrawals .content .top .left .radio .text .cash{font-size: 48px;}
+[data-dpr="3"] .withdrawals .content .top .left .radio .text .cash{font-size: 72px;}
+[data-dpr="2"] .withdrawals .content .bottom .left .radio .text .cash{font-size: 48px;}
+[data-dpr="3"] .withdrawals .content .bottom .left .radio .text .cash{font-size: 72px;}
+.withdrawals .content .top .left .payee{width: 100%; margin-top: .2rem;}
+.withdrawals .content .top .left .payee label{margin-left: .4rem; float: left;}
+.withdrawals .content .top .left .payee input{float: left; border-radius: 5px; border: 1px solid #a2a2a2; width: 1.8rem; height: .6rem;}
+.withdrawals .content .top .right{width: 33%; height: 4.7rem; float: right;}
+.withdrawals .content .top .right img{width: 2.8rem; height: 3.92rem; float: right;}
+.withdrawals .content .top .right p{width:100%; text-align: center;}
+.withdrawals .content .bottom{width: 100%; height: 2.27rem; padding-top: .83rem;}
+.withdrawals .footer{width: 100%; height:2.11rem; background-color: #f1f0f5; position: fixed; bottom: 0; text-align: center;}
+.withdrawals .footer button{font-size: 16px; background-color: #46b49b; color: #fff; height: 1.09rem; width: 9.067rem; margin-top: .68rem; background: url("../images/button.png") no-repeat; background-size: cover; border: none;}
+[data-dpr="2"] .withdrawals .footer button{font-size: 32px;}
+[data-dpr="3"] .withdrawals .footer button{font-size: 48px;}
