@@ -4,6 +4,7 @@ import com.wtf.core.domain.dto.UserLoginDto;
 import com.wtf.core.domain.model.User;
 import com.wtf.core.infrastructure.adapter.ControllerAdapter;
 import com.wtf.core.infrastructure.constant.Constant;
+import com.wtf.core.interfaces.manager.ITbUserManager;
 import com.wtf.core.interfaces.manager.IUserManager;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ui.Model;
@@ -40,7 +41,7 @@ public class UserController extends ControllerAdapter {
         final UserLoginDto userLoginDto = this.userManager.checkUserNameAndLoginPassword(username, checknum, 2);
         model.addAttribute(Constant.CURRENT_USER, userLoginDto);
         final User user = userLoginDto.getUser();
-        if ( user !=null) {
+        if (user != null) {
             request.getSession().setAttribute(Constant.CURRENT_USER, userLoginDto);
             final Long count = user.getCount();
             if (count == 0) {

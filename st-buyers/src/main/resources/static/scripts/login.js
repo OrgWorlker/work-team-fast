@@ -1,17 +1,29 @@
+/**
+ *  系统登陆js
+ */
 $(function () {
-    $("#login").click(function () {
-        var params = {'username': $("#username").val(), 'checknum': $("#checknum").val()};
+    function login(username, checknum) {
+        var params = {'username': username, 'checknum': checknum};
         $.post("/user/login", params, function (result) {
             if (result.flag) {
-                if (result.flag == 2) {
-                    location.href = "/user/first-into/" + result.user.id;
-                } else {
-                    location.href = "/user/user-center/" + result.user.id
-                }
-
+                $.cookie('username', username);
+                $.cookie('checknum', checknum);
+                location.href = "/user/user-center/" + result.user.id;
             } else {
                 alert(result.msg)
             }
         });
+    }
+    var username = $.cookie('username');
+    var checknum = $.cookie('checknum');
+    if (username && checknum) {
+        login(username, checknum)
+    }
+    $("#login").click(function () {
+        username = $("#username").val();
+        checknum = $("#checknum").val();
+        login(username, checknum);
     });
+    console.log(username)
+    console.log(checknum)
 });
