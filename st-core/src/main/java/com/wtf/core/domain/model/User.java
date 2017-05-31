@@ -26,4 +26,6 @@ public class User extends BaseModel {
     private UserLevel userLevel;
 
     private Payment payment;
+
+    private Long count;
 }

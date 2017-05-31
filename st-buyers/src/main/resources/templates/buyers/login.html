@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <meta charset="UTF-8">
-    <title>移动/login</title>
-    <script src="/static/plugin/jquery-3.2.1.min.js" type="application/javascript"></script>
-    <script src="/static/js/login.js" type="application/javascript"></script>
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <!--<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>-->
+    <script src="/static/scripts/plugins/flexible.js"></script>
+    <!--<link rel="stylesheet" href="//at.alicdn.com/t/font_deah913ehzv0lik9.css">-->
+    <link rel="stylesheet" href="/static/css/iconfont.css">
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <title>登陆</title>
 </head>
 <body>
-移动端登陆
+用户名:<input type="text" value="buy" id="username"/> <br/>
+密&nbsp;&nbsp;码:<input type="password" value="ADMIN" id="checknum" /><br/>
+<button id="login" >登陆</button>
+<script src="/static/scripts/plugins/jquery-2.1.1.min.js"></script>
+<script src="/static/scripts/login.js"></script>
 </body>
-</html>o
+</html>
