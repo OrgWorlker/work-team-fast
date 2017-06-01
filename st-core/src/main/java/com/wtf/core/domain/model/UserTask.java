@@ -1,13 +1,13 @@
 package com.wtf.core.domain.model;
 
-import lombok.Setter;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
 @Setter
 @Getter
-public class UserTask  extends BaseModel {
+public class UserTask extends BaseModel {
 
     //买手ID
     private Long buyerId;

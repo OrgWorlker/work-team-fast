@@ -3,7 +3,7 @@ package com.wtf.admin.application;
 import com.github.pagehelper.PageHelper;
 import com.wtf.core.domain.dto.UserLoginDto;
 import com.wtf.core.domain.model.User;
-import com.wtf.core.infrastructure.constant.Constant;
+import com.wtf.infsc.infrastructure.constant.Constant;
 import com.wtf.core.interfaces.manager.IUserManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

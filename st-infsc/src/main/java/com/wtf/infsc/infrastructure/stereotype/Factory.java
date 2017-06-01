@@ -1,16 +1,15 @@
-package com.wtf.core.infrastructure.stereotype;
+package com.wtf.infsc.infrastructure.stereotype;
 
 import org.springframework.stereotype.Component;
 
 import java.lang.annotation.*;
 
-
 /**
- * The interface Manager.
+ * The interface Factory.
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Component
-public @interface Manager {
+public @interface Factory {
 }

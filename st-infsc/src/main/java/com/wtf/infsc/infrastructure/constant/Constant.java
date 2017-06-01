@@ -1,4 +1,4 @@
-package com.wtf.core.infrastructure.constant;
+package com.wtf.infsc.infrastructure.constant;
 
 /**
  * The type Constant.

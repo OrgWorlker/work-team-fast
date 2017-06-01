@@ -3,7 +3,7 @@ package com.wtf.core.infrastructure.configure;
 
 import com.wtf.core.domain.dto.UserLoginDto;
 import com.wtf.core.domain.model.User;
-import com.wtf.core.infrastructure.constant.Constant;
+import com.wtf.infsc.infrastructure.constant.Constant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;

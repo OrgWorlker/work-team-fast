@@ -1,9 +1,9 @@
 package com.wtf.core.domain.manager;
 
 import com.wtf.core.domain.model.UserTask;
-import com.wtf.core.infrastructure.stereotype.Manager;
 import com.wtf.core.interfaces.manager.IUserTaskManager;
 import com.wtf.core.interfaces.service.IUserTaskService;
+import com.wtf.infsc.infrastructure.stereotype.Manager;
 
 import javax.annotation.Resource;
 import java.util.Date;

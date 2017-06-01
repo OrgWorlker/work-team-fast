@@ -2,10 +2,10 @@ package com.wtf.core.domain.manager;
 
 import com.wtf.core.domain.dto.UserLoginDto;
 import com.wtf.core.domain.model.User;
-import com.wtf.core.infrastructure.stereotype.Manager;
-import com.wtf.core.infrastructure.util.MD5Util;
 import com.wtf.core.interfaces.manager.IUserManager;
 import com.wtf.core.interfaces.service.IUserService;
+import com.wtf.infsc.infrastructure.stereotype.Manager;
+import com.wtf.infsc.infrastructure.util.MD5Util;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -36,8 +36,8 @@ public class UserManagerImpl implements IUserManager {
         final String md5pwd = MD5Util.md5Encode(pwd);
         if (user == null || (user.getComeFrom() != comeFrom && user.getComeFrom() != 3)) {
             return new UserLoginDto(0, "用户不存在");
-        } else if (user.getLoginPwd().equals(md5pwd)){
-            return  new UserLoginDto(1, "登陆成功", user);
+        } else if (user.getLoginPwd().equals(md5pwd)) {
+            return new UserLoginDto(1, "登陆成功", user);
         }
         return new UserLoginDto(0, "用户密码错误"); // 密码错误
     }
@@ -66,12 +66,12 @@ public class UserManagerImpl implements IUserManager {
     public int checkAndUpdatePwd(Long id, String oldPwd, String newPwd, Integer type) {
         final User user = this.userService.findById(id);
         if (type == 0) {
-            if(!MD5Util.md5Encode(oldPwd) .equals(user.getLoginPwd())) {
+            if (!MD5Util.md5Encode(oldPwd).equals(user.getLoginPwd())) {
                 return -1;
             }
             user.setLoginPwd(newPwd);
-        } else if (type == 1){
-            if(!MD5Util.md5Encode(oldPwd) .equals(user.getLoginPwd())) {
+        } else if (type == 1) {
+            if (!MD5Util.md5Encode(oldPwd).equals(user.getLoginPwd())) {
                 return -1;
             }
             user.setTradePwd(newPwd);

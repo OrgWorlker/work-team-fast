@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <property name="CONSOLE_LOG_PATTERN1" value="${CONSOLE_LOG_PATTERN1:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr([${LOG_LEVEL_PATTERN:-%5p}]){magenta} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN1}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <!-- ch.qos.logback.core.rolling.RollingFileAppender 文件日志输出 -->
+    <appender name="file"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>d:/home/wtf/log/file/file.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>d:/home/wtf/log/file/file-%d{yyyy-MM-dd}-%i.log.zip</FileNamePattern>
+            <!-- 如果按天来回滚，则最大保存时间为30天，30天之前的都将被清理掉 -->
+            <MaxHistory>30</MaxHistory>
+            <!-- 按时间回滚的同时，按文件大小来回滚 -->
+            <TimeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <MaxFileSize>20MB</MaxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %logger{36} %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <logger name="oracle.jdbc.driver" value="WARN" />
+    <logger name="org.apache.http" value="WARN" />
+    <logger name="org.apache.tomcat" value="WARN" />
+    <logger name="org.springframework" level="WARN" />
+    <logger name="net.sf.ehcache" level="WARN" />
+
+    <!-- 日志级别 -->
+    <root>
+        <level value="TRACE" />
+        <appender-ref ref="file" />
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>

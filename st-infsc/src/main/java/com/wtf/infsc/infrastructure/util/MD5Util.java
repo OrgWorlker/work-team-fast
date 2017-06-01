@@ -1,4 +1,4 @@
-package com.wtf.core.infrastructure.util;
+package com.wtf.infsc.infrastructure.util;
 
 
 import org.apache.commons.lang3.StringUtils;
