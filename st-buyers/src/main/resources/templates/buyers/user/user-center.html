@@ -27,8 +27,8 @@
                 class="allow icon iconfont icon-arrow-right"></i></li>
         <li><i class="icon iconfont icon-zijinmingxi i_left"></i><span>资金明细</span><i
                 class="allow icon iconfont icon-arrow-right"></i></li>
-        <li><i class="icon iconfont icon-30-copy i_left"></i><span>金币提现</span><i
-                class="allow icon iconfont icon-arrow-right"></i><span class="red" th:text="${user.userLevel.gold}">10.00</span>
+        <li><i class="icon iconfont icon-30-copy i_left"></i><span>金币提现</span><i th:value="'/user/withdrawals/' +${userId} +'/'+${user.userLevel.gold}+'/0'"
+                class="allow icon iconfont icon-arrow-right" ></i><span class="red" th:text="${user.userLevel.gold}">10.00</span>
         </li>
         <li><i class="icon iconfont icon-tixian2 i_left"></i><span>本金提现</span><i
                 class="allow icon iconfont icon-arrow-right"></i><span class="red" th:text="${user.userLevel.integral}">10.00</span>
@@ -42,5 +42,6 @@
 
 <link rel="stylesheet" href="/static/css/index.css">
 <script src="/static/scripts/index.js"></script>
+<script src="/static/scripts/user/user-center.js"></script>
 </body>
 </html>

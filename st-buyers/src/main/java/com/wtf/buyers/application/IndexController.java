@@ -1,10 +1,12 @@
 package com.wtf.buyers.application;
 
 import com.wtf.core.domain.factory.MessageQueueFactory;
+import com.wtf.core.domain.model.User;
 import com.wtf.core.infrastructure.adapter.ControllerAdapter;
 import com.wtf.core.interfaces.manager.ITbUserManager;
 import com.wtf.core.interfaces.manager.IUserManager;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -90,6 +92,26 @@ public class IndexController extends ControllerAdapter {
         model.addAttribute("userId", userId);
         return new ModelAndView("buyers/user/user-center");
     }
+
+    /**
+     * User center model and view.
+     *
+     * @param model  the model
+     * @param userId the user id
+     * @return the model and view
+     */
+    @GetMapping("/user/withdrawals/{userId}/{price}/{type}")
+    public ModelAndView userWith(Model model, @PathVariable Long userId, @PathVariable Integer type,@PathVariable Double price) {
+        final User user = this.userManager.findById(userId);
+        model.addAttribute("user", user);
+        model.addAttribute("userId", userId);
+        model.addAttribute("type", type == 0 ? "金币" : "本金");
+        model.addAttribute("price", price);
+        final String wechatQrcodeUrl = user.getPayment().getWechatQrcodeUrl();
+        model.addAttribute("src", StringUtils.isBlank(wechatQrcodeUrl) ?"/static/images/weqrcode.png": wechatQrcodeUrl);
+        return new ModelAndView("buyers/user/withdrawals");
+    }
+
 
     /**
      * First into model and view.
