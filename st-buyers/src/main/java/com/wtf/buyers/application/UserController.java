@@ -1,8 +1,10 @@
 package com.wtf.buyers.application;
 
 import com.wtf.core.domain.dto.UserLoginDto;
+import com.wtf.core.domain.model.User;
 import com.wtf.core.infrastructure.adapter.ControllerAdapter;
 import com.wtf.core.infrastructure.constant.Constant;
+import com.wtf.core.interfaces.manager.ITbUserManager;
 import com.wtf.core.interfaces.manager.IUserManager;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ui.Model;
@@ -35,15 +37,22 @@ public class UserController extends ControllerAdapter {
      * @throws Exception the exception
      */
     @RequestMapping("login")
-    public String login(String username, String checknum, Model model, HttpServletRequest request) throws Exception {
-        final UserLoginDto userLoginDto = this.userManager.checkUserNameAndLoginPassword(username, checknum, 1);
+    public UserLoginDto login(String username, String checknum, Model model, HttpServletRequest request) throws Exception {
+        final UserLoginDto userLoginDto = this.userManager.checkUserNameAndLoginPassword(username, checknum, 2);
         model.addAttribute(Constant.CURRENT_USER, userLoginDto);
-        if (userLoginDto != null) {
-            userLoginDto.clearPwd();
+        final User user = userLoginDto.getUser();
+        if (user != null) {
             request.getSession().setAttribute(Constant.CURRENT_USER, userLoginDto);
-            return SUCCESS;
+            final Long count = user.getCount();
+            if (count == 0) {
+                userLoginDto.setFlag(2);
+            }
+            user.setCount(count + 1);
+            this.userManager.updateUser(user);
+            userLoginDto.clearPwd();
+            return userLoginDto;
         }
-        return ERROR;
+        return userLoginDto;
     }
 
     /**

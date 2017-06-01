@@ -13,23 +13,23 @@
 
     <!--auto generated Code-->
     <sql id="all_column">
-        `name`,
-        `code`,
-        `user_id`,
-        `id`,
-        `upd_time`,
-        `crt_time`
+        name,
+        code,
+        user_id,
+        id,
+        upd_time,
+        crt_time
     </sql>
 
     <!--auto generated Code-->
     <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id">
         INSERT INTO device (
-            `name`,
-            `code`,
-            `user_id`,
-            `id`,
-            `upd_time`,
-            `crt_time`
+            name,
+            code,
+            user_id,
+            id,
+            upd_time,
+            crt_time
         ) VALUES (
             #{pojo.name},
             #{pojo.code},
@@ -44,12 +44,12 @@
     <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.id">
         INSERT INTO device
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="pojo.name!=null"> `name`,</if>
-            <if test="pojo.code!=null"> `code`,</if>
-            <if test="pojo.userId!=null"> `user_id`,</if>
-            <if test="pojo.id!=null"> `id`,</if>
-            <if test="pojo.updTime!=null"> `upd_time`,</if>
-            <if test="pojo.crtTime!=null"> `crt_time`,</if>
+            <if test="pojo.name!=null"> name,</if>
+            <if test="pojo.code!=null"> code,</if>
+            <if test="pojo.userId!=null"> user_id,</if>
+            <if test="pojo.id!=null"> id,</if>
+            <if test="pojo.updTime!=null"> upd_time,</if>
+            <if test="pojo.crtTime!=null"> crt_time,</if>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -83,12 +83,12 @@
     <update id="update">
         UPDATE device
         <set>
-            <if test="pojo.name != null"> `name` = #{pojo.name}, </if>
-            <if test="pojo.code != null"> `code` = #{pojo.code}, </if>
-            <if test="pojo.userId != null"> `user_id` = #{pojo.userId}, </if>
-            <if test="pojo.id != null"> `id` = #{pojo.id}, </if>
-            <if test="pojo.updTime != null"> `upd_time` = #{pojo.updTime}, </if>
-            <if test="pojo.crtTime != null"> `crt_time` = #{pojo.crtTime} </if>
+            <if test="pojo.name != null"> name = #{pojo.name}, </if>
+            <if test="pojo.code != null"> code = #{pojo.code}, </if>
+            <if test="pojo.userId != null"> user_id = #{pojo.userId}, </if>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.updTime != null"> upd_time = #{pojo.updTime}, </if>
+            <if test="pojo.crtTime != null"> crt_time = #{pojo.crtTime} </if>
         </set>
         WHERE id = #{pojo.id}
     </update>

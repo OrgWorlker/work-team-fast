@@ -10,6 +10,7 @@
         <result column="id" property="id"/>
         <result column="upd_time" property="updTime"/>
         <result column="crt_time" property="crtTime"/>
+        <result column="count" property="count"/>
         <association column="user_info_id" property="userInfo" javaType="UserInfo"  select="com.wtf.core.interfaces.repository.IUserInfoMapper.findById" />
         <association column="user_level_id" property="userLevel" javaType="UserLevel" select="com.wtf.core.interfaces.repository.IUserLevelMapper.findById" />
         <association column="payment_id" property="payment" javaType="Payment" select="com.wtf.core.interfaces.repository.IPaymentMapper.findById" />
@@ -22,6 +23,10 @@
         login_pwd,
         come_from,
         trade_pwd,
+        user_info_id,
+        user_level_id,
+        payment_id,
+        count,
         id,
         upd_time,
         crt_time
@@ -35,6 +40,7 @@
             login_pwd,
             come_from,
             trade_pwd,
+            count,
             id,
             upd_time,
             crt_time
@@ -44,6 +50,7 @@
             #{pojo.loginPwd},
             #{pojo.comeFrom},
             #{pojo.tradePwd},
+            #{pojo.count},
             #{pojo.id},
             #{pojo.updTime},
             #{pojo.crtTime}
@@ -62,6 +69,7 @@
             <if test="pojo.id!=null"> id,</if>
             <if test="pojo.updTime!=null"> upd_time,</if>
             <if test="pojo.crtTime!=null"> crt_time,</if>
+            <if test="pojo.count!=null"> count,</if>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -73,6 +81,7 @@
             <if test="pojo.id!=null">#{pojo.id},</if>
             <if test="pojo.updTime!=null">#{pojo.updTime},</if>
             <if test="pojo.crtTime!=null">#{pojo.crtTime},</if>
+            <if test="pojo.count!=null">#{pojo.count},</if>
         </trim>
     </insert>
 
@@ -88,6 +97,7 @@
             #{pojo.loginPwd},
             #{pojo.comeFrom},
             #{pojo.tradePwd},
+            #{pojo.count},
             #{pojo.id},
             #{pojo.updTime},
             #{pojo.crtTime}
@@ -104,6 +114,7 @@
             <if test="pojo.loginPwd != null"> login_pwd = #{pojo.loginPwd}, </if>
             <if test="pojo.comeFrom != null"> come_from = #{pojo.comeFrom}, </if>
             <if test="pojo.tradePwd != null"> trade_pwd = #{pojo.tradePwd}, </if>
+            <if test="pojo.count != null"> count = #{pojo.count}, </if>
             <if test="pojo.id != null"> id = #{pojo.id}, </if>
             <if test="pojo.updTime != null"> upd_time = #{pojo.updTime}, </if>
             <if test="pojo.crtTime != null"> crt_time = #{pojo.crtTime} </if>

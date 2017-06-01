@@ -20,24 +20,24 @@
 
     <!--auto generated Code-->
     <sql id="all_column">
-        `id`, `real_name`, `cid`, `cid_img_1`, `cid_img_2`, `birth_day`, `sex`, `telphone`, `city`, `cid_flag`, `upd_time`, `crt_time`
+        id, real_name, cid, cid_img_1, cid_img_2, birth_day, sex, telphone, city, cid_flag, upd_time, crt_time
     </sql>
 
     <!--auto generated Code-->
     <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id">
         INSERT INTO user_info (
-            `real_name`,
-            `cid`,
-            `cid_img_1`,
-            `cid_img_2`,
-            `birth_day`,
-            `sex`,
-            `telphone`,
-            `city`,
-            `cid_flag`,
-            `id`,
-            `upd_time`,
-            `crt_time`
+            real_name,
+            cid,
+            cid_img_1,
+            cid_img_2,
+            birth_day,
+            sex,
+            telphone,
+            city,
+            cid_flag,
+            id,
+            upd_time,
+            crt_time
         ) VALUES (
             #{pojo.realName},
             #{pojo.cid},
@@ -58,18 +58,18 @@
     <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.id">
         INSERT INTO user_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="pojo.id!=null">`id`,</if>
-            <if test="pojo.realName!=null">`real_name`,</if>
-            <if test="pojo.cid!=null">`cid`,</if>
-            <if test="pojo.cidImg1!=null">`cid_img_1`,</if>
-            <if test="pojo.cidImg2!=null">`cid_img_2`,</if>
-            <if test="pojo.birthDay!=null">`birth_day`,</if>
-            <if test="pojo.sex!=null">`sex`,</if>
-            <if test="pojo.telphone!=null">`telphone`,</if>
-            <if test="pojo.city!=null">`city`,</if>
-            <if test="pojo.cidFlag!=null">`cid_flag`,</if>
-            <if test="pojo.updTime!=null">`upd_time`,</if>
-            <if test="pojo.crtTime!=null">`crt_time`,</if>
+            <if test="pojo.id!=null">id,</if>
+            <if test="pojo.realName!=null">real_name,</if>
+            <if test="pojo.cid!=null">cid,</if>
+            <if test="pojo.cidImg1!=null">cid_img_1,</if>
+            <if test="pojo.cidImg2!=null">cid_img_2,</if>
+            <if test="pojo.birthDay!=null">birth_day,</if>
+            <if test="pojo.sex!=null">sex,</if>
+            <if test="pojo.telphone!=null">telphone,</if>
+            <if test="pojo.city!=null">city,</if>
+            <if test="pojo.cidFlag!=null">cid_flag,</if>
+            <if test="pojo.updTime!=null">upd_time,</if>
+            <if test="pojo.crtTime!=null">crt_time,</if>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -115,18 +115,18 @@
     <update id="update">
         UPDATE user_info
         <set>
-            <if test="pojo.realName != null">`real_name` = #{pojo.realName},</if>
-            <if test="pojo.cid != null">`cid` = #{pojo.cid},</if>
-            <if test="pojo.cidImg1 != null">`cid_img1` = #{pojo.cidImg1},</if>
-            <if test="pojo.cidImg2 != null">`cid_img2` = #{pojo.cidImg2},</if>
-            <if test="pojo.birthDay != null">`birth_day` = #{pojo.birthDay},</if>
-            <if test="pojo.sex != null">`sex` = #{pojo.sex},</if>
-            <if test="pojo.telphone != null">`telphone` = #{pojo.telphone},</if>
-            <if test="pojo.city != null">`city` = #{pojo.city},</if>
-            <if test="pojo.cidFlag != null">`cid_flag` = #{pojo.cidFlag},</if>
-            <if test="pojo.id != null">`id` = #{pojo.id},</if>
-            <if test="pojo.updTime != null">`upd_time` = #{pojo.updTime},</if>
-            <if test="pojo.crtTime != null">`crt_time` = #{pojo.crtTime}</if>
+            <if test="pojo.realName != null">real_name = #{pojo.realName},</if>
+            <if test="pojo.cid != null">cid = #{pojo.cid},</if>
+            <if test="pojo.cidImg1 != null">cid_img1 = #{pojo.cidImg1},</if>
+            <if test="pojo.cidImg2 != null">cid_img2 = #{pojo.cidImg2},</if>
+            <if test="pojo.birthDay != null">birth_day = #{pojo.birthDay},</if>
+            <if test="pojo.sex != null">sex = #{pojo.sex},</if>
+            <if test="pojo.telphone != null">telphone = #{pojo.telphone},</if>
+            <if test="pojo.city != null">city = #{pojo.city},</if>
+            <if test="pojo.cidFlag != null">cid_flag = #{pojo.cidFlag},</if>
+            <if test="pojo.id != null">id = #{pojo.id},</if>
+            <if test="pojo.updTime != null">upd_time = #{pojo.updTime},</if>
+            <if test="pojo.crtTime != null">crt_time = #{pojo.crtTime}</if>
         </set>
         WHERE id = #{pojo.id}
     </update>

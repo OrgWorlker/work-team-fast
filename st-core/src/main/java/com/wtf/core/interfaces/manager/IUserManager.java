@@ -51,10 +51,20 @@ public interface IUserManager {
     /**
      * Check and update pwd.
      *
-     * @param id the user id
+     * @param id     the user id
      * @param oldPwd the old pwd
      * @param newPwd the new pwd
      * @param type   the type
+     * @return the int
      */
     int checkAndUpdatePwd(Long id, String oldPwd, String newPwd, Integer type);
+
+    /**
+     * Update user int.
+     *
+     * @param user the user
+     * @return the int
+     * @throws Exception the exception
+     */
+    int updateUser(User user) throws Exception;
 }

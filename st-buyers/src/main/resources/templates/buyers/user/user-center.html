@@ -1,10 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/header::head_main_css">
 </head>
 <body>
-用户中心
+<div class="container">
+    <div class="header">
+        <i class="left icon iconfont icon-kefu"></i>
+        <div class="user"><img src="/static/images/bingo.jpg" alt=""><span th:text="${user.name}">Bingo</span>
+            <div><i class="icon iconfont icon-v1 v1"></i></div>
+        </div>
+        <i class="right icon iconfont icon-shezhi"></i>
+    </div>
+    <div class="title">
+        <div class="t_left"><i class="icon iconfont icon-meiyuanyuanquan-fill"></i><span
+                th:text="'金币:'+${user.userLevel.gold}">0.00</span></div>
+        <div class="middle"></div>
+        <div class="t_right"><i class="icon iconfont icon-tixian1"></i><span th:text="'本金:'+${user.userLevel.integral}">0.00</span>
+        </div>
+    </div>
+    <ul class="list">
+        <li><i class="icon iconfont icon-geren-copy i_left"></i><span>个人资料</span><i
+                class="allow icon iconfont icon-arrow-right"></i></li>
+        <li><i class="icon iconfont icon-taobaozhanghaodenglu i_left"></i><span>淘宝账号</span><i
+                class="allow icon iconfont icon-arrow-right"></i></li>
+        <li><i class="icon iconfont icon-iconfontzhizuobiaozhun47 i_left"></i><span>福利设置</span><i
+                class="allow icon iconfont icon-arrow-right"></i></li>
+        <li><i class="icon iconfont icon-zijinmingxi i_left"></i><span>资金明细</span><i
+                class="allow icon iconfont icon-arrow-right"></i></li>
+        <li><i class="icon iconfont icon-30-copy i_left"></i><span>金币提现</span><i th:value="'/user/withdrawals/' +${userId} +'/'+${user.userLevel.gold}+'/0'"
+                class="allow icon iconfont icon-arrow-right" ></i><span class="red" th:text="${user.userLevel.gold}">10.00</span>
+        </li>
+        <li><i class="icon iconfont icon-tixian2 i_left"></i><span>本金提现</span><i
+                class="allow icon iconfont icon-arrow-right"></i><span class="red" th:text="${user.userLevel.integral}">10.00</span>
+        </li>
+        <!--<li><i class="icon iconfont icon-gonggaotongzhi i_left"></i><span>公告通知</span><i class="allow icon iconfont icon-arrow-right"></i></li>
+        <li><i class="icon iconfont icon-bangzhuzhongxin i_left"></i><span>帮助中心</span><i class="allow icon iconfont icon-arrow-right"></i></li>-->
+        <!--<li></li>-->
+    </ul>
+    <div class="footer" th:replace="/common/foot::main_footer"></div>
+</div>
+
+<link rel="stylesheet" href="/static/css/index.css">
+<script src="/static/scripts/index.js"></script>
+<script src="/static/scripts/user/user-center.js"></script>
 </body>
 </html>

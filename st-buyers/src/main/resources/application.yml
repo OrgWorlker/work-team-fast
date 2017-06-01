@@ -7,7 +7,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: root
-    url: jdbc:mysql://localhost:3306/wtf
+    url: jdbc:mysql://localhost:3306/wtf?useUnicode=true&characterEncoding=utf8
     hikari:
       #一个连接的生命时长（毫秒），超时而且没被使用则被释放（retired），缺省:30分钟，建议设置比数据库超时时长少30秒以上
       maxLifetime: 1765000
@@ -17,12 +17,21 @@ spring:
   thymeleaf:
     mode: LEGACYHTML5
   rabbitmq:
-    host: 1.1.20.24
+    host: localhost
     port: 5672
     username: spring
     password: 123456
   application:
     name: st-buyers
+    #guava.spec: maximumSize=500,expireAfterWrite=1m
+  redis:
+    host: localhost
+    port: 6379
+    pool:
+      max-idle: 8
+      min-idle: 1
+      max-active: 8
+      max-wait: -1
 mybatis:
   mapperLocations: classpath:mapper/**.xml
   type-aliases-package: com.wtf.core.domain.model

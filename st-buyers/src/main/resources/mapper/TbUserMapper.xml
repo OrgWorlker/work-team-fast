@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wtf.core.interfaces.repository.ITbUserMapper">
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.wtf.core.domain.model.TbUser">
+        <result column="sex" property="sex"/>
+        <result column="tb_user_num" property="tbUserNum"/>
+        <result column="age" property="age"/>
+        <result column="level" property="level"/>
+        <result column="tag" property="tag"/>
+        <result column="order_code" property="orderCode"/>
+        <result column="buy_name" property="buyName"/>
+        <result column="buy_num" property="buyNum"/>
+        <result column="city_id" property="cityId"/>
+        <result column="address" property="address"/>
+        <result column="img_url" property="imgUrl"/>
+        <result column="user_id" property="userId"/>
+        <result column="id" property="id"/>
+        <result column="upd_time" property="updTime"/>
+        <result column="crt_time" property="crtTime"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="all_column">
+        sex,
+        tb_user_num,
+        age,
+        level,
+        tag,
+        order_code,
+        buy_name,
+        buy_num,
+        city_id,
+        address,
+        img_url,
+        user_id,
+        id,
+        upd_time,
+        crt_time
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO tb_user (
+            sex,
+            tb_user_num,
+            age,
+            level,
+            tag,
+            order_code,
+            buy_name,
+            buy_num,
+            city_id,
+            address,
+            img_url,
+            user_id,
+            id,
+            upd_time,
+            crt_time
+        ) VALUES (
+            #{pojo.sex},
+            #{tb_user_num},
+            #{pojo.age},
+            #{pojo.level},
+            #{pojo.tag},
+            #{pojo.orderCode},
+            #{pojo.buyName},
+            #{pojo.buyNum},
+            #{pojo.cityId},
+            #{pojo.address},
+            #{pojo.imgUrl},
+            #{pojo.userId},
+            #{pojo.id},
+            #{pojo.updTime},
+            #{pojo.crtTime}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO tb_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.sex!=null">sex,</if>
+            <if test="pojo.tbUserNum!=null">tb_user_num,</if>
+            <if test="pojo.age!=null">age,</if>
+            <if test="pojo.level!=null">level,</if>
+            <if test="pojo.tag!=null">tag,</if>
+            <if test="pojo.orderCode!=null">order_code,</if>
+            <if test="pojo.buyName!=null">buy_name,</if>
+            <if test="pojo.buyNum!=null">buy_num,</if>
+            <if test="pojo.cityId!=null">city_id,</if>
+            <if test="pojo.address!=null">address,</if>
+            <if test="pojo.imgUrl!=null">img_url,</if>
+            <if test="pojo.userId!=null">user_id,</if>
+            <if test="pojo.id!=null">id,</if>
+            <if test="pojo.updTime!=null">upd_time,</if>
+            <if test="pojo.crtTime!=null">crt_time,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.sex!=null">#{pojo.sex},</if>
+            <if test="pojo.tbUserNum!=null">#{pojo.tbUserNum},</if>
+            <if test="pojo.age!=null">#{pojo.age},</if>
+            <if test="pojo.level!=null">#{pojo.level},</if>
+            <if test="pojo.tag!=null">#{pojo.tag},</if>
+            <if test="pojo.orderCode!=null">#{pojo.orderCode},</if>
+            <if test="pojo.buyName!=null">#{pojo.buyName},</if>
+            <if test="pojo.buyNum!=null">#{pojo.buyNum},</if>
+            <if test="pojo.cityId!=null">#{pojo.cityId},</if>
+            <if test="pojo.address!=null">#{pojo.address},</if>
+            <if test="pojo.imgUrl!=null">#{pojo.imgUrl},</if>
+            <if test="pojo.userId!=null">#{pojo.userId},</if>
+            <if test="pojo.id!=null">#{pojo.id},</if>
+            <if test="pojo.updTime!=null">#{pojo.updTime},</if>
+            <if test="pojo.crtTime!=null">#{pojo.crtTime},</if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO tb_user (
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.sex},
+            #{pojo.tbUserNum},
+            #{pojo.age},
+            #{pojo.level},
+            #{pojo.tag},
+            #{pojo.orderCode},
+            #{pojo.buyName},
+            #{pojo.buyNum},
+            #{pojo.cityId},
+            #{pojo.address},
+            #{pojo.imgUrl},
+            #{pojo.userId},
+            #{pojo.id},
+            #{pojo.updTime},
+            #{pojo.crtTime}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="update">
+        UPDATE tb_user
+        <set>
+            <if test="pojo.sex != null">sex = #{pojo.sex},</if>
+            <if test="pojo.tbUserNum!=null">tb_user_num = #{pojo.tbUserNum},</if>
+            <if test="pojo.age != null">age = #{pojo.age},</if>
+            <if test="pojo.level != null">level = #{pojo.level},</if>
+            <if test="pojo.tag != null">tag = #{pojo.tag},</if>
+            <if test="pojo.orderCode != null">order_code = #{pojo.orderCode},</if>
+            <if test="pojo.buyName != null">buy_name = #{pojo.buyName},</if>
+            <if test="pojo.buyNum != null">buy_num = #{pojo.buyNum},</if>
+            <if test="pojo.cityId != null">city_id = #{pojo.cityId},</if>
+            <if test="pojo.address != null">address = #{pojo.address},</if>
+            <if test="pojo.imgUrl != null">img_url = #{pojo.imgUrl},</if>
+            <if test="pojo.userId != null">user_id = #{pojo.userId},</if>
+            <if test="pojo.id != null">id = #{pojo.id},</if>
+            <if test="pojo.updTime != null">upd_time = #{pojo.updTime},</if>
+            <if test="pojo.crtTime != null">crt_time = #{pojo.crtTime}</if>
+        </set>
+        WHERE id = #{pojo.id}
+    </update>
+
+    <select id="findTbUserNumByUserId" resultMap="AllColumnMap">
+        SELECT
+            id,
+            tb_user_num
+        FROM tb_user
+        WHERE user_id = #{userId}
+    </select>
+</mapper>
+

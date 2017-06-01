@@ -19,6 +19,7 @@ public class UserManagerImpl implements IUserManager {
     @Resource
     private IUserService userService;
 
+
     /**
      * Check user name and password int.
      *
@@ -36,7 +37,7 @@ public class UserManagerImpl implements IUserManager {
         if (user == null || (user.getComeFrom() != comeFrom && user.getComeFrom() != 3)) {
             return new UserLoginDto(0, "用户不存在");
         } else if (user.getLoginPwd().equals(md5pwd)){
-            return  new UserLoginDto(1, "操作成功", user);
+            return  new UserLoginDto(1, "登陆成功", user);
         }
         return new UserLoginDto(0, "用户密码错误"); // 密码错误
     }
@@ -75,6 +76,11 @@ public class UserManagerImpl implements IUserManager {
             }
             user.setTradePwd(newPwd);
         }
+        return this.userService.update(user);
+    }
+
+    @Override
+    public int updateUser(User user) throws Exception {
         return this.userService.update(user);
     }
 }

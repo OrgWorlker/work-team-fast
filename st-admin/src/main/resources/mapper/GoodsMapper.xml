@@ -18,33 +18,33 @@
 
     <!--auto generated Code-->
     <sql id="all_column">
-        `name`,
-        `url`,
-        `img_url1`,
-        `img_url2`,
-        `buy_count`,
-        `buy_price`,
-        `show_price`,
-        `size`,
-        `id`,
-        `upd_time`,
-        `crt_time`
+        name,
+        url,
+        img_url1,
+        img_url2,
+        buy_count,
+        buy_price,
+        show_price,
+        size,
+        id,
+        upd_time,
+        crt_time
     </sql>
 
     <!--auto generated Code-->
     <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id">
         INSERT INTO goods (
-            `name`,
-            `url`,
-            `img_url1`,
-            `img_url2`,
-            `buy_count`,
-            `buy_price`,
-            `show_price`,
-            `size`,
-            `id`,
-            `upd_time`,
-            `crt_time`
+            name,
+            url,
+            img_url1,
+            img_url2,
+            buy_count,
+            buy_price,
+            show_price,
+            size,
+            id,
+            upd_time,
+            crt_time
         ) VALUES (
             #{pojo.name},
             #{pojo.url},
@@ -64,17 +64,17 @@
     <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.id">
         INSERT INTO goods
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="pojo.name!=null"> `name`,</if>
-            <if test="pojo.url!=null"> `url`,</if>
-            <if test="pojo.imgUrl1!=null"> `img_url1`,</if>
-            <if test="pojo.imgUrl2!=null"> `img_url2`,</if>
-            <if test="pojo.buyCount!=null"> `buy_count`,</if>
-            <if test="pojo.buyPrice!=null"> `buy_price`,</if>
-            <if test="pojo.showPrice!=null"> `show_price`,</if>
-            <if test="pojo.size!=null"> `size`,</if>
-            <if test="pojo.id!=null"> `id`,</if>
-            <if test="pojo.updTime!=null"> `upd_time`,</if>
-            <if test="pojo.crtTime!=null"> `crt_time`,</if>
+            <if test="pojo.name!=null"> name,</if>
+            <if test="pojo.url!=null"> url,</if>
+            <if test="pojo.imgUrl1!=null"> img_url1,</if>
+            <if test="pojo.imgUrl2!=null"> img_url2,</if>
+            <if test="pojo.buyCount!=null"> buy_count,</if>
+            <if test="pojo.buyPrice!=null"> buy_price,</if>
+            <if test="pojo.showPrice!=null"> show_price,</if>
+            <if test="pojo.size!=null"> size,</if>
+            <if test="pojo.id!=null"> id,</if>
+            <if test="pojo.updTime!=null"> upd_time,</if>
+            <if test="pojo.crtTime!=null"> crt_time,</if>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -118,17 +118,17 @@
     <update id="update">
         UPDATE goods
         <set>
-            <if test="pojo.name != null"> `name` = #{pojo.name}, </if>
-            <if test="pojo.url != null"> `url` = #{pojo.url}, </if>
-            <if test="pojo.imgUrl1 != null"> `img_url1` = #{pojo.imgUrl1}, </if>
-            <if test="pojo.imgUrl2 != null"> `img_url2` = #{pojo.imgUrl2}, </if>
-            <if test="pojo.buyCount != null"> `buy_count` = #{pojo.buyCount}, </if>
-            <if test="pojo.buyPrice != null"> `buy_price` = #{pojo.buyPrice}, </if>
-            <if test="pojo.showPrice != null"> `show_price` = #{pojo.showPrice}, </if>
-            <if test="pojo.size != null"> `size` = #{pojo.size}, </if>
-            <if test="pojo.id != null"> `id` = #{pojo.id}, </if>
-            <if test="pojo.updTime != null"> `upd_time` = #{pojo.updTime}, </if>
-            <if test="pojo.crtTime != null"> `crt_time` = #{pojo.crtTime} </if>
+            <if test="pojo.name != null"> name = #{pojo.name}, </if>
+            <if test="pojo.url != null"> url = #{pojo.url}, </if>
+            <if test="pojo.imgUrl1 != null"> img_url1 = #{pojo.imgUrl1}, </if>
+            <if test="pojo.imgUrl2 != null"> img_url2 = #{pojo.imgUrl2}, </if>
+            <if test="pojo.buyCount != null"> buy_count = #{pojo.buyCount}, </if>
+            <if test="pojo.buyPrice != null"> buy_price = #{pojo.buyPrice}, </if>
+            <if test="pojo.showPrice != null"> show_price = #{pojo.showPrice}, </if>
+            <if test="pojo.size != null"> size = #{pojo.size}, </if>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.updTime != null"> upd_time = #{pojo.updTime}, </if>
+            <if test="pojo.crtTime != null"> crt_time = #{pojo.crtTime} </if>
         </set>
         WHERE id = #{pojo.id}
     </update>

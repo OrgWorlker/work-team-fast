@@ -20,35 +20,35 @@
 
     <!--auto generated Code-->
     <sql id="all_column">
-        `name`,
-        `code`,
-        `wechat_num`,
-        `wechat_qrcode_url`,
-        `alipay_num`,
-        `alipay_qrcode_url`,
-        `bank_name`,
-        `bank_branch`,
-        `bank_account`,
-        `id`,
-        `upd_time`,
-        `crt_time`
+        name,
+        code,
+        wechat_num,
+        wechat_qrcode_url,
+        alipay_num,
+        alipay_qrcode_url,
+        bank_name,
+        bank_branch,
+        bank_account,
+        id,
+        upd_time,
+        crt_time
     </sql>
 
     <!--auto generated Code-->
     <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id">
         INSERT INTO payment (
-            `name`,
-            `code`,
-            `wechat_num`,
-            `wechat_qrcode_url`,
-            `alipay_num`,
-            `alipay_qrcode_url`,
-            `bank_name`,
-            `bank_branch`,
-            `bank_account`,
-            `id`,
-            `upd_time`,
-            `crt_time`
+            name,
+            code,
+            wechat_num,
+            wechat_qrcode_url,
+            alipay_num,
+            alipay_qrcode_url,
+            bank_name,
+            bank_branch,
+            bank_account,
+            id,
+            upd_time,
+            crt_time
         ) VALUES (
             #{pojo.name},
             #{pojo.code},
@@ -69,18 +69,18 @@
     <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.id">
         INSERT INTO payment
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="pojo.name!=null"> `name`,</if>
-            <if test="pojo.code!=null"> `code`,</if>
-            <if test="pojo.wechatNum!=null"> `wechat_num`,</if>
-            <if test="pojo.wechatQrcode_Url!=null"> `wechat_qrcode_url`,</if>
-            <if test="pojo.alipayNum!=null"> `alipay_num`,</if>
-            <if test="pojo.alipayQrcodeUrl!=null"> `alipay_qrcode_url`,</if>
-            <if test="pojo.bankName!=null"> `bank_name`,</if>
-            <if test="pojo.bankBranch!=null"> `bank_branch`,</if>
-            <if test="pojo.bankAccount!=null"> `bank_account`,</if>
-            <if test="pojo.id!=null"> `id`,</if>
-            <if test="pojo.updTime!=null"> `upd_time`,</if>
-            <if test="pojo.crtTime!=null"> `crt_time`,</if>
+            <if test="pojo.name!=null"> name,</if>
+            <if test="pojo.code!=null"> code,</if>
+            <if test="pojo.wechatNum!=null"> wechat_num,</if>
+            <if test="pojo.wechatQrcode_Url!=null"> wechat_qrcode_url,</if>
+            <if test="pojo.alipayNum!=null"> alipay_num,</if>
+            <if test="pojo.alipayQrcodeUrl!=null"> alipay_qrcode_url,</if>
+            <if test="pojo.bankName!=null"> bank_name,</if>
+            <if test="pojo.bankBranch!=null"> bank_branch,</if>
+            <if test="pojo.bankAccount!=null"> bank_account,</if>
+            <if test="pojo.id!=null"> id,</if>
+            <if test="pojo.updTime!=null"> upd_time,</if>
+            <if test="pojo.crtTime!=null"> crt_time,</if>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -126,18 +126,18 @@
     <update id="update">
         UPDATE payment
         <set>
-            <if test="pojo.name != null"> `name` = #{pojo.name}, </if>
-            <if test="pojo.code != null"> `code` = #{pojo.code}, </if>
-            <if test="pojo.wechatNum != null"> `wechat_num` = #{pojo.wechatNum}, </if>
-            <if test="pojo.wechatQrcode_Url != null"> `wechat_qrcode_url` = #{pojo.wechatQrcode_Url}, </if>
-            <if test="pojo.alipayNum != null"> `alipay_num` = #{pojo.alipayNum}, </if>
-            <if test="pojo.alipayQrcodeUrl != null"> `alipay_qrcode_url` = #{pojo.alipayQrcodeUrl}, </if>
-            <if test="pojo.bankName != null"> `bank_name` = #{pojo.bankName}, </if>
-            <if test="pojo.bankBranch != null"> `bank_branch` = #{pojo.bankBranch}, </if>
-            <if test="pojo.bankAccount != null"> `bank_account` = #{pojo.bankAccount}, </if>
-            <if test="pojo.id != null"> `id` = #{pojo.id}, </if>
-            <if test="pojo.updTime != null"> `upd_time` = #{pojo.updTime}, </if>
-            <if test="pojo.crtTime != null"> `crt_time` = #{pojo.crtTime} </if>
+            <if test="pojo.name != null"> name = #{pojo.name}, </if>
+            <if test="pojo.code != null"> code = #{pojo.code}, </if>
+            <if test="pojo.wechatNum != null"> wechat_num = #{pojo.wechatNum}, </if>
+            <if test="pojo.wechatQrcode_Url != null"> wechat_qrcode_url = #{pojo.wechatQrcode_Url}, </if>
+            <if test="pojo.alipayNum != null"> alipay_num = #{pojo.alipayNum}, </if>
+            <if test="pojo.alipayQrcodeUrl != null"> alipay_qrcode_url = #{pojo.alipayQrcodeUrl}, </if>
+            <if test="pojo.bankName != null"> bank_name = #{pojo.bankName}, </if>
+            <if test="pojo.bankBranch != null"> bank_branch = #{pojo.bankBranch}, </if>
+            <if test="pojo.bankAccount != null"> bank_account = #{pojo.bankAccount}, </if>
+            <if test="pojo.id != null"> id = #{pojo.id}, </if>
+            <if test="pojo.updTime != null"> upd_time = #{pojo.updTime}, </if>
+            <if test="pojo.crtTime != null"> crt_time = #{pojo.crtTime} </if>
         </set>
         WHERE id = #{pojo.id}
     </update>

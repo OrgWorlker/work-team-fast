@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>移动/login</title>
-    <script src="/static/plugin/jquery-3.2.1.min.js" type="application/javascript"></script>
-    <script src="/static/js/login.js" type="application/javascript"></script>
-</head>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/header::head_main_css"></head>
+<script src="/static/scripts/login.js"></script>
+
 <body>
-移动端登陆
+用户名:<input type="text" value="buy" id="username"/> <br/>
+密&nbsp;&nbsp;码:<input type="password" value="ADMIN" id="checknum" /><br/>
+<button id="login" style="width: 120px;height: 40px;" >登陆</button>
 </body>
-</html>o
+</html>
