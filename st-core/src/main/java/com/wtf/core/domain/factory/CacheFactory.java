@@ -1,6 +1,6 @@
 package com.wtf.core.domain.factory;
 
-import com.wtf.core.infrastructure.stereotype.Factory;
+import com.wtf.infsc.infrastructure.stereotype.Factory;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 import javax.annotation.Resource;
@@ -14,6 +14,7 @@ public class CacheFactory {
 
     @Resource
     private StringRedisTemplate stringRedisTemplate;
+
     /**
      * Gets cache.
      *

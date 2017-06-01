@@ -1,4 +1,4 @@
-package com.wtf.core.infrastructure.stereotype;
+package com.wtf.infsc.infrastructure.stereotype;
 
 import org.springframework.stereotype.Component;
 

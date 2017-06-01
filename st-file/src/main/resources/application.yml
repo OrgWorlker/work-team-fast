@@ -1,0 +1,19 @@
+server:
+  port: 9100
+
+file:
+  linux-path: /home/wtf/file/
+  window-path: D:/wtf/file/
+spring:
+  http:
+    multipart:
+      max-file-size: 4MB
+      max-request-size: 12MB
+  redis:
+    host: localhost
+    port: 6379
+logging:
+  level:
+    root: debug
+    org:
+      apache: error

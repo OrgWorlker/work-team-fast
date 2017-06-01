@@ -12,6 +12,8 @@
         <module>st-sellers</module>
         <module>st-buyers</module>
         <module>st-event</module>
+        <module>st-file</module>
+        <module>st-infsc</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -107,6 +109,11 @@
             <dependency>
                 <groupId>com.wtf</groupId>
                 <artifactId>st-core</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.wtf</groupId>
+                <artifactId>st-infsc</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>

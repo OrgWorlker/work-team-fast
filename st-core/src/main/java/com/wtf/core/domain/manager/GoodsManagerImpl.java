@@ -1,9 +1,9 @@
 package com.wtf.core.domain.manager;
 
 import com.wtf.core.domain.model.Goods;
-import com.wtf.core.infrastructure.stereotype.Manager;
 import com.wtf.core.interfaces.manager.IGoodsManager;
 import com.wtf.core.interfaces.service.IGoodsService;
+import com.wtf.infsc.infrastructure.stereotype.Manager;
 
 import javax.annotation.Resource;
 
