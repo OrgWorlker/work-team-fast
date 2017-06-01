@@ -1,0 +1,21 @@
+.bind{width: 100%; min-height: 100%; font-size: 12px;}
+[data-dpr="2"] .bind{font-size: 24px;}
+[data-dpr="3"] .bind{font-size: 36px;}
+.bind .header{width: 100%; height:.88rem; text-align: center; border-bottom: 1px solid #f3f3f3; padding-top:.333rem; line-height: .6rem; }
+.bind .header i{font-size: .6rem; float: left;}
+
+.bind .shili{width: 100%; height:.93rem; background-color: #ff8000; line-height: .9rem;}
+.bind .shili a{color: #fff; margin-left: .4rem;}
+
+.bind form{width:90%; margin: 0 auto; }
+.bind form li{width: 100%; height: 1rem; padding: .1rem 0;}
+.bind form li.screenshot{height: auto;}
+.bind form li label{width: 26%; float: left; margin-top: .2rem; text-align: left;}
+.bind form li input{width: 70%; height:.907rem; border: 1px solid #e2e2e2; border-radius: 10px; padding-left: .3rem;}
+.bind form p{margin: -.1rem 0 0 28%; width: 3.5rem;}
+.bind form li input[type="radio"]{width: 2.33rem; height:.9rem;}
+/*.bind form li select{width: 2.67rem; height:.94rem; border: 1px solid #e2e2e2; border-radius: 10px;}*/
+/*.bind form li select option{font-size: 12px; color: #aeaeae; }*/
+.bind form li input.select{width: auto; max-width: 4.33rem;}
+.bind form li span{color: #3db098;}
+.bind form li img{width: 2.27rem; height:3.25rem;}

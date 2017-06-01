@@ -1,0 +1,15 @@
+.userInfo{width: 100%; min-height: 100%; font-size: 16px; background-color: #fff;}
+[data-dpr="2"] .userInfo{font-size: 32px;}
+[data-dpr="3"] .userInfo{font-size: 48px;}
+.userInfo .header{width: 100%; height:.88rem; text-align: center; border-bottom: 1px solid #f3f3f3; padding-top:.333rem; line-height: .6rem; }
+.userInfo .header i{font-size: .6rem; float: left;}
+
+.userInfo .info{width: 92%; height:8.54rem; margin:0 auto; }
+.userInfo .info ul li{width: 100%; height:1.04rem; border-bottom: 1px solid #e5e5e5; margin-top: .4rem;}
+.userInfo .info ul li a{color:#000; text-decoration: none; }
+.userInfo .info ul li .left{float: left; width: 48%;}
+.userInfo .info ul li .right{float: left; width: 51%; color: #7e7f83;}
+.userInfo .info ul li .right span{font-size: 14px;}
+[data-dpr="2"] .userInfo .info ul li .right span{font-size: 28px;}
+[data-dpr="3"] .userInfo .info ul li .right span{font-size: 54px;}
+.userInfo .info ul li .right i{font-size: .6rem; float: right;}

@@ -1,0 +1,26 @@
+.activeTask{width: 100%; min-height: 100%; font-size: 12px; background-color: #f0f0f0;}
+[data-dpr="2"] .activeTask{font-size: 24px;}
+[data-dpr="3"] .activeTask{font-size: 36px;}
+.activeTask .header{width: 100%; height:.88rem; text-align: center; border-bottom: 1px solid #f3f3f3; background-color: #fff; padding-top:.333rem; line-height: .6rem; font-size: 16px;}
+[data-dpr="2"] .activeTask .header{font-size: 32px;}
+[data-dpr="3"] .activeTask .header{font-size: 48px;}
+.activeTask .header i{font-size: .6rem; float: left;}
+
+.activeTask .top{width: 100%; height: 1.2rem; color: #3db098; background-color: #fff;}
+.activeTask .top p{width: 50%; float: left; margin:.3rem;}
+.activeTask .top button{color: #3db098; float: right; margin:.2rem;}
+
+.activeTask .list{width:100%;}
+.activeTask .list li{width: 100%; height:2.83rem; background-color: #fff; margin-top: .14rem;}
+.activeTask .list li .left{width: 64%; float: left; padding: .3rem;}
+.activeTask .list li .left .username{}
+.activeTask .list li .left .browse{margin-top: .2rem; font-size: 16px;}
+[data-dpr="2"] .activeTask .list li .left .browse{font-size: 32px;}
+[data-dpr="3"] .activeTask .list li .left .browse{font-size: 48px;}
+.activeTask .list li .left .label{margin-top: .267rem;}
+.activeTask .list li .left .label span{margin-right: .1rem;}
+.activeTask .list li .right{width: 30%; float: left; text-align: center;}
+.activeTask .list li .right p{margin: .7rem 0 .3rem 0; font-size: 16px;}
+[data-dpr="2"] .activeTask .list li .right p{font-size: 32px;}
+[data-dpr="3"] .activeTask .list li .right p{font-size: 48px;}
+.activeTask .list li .right button{color: #3db098;}
