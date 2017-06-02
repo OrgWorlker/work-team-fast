@@ -1,0 +1,18 @@
+.help{width: 100%; min-height: 100%; font-size: 12px;}
+[data-dpr="2"] .help{font-size: 24px;}
+[data-dpr="3"] .help{font-size: 36px;}
+.help .header{width: 100%; height:.88rem; text-align: center; border-bottom: 1px solid #f3f3f3; padding-top:.333rem; line-height: .6rem; }
+.help .header i{font-size: .6rem; float: left;}
+
+.help .title{ width:100%; height:.88rem; background-color: #f1f0f5; line-height: .9rem; color: #989898;}
+.help .title span{margin-left: .4rem;}
+
+.help .record{width: 100%;}
+.help .record ul li{width: 100%; height: 1.254rem; border-bottom:2px solid #e5e5e5;}
+.help .record ul li a{color: #2e2e2e; width: 100%; height: 1.254rem; display: block;}
+.help .record ul li a img{ width:.573rem; height: .6rem; margin: .3rem; float: left;}
+.help .record ul li p{width: 6.67rem; float: left; margin-top: .4rem;}
+.help .record ul li i{font-size: .6rem; font-weight: bold; color: #cbcacf; float: right; margin: .2rem;}
+
+.help .step{width: 86.7%; float: right;}
+.help .step p{width: 100%; text-align: left; height: 1.32rem; line-height: 1.3rem;}
