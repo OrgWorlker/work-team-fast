@@ -13,3 +13,4 @@
 [data-dpr="2"] .userInfo .info ul li .right span{font-size: 28px;}
 [data-dpr="3"] .userInfo .info ul li .right span{font-size: 54px;}
 .userInfo .info ul li .right i{font-size: .6rem; float: right;}
+.userInfo .logout{text-align: center; margin-top: 2rem;}
