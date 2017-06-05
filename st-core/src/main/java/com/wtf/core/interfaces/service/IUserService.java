@@ -16,4 +16,11 @@ public interface IUserService extends IBaseService<User> {
      */
     User findByUserName(String userName);
 
+    /**
+     * Find by phone num user.
+     *
+     * @param phoneNum the phone num
+     * @return the user
+     */
+    User findByPhoneNum(String phoneNum);
 }

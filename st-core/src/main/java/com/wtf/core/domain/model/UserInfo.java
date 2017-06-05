@@ -24,6 +24,8 @@ public class UserInfo extends BaseModel {
 
     private String telphone;
 
+    private String qq;
+
     private String city;
 
     private Integer cidFlag;

@@ -14,16 +14,6 @@ public class MessageQueueFactory {
     @Resource
     private AmqpTemplate rabbitTemplate;
 
-    @Resource
-    private CacheFactory cacheFactory;
-
-    /**
-     * Send.
-     */
-    public void send() {
-        this.rabbitTemplate.convertAndSend("hello", "haha");
-    }
-
     /**
      * Send short message.
      *

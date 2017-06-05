@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <!--<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>-->
+    <script src="/static/scripts/plugins/flexible.js"></script>
+    <!--<link rel="stylesheet" href="//at.alicdn.com/t/font_pae0fnfml5jt6gvi.css">-->
+    <link rel="stylesheet" href="/static/css/mobile-select-area.css">
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <link rel="stylesheet" href="/static/css/iconfont.css">
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/bind.css">
+</head>
+<body>
+    <div class="bind">
+        <div class="header"><i class="icon iconfont icon-jinlingyingcaiicon01"></i>添加</div>
+        <div class="shili"><a href="###">点击查看绑定买号实例图></a></div>
+        <form action="">
+            <ul>
+                <li><label for="">淘宝买号:</label><input type="text" placeholder="淘宝买号"></li>
+                <p class="red">买号不能填写手机号</p>
+                <li><label for="">性别:</label><input type="radio" name="sex" />男<input type="radio" name="sex" />女</li>
+                <li><label for="">年龄:</label><input id="text_age" class="select" type="text" placeholder="点击选择年龄"><input type="hidden" id="hd_age" value="1,1,1"/></li>
+                <li><label for="">信用等级:</label><input id="text_level" class="select" type="text" placeholder="点击选择信用等级"><input type="hidden" id="hd_level" value="1,1,1"/></li>
+                <li><label for="">购物标签:</label><input id="text_label" class="select" type="text" placeholder="点击选择三个购物标签"><input type="hidden" id="hd_label" value="1,1,1"/></li>
+                <li><label for="">订单后四位:</label><input class="select" type="text" placeholder="点击选择年龄"><span>【示例图】</span></li>
+                <li><label for="">收货人姓名:</label><input type="text" placeholder="请输入收货人真实姓名"></li>
+                <li><label for="">收货人电话:</label><input type="text" placeholder="请输入收货人手机号码"></li>
+                <li><label for="">省&nbsp;市&nbsp;区:</label><input type="text" id="text_area" placeholder="点击选择省市区"><input
+                        type="hidden" id="hd_area" value="1,1,1"></li>
+                <li><label for="">详细地址:</label><input type="text" placeholder="请输入详细地址"></li>
+                <li class="screenshot"><label for="">买号截图:</label><div class="addImg"><img src="/static/images/screenshot.png" alt=""><input
+                        type="file"></div></li>
+            </ul>
+            <input class="submitButton" type="submit" value="提交"/>
+        </form>
+    </div>
+    <script src="/static/scripts/plugins/zepto.js"></script>
+    <script src="/static/scripts/plugins/dialog.js"></script>
+    <script src="/static/scripts/plugins/mobile-select-area.js"></script>
+    <script src="/static/scripts/bind.js"></script>
+    <script src="/static/scripts/base.js"></script>
+</body>
+</html>

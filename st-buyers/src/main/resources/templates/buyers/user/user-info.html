@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/header::head_main_css">
 </head>
+    <link rel="stylesheet" href="/static/css/user-info.css">
 <body>
-个人信息
+    <div class="userInfo">
+        <div class="header"><i class="icon iconfont icon-jinlingyingcaiicon01"></i>个人资料</div>
+        <div class="info">
+            <ul>
+                <li><div class="left">头像</div><div class="right"><i class="icon iconfont icon-arrow-right"></i></div></li>
+                <li><div class="left">地区</div><div class="right"><span>背景，东城区，null</span><i class="icon iconfont icon-arrow-right"></i></div></li>
+                <li><div class="left">QQ号码</div><div class="right"><span>888828882</span><i class="icon iconfont icon-arrow-right"></i></div></li>
+                <li><div class="left">手机号码</div><div class="right"><span>1388858888</span><i class="icon iconfont icon-arrow-right"></i></div></li>
+                <li><div class="left">登录密码</div><div class="right"><i class="icon iconfont icon-arrow-right"></i></div></li>
+                <li><div class="left">支付密码</div><div class="right"><i class="icon iconfont icon-arrow-right"></i></div></li>
+            </ul>
+        </div>
+        <p class="logout"><button class="submitButton">退出登录</button></p>
+    </div>
 </body>
 </html>

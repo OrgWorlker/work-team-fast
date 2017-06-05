@@ -11,9 +11,12 @@
         <result column="upd_time" property="updTime"/>
         <result column="crt_time" property="crtTime"/>
         <result column="count" property="count"/>
-        <association column="user_info_id" property="userInfo" javaType="UserInfo"  select="com.wtf.core.interfaces.repository.IUserInfoMapper.findById" />
-        <association column="user_level_id" property="userLevel" javaType="UserLevel" select="com.wtf.core.interfaces.repository.IUserLevelMapper.findById" />
-        <association column="payment_id" property="payment" javaType="Payment" select="com.wtf.core.interfaces.repository.IPaymentMapper.findById" />
+        <association column="user_info_id" property="userInfo" javaType="UserInfo"
+                     select="com.wtf.core.interfaces.repository.IUserInfoMapper.findById"/>
+        <association column="user_level_id" property="userLevel" javaType="UserLevel"
+                     select="com.wtf.core.interfaces.repository.IUserLevelMapper.findById"/>
+        <association column="payment_id" property="payment" javaType="Payment"
+                     select="com.wtf.core.interfaces.repository.IPaymentMapper.findById"/>
     </resultMap>
 
     <!--auto generated Code-->
@@ -61,15 +64,15 @@
     <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.id">
         INSERT INTO user
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="pojo.name!=null"> name,</if>
-            <if test="pojo.loginName!=null"> login_name,</if>
-            <if test="pojo.loginPwd!=null"> login_pwd,</if>
-            <if test="pojo.comeFrom!=null"> come_from,</if>
-            <if test="pojo.tradePwd!=null"> trade_pwd,</if>
-            <if test="pojo.id!=null"> id,</if>
-            <if test="pojo.updTime!=null"> upd_time,</if>
-            <if test="pojo.crtTime!=null"> crt_time,</if>
-            <if test="pojo.count!=null"> count,</if>
+            <if test="pojo.name!=null">name,</if>
+            <if test="pojo.loginName!=null">login_name,</if>
+            <if test="pojo.loginPwd!=null">login_pwd,</if>
+            <if test="pojo.comeFrom!=null">come_from,</if>
+            <if test="pojo.tradePwd!=null">trade_pwd,</if>
+            <if test="pojo.id!=null">id,</if>
+            <if test="pojo.updTime!=null">upd_time,</if>
+            <if test="pojo.crtTime!=null">crt_time,</if>
+            <if test="pojo.count!=null">count,</if>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -109,47 +112,56 @@
     <update id="update">
         UPDATE user
         <set>
-            <if test="pojo.name != null"> name = #{pojo.name}, </if>
-            <if test="pojo.loginName != null"> login_name = #{pojo.loginName}, </if>
-            <if test="pojo.loginPwd != null"> login_pwd = #{pojo.loginPwd}, </if>
-            <if test="pojo.comeFrom != null"> come_from = #{pojo.comeFrom}, </if>
-            <if test="pojo.tradePwd != null"> trade_pwd = #{pojo.tradePwd}, </if>
-            <if test="pojo.count != null"> count = #{pojo.count}, </if>
-            <if test="pojo.id != null"> id = #{pojo.id}, </if>
-            <if test="pojo.updTime != null"> upd_time = #{pojo.updTime}, </if>
-            <if test="pojo.crtTime != null"> crt_time = #{pojo.crtTime} </if>
+            <if test="pojo.name != null">name = #{pojo.name},</if>
+            <if test="pojo.loginName != null">login_name = #{pojo.loginName},</if>
+            <if test="pojo.loginPwd != null">login_pwd = #{pojo.loginPwd},</if>
+            <if test="pojo.comeFrom != null">come_from = #{pojo.comeFrom},</if>
+            <if test="pojo.tradePwd != null">trade_pwd = #{pojo.tradePwd},</if>
+            <if test="pojo.count != null">count = #{pojo.count},</if>
+            <if test="pojo.id != null">id = #{pojo.id},</if>
+            <if test="pojo.updTime != null">upd_time = #{pojo.updTime},</if>
+            <if test="pojo.crtTime != null">crt_time = #{pojo.crtTime}</if>
         </set>
         WHERE id = #{pojo.id}
     </update>
 
     <!--根据用户名获取用户信息-->
-    <select id="findByUserName" parameterType="java.lang.String" resultMap="AllColumnMap" >
+    <select id="findByUserName" parameterType="java.lang.String" resultMap="AllColumnMap">
         SELECT
-            <include refid="all_column" />
-        FROM  user
+        <include refid="all_column"/>
+        FROM user
         WHERE login_name = #{userName}
     </select>
-    <!--根据用户ID获取用户信息-->
-    <select id="findById" parameterType="java.lang.Long" resultMap="AllColumnMap" >
+
+    <select id="findByPhoneNum" parameterType="String" resultMap="AllColumnMap">
         SELECT
-            <include refid="all_column" />
+            u.name,u.login_name,u.login_pwd,u.come_from,u.trade_pwd,u.user_info_id,u.user_level_id,u.payment_id,u.count,u.id,u.upd_time,u.crt_time
+        FROM user u INNER JOIN user_info ui ON u.user_info_id = ui.id
+        WHERE ui.telphone=#{phoneNum}
+    </select>
+    <!--根据用户ID获取用户信息-->
+    <select id="findById" parameterType="java.lang.Long" resultMap="AllColumnMap">
+        SELECT
+        <include refid="all_column"/>
         FROM user
         WHERE id = #{id}
     </select>
-    
-    <select id="findAll" resultMap="AllColumnMap" >
+
+    <select id="findAll" resultMap="AllColumnMap">
         SELECT
-            id, name, code, login_name, login_pwd, come_from, trade_pwd, user_level_id, user_info_id, payment_id, upd_time, crt_time
+        id, name, code, login_name, login_pwd, come_from, trade_pwd, user_level_id, user_info_id, payment_id, upd_time,
+        crt_time
         FROM user u
         <where>
-            <if test="id != null" >and id = #{id}</if>
-            <if test="name != null" >and name like '%#{name}%'</if>
-            <if test="comeFrom != null" >and come_from = #{comeFrom}</if>
+            <if test="id != null">and id = #{id}</if>
+            <if test="name != null">and name like '%#{name}%'</if>
+            <if test="comeFrom != null">and come_from = #{comeFrom}</if>
         </where>
     </select>
 
-    <delete id="delete" >
-        DELETE FROM user WHERE id = #{id}
+    <delete id="delete">
+        DELETE FROM user
+        WHERE id = #{id}
     </delete>
 </mapper>
 

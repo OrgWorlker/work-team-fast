@@ -20,6 +20,11 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
                 .addPathPatterns("/**")
                 .excludePathPatterns("/**/login")
                 .excludePathPatterns("/error")
+                .excludePathPatterns("/register")
+                .excludePathPatterns("/user/register")
+                .excludePathPatterns("/user/retrieve")
+                .excludePathPatterns("/retrieve-pwd")
+                .excludePathPatterns("/static/**")
                 .excludePathPatterns("/webjars/**")
                 .excludePathPatterns("/shortMessage/**")
                 .excludePathPatterns("/**/favicon.ico");

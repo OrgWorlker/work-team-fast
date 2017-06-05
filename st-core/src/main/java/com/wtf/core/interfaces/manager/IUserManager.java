@@ -67,4 +67,24 @@ public interface IUserManager {
      * @throws Exception the exception
      */
     int updateUser(User user) throws Exception;
+
+    /**
+     * Update pwd by login name int.
+     *
+     * @param phoneNum the phone num
+     * @param checkNum the check num
+     * @return the int
+     */
+    int updatePwdByPhoneName(String phoneNum, String checkNum);
+
+    /**
+     * Register int.
+     *
+     * @param loginName the login name
+     * @param qq        the qq
+     * @param phoneNum  the phone num
+     * @param checknum  the checknum
+     * @return the int
+     */
+    int register(String loginName, String qq, String phoneNum, String checknum);
 }

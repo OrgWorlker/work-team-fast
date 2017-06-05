@@ -3,11 +3,13 @@ package com.wtf.buyers.application;
 import com.wtf.core.domain.dto.UserLoginDto;
 import com.wtf.core.domain.model.User;
 import com.wtf.core.infrastructure.adapter.ControllerAdapter;
-import com.wtf.infsc.infrastructure.constant.Constant;
 import com.wtf.core.interfaces.manager.IUserManager;
+import com.wtf.infsc.infrastructure.constant.Constant;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,6 +26,8 @@ public class UserController extends ControllerAdapter {
     @Resource
     private IUserManager userManager;
 
+    @Resource
+    private StringRedisTemplate stringRedisTemplate;
     /**
      * Login string.
      * 用户登录的方法，成功返回success，失败返回error
@@ -43,9 +47,6 @@ public class UserController extends ControllerAdapter {
         if (user != null) {
             request.getSession().setAttribute(Constant.CURRENT_USER, userLoginDto);
             final Long count = user.getCount();
-            if (count == 0) {
-                userLoginDto.setFlag(2);
-            }
             user.setCount(count + 1);
             this.userManager.updateUser(user);
             userLoginDto.clearPwd();
@@ -59,6 +60,7 @@ public class UserController extends ControllerAdapter {
      *
      * @param oldPwd the old pwd
      * @param newPwd the new pwd
+     * @param userId the user id
      * @param type   the type 0:LOGIN_PWD, 1:TRAD_PWD
      * @return the string
      */
@@ -68,6 +70,30 @@ public class UserController extends ControllerAdapter {
         if (resultNum > 0) {
             return SUCCESS;
         }
+        return FAILD;
+    }
+
+    /**
+     * Retrieve string.
+     *
+     * @return the string
+     */
+    @PostMapping("retrieve")
+    public String retrieve(String phoneNum, String valicode, String checkNum){
+        final String realValicode = this.stringRedisTemplate.opsForValue().get(phoneNum);
+        if (!valicode.equals(realValicode)) {
+            return "ERROR_VALI_CODE";
+        }
+        final int i = this.userManager.updatePwdByPhoneName(phoneNum, checkNum);
+        if (i > 0) {
+            return SUCCESS;
+        }
+        return FAILD;
+    }
+
+    @PostMapping("register")
+    public String register(String loginName, String qq, String phoneNum, String checknum) {
+        final int i = this.userManager.register(loginName, qq, phoneNum, checknum);
         return FAILD;
     }
 }
