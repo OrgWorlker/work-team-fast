@@ -1,4 +1,4 @@
-package com.wtf.file.infrastructure.configure;
+package com.wtf.infsc.infrastructure.configure;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -16,22 +16,25 @@ import java.util.Date;
 @Setter
 @Getter
 @ToString
-@ConfigurationProperties(prefix = "file")
+@ConfigurationProperties(prefix = FileProperties.PREFIX)
 @Component
-public class FileConfigure {
+public class FileProperties {
 
-    private static final  SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    public  static final String PREFIX = "file";
+
+    private String pattern = "yyyy-MM-dd";
+
+    private  SimpleDateFormat simpleDateFormat = new SimpleDateFormat(this.pattern);
 
     /**
      *  linux path
      */
-    private String linuxPath;
+    private String linuxPath = "/SPRING/FILE";
 
     /**
      * window path
      */
-    private String windowPath;
-
+    private String windowPath ="C:/Users/SPRING/FILE";
     /**
      * Gets file path.
      *
@@ -51,6 +54,6 @@ public class FileConfigure {
      * @return the dir
      */
     public String getDir() {
-        return simpleDateFormat.format(new Date()) + simpleDateFormat.format(new Date())+ File.separator;
+        return this.simpleDateFormat.format(new Date()) + File.separator;
     }
 }

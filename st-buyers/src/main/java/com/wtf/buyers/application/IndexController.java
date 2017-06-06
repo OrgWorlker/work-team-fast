@@ -1,6 +1,6 @@
 package com.wtf.buyers.application;
 
-import com.wtf.core.domain.factory.MessageQueueFactory;
+import com.wtf.core.domain.event.ShortMsgEvent;
 import com.wtf.core.domain.model.User;
 import com.wtf.core.infrastructure.adapter.ControllerAdapter;
 import com.wtf.core.interfaces.manager.ITbUserManager;
@@ -24,7 +24,7 @@ import javax.annotation.Resource;
 public class IndexController extends ControllerAdapter {
 
     @Resource
-    private MessageQueueFactory messageQueueFactory;
+    private ShortMsgEvent shortMsgEvent;
 
     @Resource
     private IUserManager userManager;
@@ -45,71 +45,7 @@ public class IndexController extends ControllerAdapter {
         return new ModelAndView("buyers/" + path);
     }
 
-    /**
-     * Pages model and view.
-     *
-     * @param path   the path
-     * @param file   the file
-     * @param userId the user id
-     * @param model  the model
-     * @return the model and view
-     */
-    @GetMapping("/user/principal-withdrawals/{userId}")
-    public ModelAndView principal(@PathVariable String path, @PathVariable String file,@PathVariable Long userId, Model model) {
-        model.addAttribute("user", this.userManager.findById(userId));
-        model.addAttribute("userId", userId);
-        return new ModelAndView("buyers/" + path + "/" + file);
-    }
 
-    /**
-     * Fund details model and view.
-     *
-     * @param path   the path
-     * @param file   the file
-     * @param userId the user id
-     * @param model  the model
-     * @return the model and view
-     */
-    @GetMapping("/user/fund-details/{userId}")
-    public ModelAndView fundDetails(@PathVariable String path, @PathVariable String file,@PathVariable Long userId, Model model) {
-        model.addAttribute("user", this.userManager.findById(userId));
-        model.addAttribute("userId", userId);
-        return new ModelAndView("buyers/" + path + "/" + file);
-    }
-
-    /**
-     * Cash model and view.
-     *
-     * @param path   the path
-     * @param file   the file
-     * @param userId the user id
-     * @param model  the model
-     * @return the model and view
-     */
-    @GetMapping("/user/cash-withdrawals/{userId}")
-    public ModelAndView cash(@PathVariable String path, @PathVariable String file,@PathVariable Long userId, Model model) {
-        model.addAttribute("user", this.userManager.findById(userId));
-        model.addAttribute("userId", userId);
-        return new ModelAndView("buyers/" + path + "/" + file);
-    }
-
-    /**
-     * Task welfare model and view.
-     *
-     * @param userId the user id
-     * @param model  the model
-     * @return the model and view
-     */
-    @GetMapping("/task/welfare/{userId}")
-    public ModelAndView taskWelfare(@PathVariable Long userId, Model model) {
-        model.addAttribute("userId", userId);
-        try {
-            model.addAttribute("tbUsers", this.tbUserManager.findTbUserNumByUserId(userId));
-        } catch (Exception e) {
-            log.error(e.getMessage(), e);
-        }
-        return new ModelAndView("buyers/task/welfare");
-    }
 
     /**
      * User center model and view.
@@ -183,7 +119,7 @@ public class IndexController extends ControllerAdapter {
     @GetMapping("shortMessage/{phoneNum}")
     @ResponseBody
     public String sendShortMessage(@PathVariable String phoneNum) {
-        this.messageQueueFactory.sendShortMessage(phoneNum);
+        this.shortMsgEvent.sendShortMessage(phoneNum);
         return SUCCESS;
     }
 }

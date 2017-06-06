@@ -3,6 +3,7 @@ package com.wtf.core.interfaces.manager;
 
 import com.wtf.core.domain.dto.UserLoginDto;
 import com.wtf.core.domain.model.User;
+import com.wtf.core.domain.model.UserOrder;
 
 import java.util.List;
 
@@ -87,4 +88,14 @@ public interface IUserManager {
      * @return the int
      */
     int register(String loginName, String qq, String phoneNum, String checknum);
+
+
+    /**
+     * Find user order by user id user order.
+     *
+     * @param userId the user id
+     * @return the user order
+     * @throws Exception the exception
+     */
+    UserOrder findUserOrderByUserId(Long userId) throws  Exception;
 }

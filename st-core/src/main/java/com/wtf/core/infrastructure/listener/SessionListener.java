@@ -14,14 +14,10 @@ import java.util.HashSet;
 public class SessionListener implements HttpSessionListener {
     @Override
     public void sessionCreated(HttpSessionEvent httpSessionEvent) {
+        System.out.println(System.currentTimeMillis());
         final HttpSession session = httpSessionEvent.getSession();
         final ServletContext context = session.getServletContext();
-        if (context.getAttribute("count") == null) {
-            context.setAttribute("count", 0);
-        } else {
-            int count = (Integer) context.getAttribute("count");
-            context.setAttribute("count", count + 1);
-        }
+        context.setAttribute("time", System.currentTimeMillis());
     }
 
     @Override

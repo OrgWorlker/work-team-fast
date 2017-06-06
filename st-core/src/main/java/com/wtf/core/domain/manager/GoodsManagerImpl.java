@@ -3,14 +3,14 @@ package com.wtf.core.domain.manager;
 import com.wtf.core.domain.model.Goods;
 import com.wtf.core.interfaces.manager.IGoodsManager;
 import com.wtf.core.interfaces.service.IGoodsService;
-import com.wtf.infsc.infrastructure.stereotype.Manager;
+import com.wtf.infsc.infrastructure.stereotype.ManagerService;
 
 import javax.annotation.Resource;
 
 /**
  * The type Goods manager.
  */
-@Manager
+@ManagerService
 public class GoodsManagerImpl implements IGoodsManager {
 
     @Resource

@@ -4,11 +4,13 @@ import com.wtf.core.domain.dto.UserLoginDto;
 import com.wtf.core.domain.model.User;
 import com.wtf.core.domain.model.UserInfo;
 import com.wtf.core.domain.model.UserLevel;
+import com.wtf.core.domain.model.UserOrder;
 import com.wtf.core.interfaces.manager.IUserManager;
 import com.wtf.core.interfaces.service.IUserInfoService;
 import com.wtf.core.interfaces.service.IUserLevelService;
+import com.wtf.core.interfaces.service.IUserOrderService;
 import com.wtf.core.interfaces.service.IUserService;
-import com.wtf.infsc.infrastructure.stereotype.Manager;
+import com.wtf.infsc.infrastructure.stereotype.ManagerService;
 import com.wtf.infsc.infrastructure.util.MD5Util;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,7 +21,7 @@ import java.util.List;
 /**
  * The type User manager.
  */
-@Manager
+@ManagerService
 @Transactional
 public class UserManagerImpl implements IUserManager {
 
@@ -30,6 +32,8 @@ public class UserManagerImpl implements IUserManager {
     private IUserInfoService userInfoService;
     @Resource
     private IUserLevelService userLevelService;
+    @Resource
+    private IUserOrderService userOrderService;
 
     /**
      * Check user name and password int.
@@ -139,5 +143,17 @@ public class UserManagerImpl implements IUserManager {
         user.setLoginPwd(checknum);
 
         return this.userService.insert(user);
+    }
+
+    /**
+     * Find user order by user id user order.
+     *
+     * @param userId the user id
+     * @return the user order
+     * @throws Exception the exception
+     */
+    @Override
+    public UserOrder findUserOrderByUserId(Long userId) throws Exception {
+        return this.userOrderService.findByUserId(userId);
     }
 }

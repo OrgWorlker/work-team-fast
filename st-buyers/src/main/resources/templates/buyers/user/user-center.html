@@ -34,14 +34,14 @@
             </a>
         </li>
         <li>
-            <a th:href="'/user/withdrawals/' + ${userId} + '/'+${user.userLevel.gold}+ '/0'">
+            <a th:href="'/user/cash-withdrawals/'+${user.userLevel.gold}  + '/' + ${userId}">
                 <i class="icon iconfont icon-30-copy i_left"></i><span>金币提现</span>
                 <i class="allow icon iconfont icon-arrow-right"></i>
                 <span class="red" th:text="${user.userLevel.gold}">10.00</span>
             </a>
         </li>
         <li>
-            <a th:href="'/user/principal-withdrawals/' + ${userId} + '/'" >
+            <a th:href="'/user/principal-withdrawals/'+${user.userLevel.integral}  + '/' + ${userId}" >
                 <i class="icon iconfont icon-tixian2 i_left"></i>
                 <span>本金提现</span><i class="allow icon iconfont icon-arrow-right"></i>
                 <span class="red" th:text="${user.userLevel.integral}">0.00</span>

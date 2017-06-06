@@ -49,3 +49,6 @@ logging:
         ibatis: trace
       springframework: info
   config: classpath:logback-spring.xml
+file-server:
+  host: localhost
+  port: 9100

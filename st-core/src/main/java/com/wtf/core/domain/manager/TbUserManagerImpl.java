@@ -3,7 +3,7 @@ package com.wtf.core.domain.manager;
 import com.wtf.core.domain.model.TbUser;
 import com.wtf.core.interfaces.manager.ITbUserManager;
 import com.wtf.core.interfaces.service.ITbUserService;
-import com.wtf.infsc.infrastructure.stereotype.Manager;
+import com.wtf.infsc.infrastructure.stereotype.ManagerService;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * The type Tb user manager.
  */
-@Manager
+@ManagerService
 public class TbUserManagerImpl implements ITbUserManager {
 
     /**

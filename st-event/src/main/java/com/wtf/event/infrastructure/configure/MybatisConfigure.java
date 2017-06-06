@@ -1,4 +1,4 @@
-package com.wtf.core.infrastructure.configure;
+package com.wtf.event.infrastructure.configure;
 
 import com.github.pagehelper.PageHelper;
 import org.springframework.context.annotation.Bean;

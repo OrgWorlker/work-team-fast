@@ -1,7 +1,7 @@
 package com.wtf.file.domain.factory;
 
-import com.wtf.file.infrastructure.configure.FileConfigure;
-import com.wtf.infsc.infrastructure.stereotype.Factory;
+import com.wtf.infsc.infrastructure.configure.FileProperties;
+import com.wtf.infsc.infrastructure.stereotype.FactoryService;
 import com.wtf.infsc.infrastructure.util.MD5Util;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -16,11 +16,11 @@ import java.util.UUID;
  * The type File save factory.
  */
 @Slf4j
-@Factory
+@FactoryService
 public class FileSaveFactory {
 
     @Resource
-    private FileConfigure fileConfig;
+    private FileProperties fileProperties;
 
     @Resource
     private StringRedisTemplate stringRedisTemplate;
@@ -42,7 +42,7 @@ public class FileSaveFactory {
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
         // 文件上传后的路径
         // 解决中文问题，liunx下中文路径，图片显示问题
-        final String filePath = this.fileConfig.getFilePath() + this.fileConfig.getDir();
+        final String filePath = this.fileProperties.getFilePath() + this.fileProperties.getDir();
         final String pathname = filePath + UUID.randomUUID() + suffixName;
         File dest = new File(pathname);
         // 检测是否存在目录

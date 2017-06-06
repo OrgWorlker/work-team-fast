@@ -8,17 +8,17 @@
         <div class="top">
             <div class="item">
                 <div><i class="icon iconfont icon-xiaoliansvg"></i></div>
-                <p class="red">0分钟</p>
+                <p class="red" th:text="${time} + '分钟'">0分钟</p>
                 <p>在线时间</p>
             </div>
             <div class="item">
                 <div><i class="icon iconfont icon-dingdan1"></i></div>
-                <p class="red">269单</p>
+                <p class="red" th:text="${orderCount} +'单'">269</p>
                 <p>接单</p>
             </div>
             <div class="item">
                 <div><i class="icon iconfont icon-duigouzhuanhuan"></i></div>
-                <p class="red">1%</p>
+                <p class="red" th:text="${orderPvg} + '%'">1%</p>
                 <p>完成率</p>
             </div>
         </div>

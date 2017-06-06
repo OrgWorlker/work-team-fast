@@ -1,5 +1,6 @@
 package com.wtf.file.infrastructure.configure;
 
+import com.wtf.infsc.infrastructure.configure.FileProperties;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,11 +12,11 @@ import javax.annotation.Resource;
 @RunWith(SpringRunner.class)
 public class FileConfigureTest {
     @Resource
-    private FileConfigure fileConfig;
+    private FileProperties fileProperties;
     @Test
     public void getFilePath() throws Exception {
-        this.fileConfig.getFilePath();
-        System.out.println(this.fileConfig.toString());
+        this.fileProperties.getFilePath();
+        System.out.println(this.fileProperties.toString());
     }
 
 }

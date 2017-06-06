@@ -1,17 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="yes" name="apple-mobile-web-app-capable">
-    <meta content="yes" name="apple-touch-fullscreen">
-    <meta content="telephone=no,email=no" name="format-detection">
-    <!--<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>-->
-    <script src="/static/scripts/plugins/flexible.js"></script>
-    <!--<link rel="stylesheet" href="//at.alicdn.com/t/font_pae0fnfml5jt6gvi.css">-->
-    <link rel="stylesheet" href="/static/css/iconfont.css">
-    <link rel="stylesheet" href="/static/css/base.css">
-    <link rel="stylesheet" href="/static/css/cash-withdrawals.css">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/header::head_main_css">
 </head>
+    <link rel="stylesheet" href="/static/css/cash-withdrawals.css">
 <body>
     <div class="cashWithdrawals">
         <div class="header"><i class="icon iconfont icon-jinlingyingcaiicon01"></i>金币</div>
@@ -19,7 +10,7 @@
             <p class="rule"><a href="###">提现收费规则></a></p>
             <p><img src="/static/images/cash.png" alt=""></p>
             <p>我的金币</p>
-            <p class="myCash">0.00</p>
+            <p class="myCash" th:text="${money}">0.00</p>
         </div>
         <div class="list record">
             <ul>
