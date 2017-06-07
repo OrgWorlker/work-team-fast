@@ -39,7 +39,7 @@ public class DistrictManagerImpl implements IDistrictManager {
                 for (District city : citys) {
                     final Map<String, Object> ctmap = new HashMap<>();
                     final List<Map<String, Object>> ctMapList =  new ArrayList<>();
-                    final List<District> areas = this.districtService.findByPid(pd.getId());
+                    final List<District> areas = this.districtService.findByPid(city.getId());
                     ctmap.put("id", city.getId());
                     ctmap.put("name", city.getName());
                     for (District area : areas) {
