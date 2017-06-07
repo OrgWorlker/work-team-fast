@@ -21,12 +21,12 @@
                 th:text="'本金:'+${user.userLevel.integral}">0.00</span></div>
     </div>
     <ul class="list">
-        <li><a th:href="'/user/user-info/' + ${userId} +'/'" ><i class="icon iconfont icon-geren-copy i_left"></i><span>个人资料</span><i
+        <li><a th:href="'/user/info/' + ${userId} +'/'" ><i class="icon iconfont icon-geren-copy i_left"></i><span>个人资料</span><i
                 class="allow icon iconfont icon-arrow-right"></i></a></li>
         <li><a th:href="'/user/bind/' + ${userId} +'/'"><i class="icon iconfont icon-taobaozhanghaodenglu i_left"></i><span>淘宝账号</span><i
                 class="allow icon iconfont icon-arrow-right"></i></a></li>
-        <li><a th:href="'/user/welfare/' + ${userId} + '/'"><i class="icon iconfont icon-iconfontzhizuobiaozhun47 i_left"></i><span>福利设置</span><i
-                class="allow icon iconfont icon-arrow-right"></i></a></li>
+       <!-- <li><a th:href="'/user/welfare/' + ${userId} + '/'"><i class="icon iconfont icon-iconfontzhizuobiaozhun47 i_left"></i><span>福利设置</span><i
+                class="allow icon iconfont icon-arrow-right"></i></a></li>-->
         <li>
             <a th:href="'/user/fund-details/' + ${userId} + '/'">
                 <i class="icon iconfont icon-zijinmingxi i_left"></i><span>资金明细</span>
@@ -51,6 +51,8 @@
                 class="allow icon iconfont icon-arrow-right"></i></a></li>
         <li><a href="###"><i class="icon iconfont icon-bangzhuz hongxin i_left"></i><span>帮助中心</span><i
                 class="allow icon iconfont icon-arrow-right"></i></a></li>-->
+        <li></li>
+        <li></li>
         <li></li>
     </ul>
     <div class="footer" th:replace="/common/foot::main_footer"></div>

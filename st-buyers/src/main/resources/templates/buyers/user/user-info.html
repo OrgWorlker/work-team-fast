@@ -9,11 +9,11 @@
         <div class="info">
             <ul>
                 <li><div class="left">头像</div><div class="right"><i class="icon iconfont icon-arrow-right"></i></div></li>
-                <li><div class="left">地区</div><div class="right"><span>背景，东城区，null</span><i class="icon iconfont icon-arrow-right"></i></div></li>
-                <li><div class="left">QQ号码</div><div class="right"><span>888828882</span><i class="icon iconfont icon-arrow-right"></i></div></li>
-                <li><div class="left">手机号码</div><div class="right"><span>1388858888</span><i class="icon iconfont icon-arrow-right"></i></div></li>
+                <li><div class="left">地区</div><div class="right"><span>北京，东城区</span><i class="icon iconfont icon-arrow-right"></i></div></li>
+                <li><div class="left">QQ号码</div><div class="right"><span th:text="${user.userInfo.qq}"></span><i class="icon iconfont icon-arrow-right"></i></div></li>
+                <li><div class="left">手机号码</div><div class="right"><span th:text="${user.userInfo.telphone}"></span><i class="icon iconfont icon-arrow-right"></i></div></li>
                 <li><div class="left">登录密码</div><div class="right"><i class="icon iconfont icon-arrow-right"></i></div></li>
-                <li><div class="left">支付密码</div><div class="right"><i class="icon iconfont icon-arrow-right"></i></div></li>
+                <!--<li><div class="left">支付密码</div><div class="right"><i class="icon iconfont icon-arrow-right"></i></div></li>-->
             </ul>
         </div>
         <p class="logout"><button class="submitButton">退出登录</button></p>

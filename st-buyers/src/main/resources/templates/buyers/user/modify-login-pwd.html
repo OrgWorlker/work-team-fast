@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/header::head_main_css">
+</head>
+<link rel="stylesheet" href="/static/css/register.css">
+<body>
+<div class="register">
+    <div class="header"><i class="icon iconfont icon-jinlingyingcaiicon01"></i></div>
+    <div class="vip"><img src="/static/images/vip.png" alt=""></div>
+    <div   class="form">
+        <ul>
+            <li><img src="/static/images/password.png" alt=""><input type="password" id="oldPwd" placeholder="请输入旧密码"></li>
+            <li><img src="/static/images/password.png" alt=""><input type="password" id="newPwd" placeholder="请输入6到18位新密码"></li>
+            <li><img src="/static/images/password.png" alt=""><input type="password" id="pwd" placeholder="确认密码"></li>
+        </ul>
+        <input class="button" type="button" id="update" value="确认修改">
+    </div>
+</div>
+</body>
+</html>

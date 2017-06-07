@@ -4,6 +4,7 @@ import com.wtf.core.domain.dto.UserLoginDto;
 import com.wtf.core.domain.model.User;
 import com.wtf.core.infrastructure.adapter.ControllerAdapter;
 import com.wtf.core.interfaces.manager.IUserManager;
+import com.wtf.infsc.infrastructure.configure.FileServerConfigure;
 import com.wtf.infsc.infrastructure.constant.Constant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -24,9 +25,10 @@ import javax.servlet.http.HttpServletRequest;
 public class UserController extends ControllerAdapter {
     @Resource
     private IUserManager userManager;
-
     @Resource
     private StringRedisTemplate stringRedisTemplate;
+    @Resource
+    private FileServerConfigure fileServerConfigure;
 
     /**
      * Pages model and view.
@@ -37,7 +39,7 @@ public class UserController extends ControllerAdapter {
      * @return the model and view
      */
     @GetMapping("principal-withdrawals/{money}/{userId}")
-    public ModelAndView principal(@PathVariable Long userId, @PathVariable Double money , Model model) {
+    public ModelAndView principal(@PathVariable Long userId, @PathVariable Double money, Model model) {
         model.addAttribute("money", money);
         model.addAttribute("userId", userId);
         return new ModelAndView("buyers/user/principal-withdrawals");
@@ -66,10 +68,24 @@ public class UserController extends ControllerAdapter {
      * @return the model and view
      */
     @GetMapping("cash-withdrawals/{money}/{userId}")
-    public ModelAndView cash(@PathVariable Long userId, @PathVariable Double money , Model model) {
+    public ModelAndView cash(@PathVariable Long userId, @PathVariable Double money, Model model) {
         model.addAttribute("money", money);
         model.addAttribute("userId", userId);
         return new ModelAndView("buyers/user/cash-withdrawals");
+    }
+
+    /**
+     * Cash model and view.
+     *
+     * @param userId the user id
+     * @param model  the model
+     * @return the model and view
+     */
+    @GetMapping("info/{userId}")
+    public ModelAndView userInfo(@PathVariable Long userId,Model model) {
+        model.addAttribute("user", this.userManager.findById(userId));
+        model.addAttribute("userId", userId);
+        return new ModelAndView("buyers/user/user-info");
     }
 
     /**
@@ -82,10 +98,13 @@ public class UserController extends ControllerAdapter {
     @GetMapping("bind/{userId}")
     public ModelAndView bind(@PathVariable Long userId, Model model) {
         model.addAttribute("userId", userId);
+        model.addAttribute("fileConfig", this.fileServerConfigure);
         return new ModelAndView("buyers/user/bind");
-
     }
 
+    public ModelAndView modify(Long userId) {
+        return new ModelAndView();
+    }
     /**
      * Login string.
      * 用户登录的方法，成功返回success，失败返回error
@@ -143,7 +162,7 @@ public class UserController extends ControllerAdapter {
      */
     @PostMapping("retrieve")
     @ResponseBody
-    public String retrieve(String phoneNum, String valicode, String checkNum){
+    public String retrieve(String phoneNum, String valicode, String checkNum) {
         final String realValicode = this.stringRedisTemplate.opsForValue().get(phoneNum);
         if (!valicode.equals(realValicode)) {
             return "ERROR_VALI_CODE";

@@ -55,7 +55,7 @@ public interface IUserManager {
      * @param id     the user id
      * @param oldPwd the old pwd
      * @param newPwd the new pwd
-     * @param type   the type
+     * @param type   the type 0表示登陆密码 1表示交易密码
      * @return the int
      */
     int checkAndUpdatePwd(Long id, String oldPwd, String newPwd, Integer type);
