@@ -46,10 +46,10 @@
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>0.4.3</version>
+                <version>0.4.13</version>
                 <configuration>
                     <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <dockerDirectory>${project.build.directory}</dockerDirectory>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
@@ -58,6 +58,25 @@
                         </resource>
                     </resources>
                 </configuration>
+                <!--直接在package的时候执行docker build-->
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                    <!--<execution>
+                        <id>push-image</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>push</goal>
+                        </goals>
+                        <configuration>
+                            <imageName>${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}</imageName>
+                        </configuration>
+                    </execution>-->
+                </executions>
             </plugin>
         </plugins>
     </build>
