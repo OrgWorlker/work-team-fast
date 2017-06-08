@@ -1,5 +1,6 @@
 package com.wtf.core.infrastructure.configure;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -20,6 +21,11 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
                 .addPathPatterns("/**")
                 .excludePathPatterns("/**/login")
                 .excludePathPatterns("/error")
+                .excludePathPatterns("/register")
+                .excludePathPatterns("/user/register")
+                .excludePathPatterns("/user/retrieve")
+                .excludePathPatterns("/retrieve-pwd")
+                .excludePathPatterns("/static/**")
                 .excludePathPatterns("/webjars/**")
                 .excludePathPatterns("/shortMessage/**")
                 .excludePathPatterns("/**/favicon.ico");
@@ -31,4 +37,5 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/static/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX + "/static/");
         super.addResourceHandlers(registry);
     }
+
 }

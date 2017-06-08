@@ -34,7 +34,7 @@ public class FileController {
     @Resource
     private FileSaveFactory fileSaveFactory;
     @Resource
-    private  ResourceLoader resourceLoader;
+    private ResourceLoader resourceLoader;
 
     /**
      * Upload file result.
@@ -45,7 +45,7 @@ public class FileController {
 //文件上传相关代码
     @RequestMapping(value = "upload")
     @ResponseBody
-    public FileResult upload(@RequestParam MultipartFile file) {
+    public FileResult upload(@RequestParam MultipartFile file, HttpServletResponse response) {
         final String fileKey = this.fileSaveFactory.saveFile(file);
         if (StringUtils.isNotBlank(fileKey)) {
             return new FileResult("200", fileKey);
@@ -96,14 +96,14 @@ public class FileController {
         try {
             //图片读取路径
             final String filePathName = this.fileSaveFactory.getFilePathName(filekey);
-            in=new FileInputStream(filePathName);
-            int i=in.available();
-            byte[]data=new byte[i];
+            in = new FileInputStream(filePathName);
+            int i = in.available();
+            byte[] data = new byte[i];
             in.read(data);
             in.close();
 
             //写图片
-            OutputStream outputStream=new BufferedOutputStream(response.getOutputStream());
+            OutputStream outputStream = new BufferedOutputStream(response.getOutputStream());
             outputStream.write(data);
             outputStream.flush();
             outputStream.close();
@@ -120,7 +120,7 @@ public class FileController {
      * @return the object
      */
 //多文件上传
-    @RequestMapping(value = "/batch/upload", method = RequestMethod.POST)
+    @RequestMapping(value = "/batch/upload" )
     @ResponseBody
     public Object handleFileUpload(HttpServletRequest request) {
         List<MultipartFile> files = ((MultipartHttpServletRequest) request)
@@ -128,7 +128,7 @@ public class FileController {
         final List<String> fileKeys = new ArrayList<>();
         for (MultipartFile file : files) {
             final String fileKey = this.fileSaveFactory.saveFile(file);
-            if (StringUtils.isNotBlank(fileKey)){
+            if (StringUtils.isNotBlank(fileKey)) {
                 fileKeys.add(fileKey);
             }
         }

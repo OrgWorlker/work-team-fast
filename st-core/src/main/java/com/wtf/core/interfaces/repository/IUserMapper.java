@@ -17,5 +17,12 @@ public interface IUserMapper extends BaseMapper<User> {
      */
     User findByUserName(String userName);
 
+    /**
+     * Find by phone num user.
+     *
+     * @param phoneNum the phone num
+     * @return the user
+     */
+    User findByPhoneNum(String phoneNum);
 }
 

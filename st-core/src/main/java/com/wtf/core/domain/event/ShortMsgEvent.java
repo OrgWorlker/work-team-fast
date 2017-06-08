@@ -1,6 +1,6 @@
-package com.wtf.core.domain.factory;
+package com.wtf.core.domain.event;
 
-import com.wtf.infsc.infrastructure.stereotype.Factory;
+import com.wtf.infsc.infrastructure.stereotype.FactoryService;
 import org.springframework.amqp.core.AmqpTemplate;
 
 import javax.annotation.Resource;
@@ -8,21 +8,11 @@ import javax.annotation.Resource;
 /**
  * The type Message queue factory.
  */
-@Factory
-public class MessageQueueFactory {
+@FactoryService
+public class ShortMsgEvent {
 
     @Resource
     private AmqpTemplate rabbitTemplate;
-
-    @Resource
-    private CacheFactory cacheFactory;
-
-    /**
-     * Send.
-     */
-    public void send() {
-        this.rabbitTemplate.convertAndSend("hello", "haha");
-    }
 
     /**
      * Send short message.

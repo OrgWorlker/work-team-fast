@@ -19,4 +19,15 @@ public class UserServiceImpl extends BaseServiceImpl<User, IUserMapper> implemen
         return this.getMapper().findByUserName(userName);
     }
 
+    /**
+     * Find by phone num user.
+     *
+     * @param phoneNum the phone num
+     * @return the user
+     */
+    @Override
+    public User findByPhoneNum(String phoneNum) {
+        return this.getMapper().findByPhoneNum(phoneNum);
+    }
+
 }

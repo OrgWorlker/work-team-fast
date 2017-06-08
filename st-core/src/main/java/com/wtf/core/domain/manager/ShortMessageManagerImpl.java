@@ -1,25 +1,25 @@
 package com.wtf.core.domain.manager;
 
-import com.wtf.core.domain.factory.MessageQueueFactory;
+import com.wtf.core.domain.event.ShortMsgEvent;
 import com.wtf.core.interfaces.manager.IShortMesageManager;
-import com.wtf.infsc.infrastructure.stereotype.Manager;
+import com.wtf.infsc.infrastructure.stereotype.ManagerService;
 
 import javax.annotation.Resource;
 
 /**
  * The type Short message manager.
  */
-@Manager
+@ManagerService
 public class ShortMessageManagerImpl implements IShortMesageManager {
     /**
      * The Message queue factory.
      */
     @Resource
-    MessageQueueFactory messageQueueFactory;
+    ShortMsgEvent shortMsgEvent;
 
     @Override
     public int send(String phoneNum) throws Exception {
-        this.messageQueueFactory.sendShortMessage(phoneNum);
+        this.shortMsgEvent.sendShortMessage(phoneNum);
         return 1;
     }
 }

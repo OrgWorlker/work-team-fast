@@ -16,6 +16,8 @@ $(function () {
     }
     var username = $.cookie('username');
     var checknum = $.cookie('checknum');
+    $("#username").val(username);
+    $("#checknum").val(checknum);
     if (username && checknum) {
         login(username, checknum)
     }
@@ -24,6 +26,4 @@ $(function () {
         checknum = $("#checknum").val();
         login(username, checknum);
     });
-    console.log(username)
-    console.log(checknum)
 });

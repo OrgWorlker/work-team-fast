@@ -7,21 +7,18 @@
     <meta content="telephone=no,email=no" name="format-detection">
     <!--<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>-->
     <script src="/static/scripts/plugins/flexible.js"></script>
-    <!--<link rel="stylesheet" href="//at.alicdn.com/t/font_deah913ehzv0lik9.css">-->
+    <!--<link rel="stylesheet" href="//at.alicdn.com/t/font_pae0fnfml5jt6gvi.css">-->
     <link rel="stylesheet" href="/static/css/iconfont.css">
     <link rel="stylesheet" href="/static/css/base.css">
-    <!--<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>-->
-    <script src="/static/scripts/plugins/flexible.js"></script>
     <script th:inline="javascript" >
     var userId = [[${userId}]];
     </script>
-    <script src="/static/scripts/plugins/zepto.js"></script>
     <script src="/static/scripts/plugins/jquery-2.1.1.min.js"></script>
     <script src="/static/scripts/plugins/jquery.cookie.js"></script>
     <script type="application/javascript"  >
         $(function () {
             $(".icon-jinlingyingcaiicon01").click(function () {
-                history.back();
+                history.go(-1);
             });
         });
     </script>

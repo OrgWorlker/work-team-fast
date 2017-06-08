@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/header::head_main_css">
+</head>
+    <link rel="stylesheet" href="/static/css/cash-withdrawals.css">
+<body>
+    <div class="cashWithdrawals">
+        <div class="header"><i class="icon iconfont icon-jinlingyingcaiicon01"></i>本金</div>
+        <div class="content">
+            <p class="rule"><a href="###">提现收费规则></a></p>
+            <p><img src="/static/images/cash.png" alt=""></p>
+            <p>我的本金</p>
+            <p class="myCash" th:text="${money}">0.00</p>
+        </div>
+        <div class="list record">
+            <ul>
+                <li><a href="###">本金记录</a><i class="icon iconfont icon-arrow-right"></i></li>
+                <li><a href="###">提现记录</a><i class="icon iconfont icon-arrow-right"></i></li>
+            </ul>
+        </div>
+        <p class="button"><button class="submitButton">提现</button></p>
+    </div>
+</body>
+</html>

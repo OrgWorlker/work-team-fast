@@ -3,6 +3,7 @@ package com.wtf.core.interfaces.manager;
 
 import com.wtf.core.domain.dto.UserLoginDto;
 import com.wtf.core.domain.model.User;
+import com.wtf.core.domain.model.UserOrder;
 
 import java.util.List;
 
@@ -54,7 +55,7 @@ public interface IUserManager {
      * @param id     the user id
      * @param oldPwd the old pwd
      * @param newPwd the new pwd
-     * @param type   the type
+     * @param type   the type 0表示登陆密码 1表示交易密码
      * @return the int
      */
     int checkAndUpdatePwd(Long id, String oldPwd, String newPwd, Integer type);
@@ -67,4 +68,34 @@ public interface IUserManager {
      * @throws Exception the exception
      */
     int updateUser(User user) throws Exception;
+
+    /**
+     * Update pwd by login name int.
+     *
+     * @param phoneNum the phone num
+     * @param checkNum the check num
+     * @return the int
+     */
+    int updatePwdByPhoneName(String phoneNum, String checkNum);
+
+    /**
+     * Register int.
+     *
+     * @param loginName the login name
+     * @param qq        the qq
+     * @param phoneNum  the phone num
+     * @param checknum  the checknum
+     * @return the int
+     */
+    int register(String loginName, String qq, String phoneNum, String checknum);
+
+
+    /**
+     * Find user order by user id user order.
+     *
+     * @param userId the user id
+     * @return the user order
+     * @throws Exception the exception
+     */
+    UserOrder findUserOrderByUserId(Long userId) throws  Exception;
 }

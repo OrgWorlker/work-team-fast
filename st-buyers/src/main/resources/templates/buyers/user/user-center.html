@@ -4,43 +4,61 @@
 </head>
 <body>
 <div class="container">
+
     <div class="header">
-        <i class="left icon iconfont icon-kefu"></i>
-        <div class="user"><img src="/static/images/bingo.jpg" alt=""><span th:text="${user.name}">Bingo</span>
+        <a href="###"><i class="left icon iconfont icon-kefu"></i></a>
+        <div class="user"><a href="user-info.html"><img src="/static/images/bingo.jpg" alt=""></a><span
+                th:text="${user.name}">Bingo</span>
             <div><i class="icon iconfont icon-v1 v1"></i></div>
         </div>
-        <i class="right icon iconfont icon-shezhi"></i>
+        <a href="###"><i class="right icon iconfont icon-shezhi"></i></a>
     </div>
     <div class="title">
-        <div class="t_left"><i class="icon iconfont icon-meiyuanyuanquan-fill"></i><span
-                th:text="'金币:'+${user.userLevel.gold}">0.00</span></div>
+        <div class="t_left"><a href="###"><i class="icon iconfont icon-meiyuanyuanquan-fill"></i></a><span
+                th:text="'金币:'+${user.userLevel.gold}">金币 : 10.00</span></div>
         <div class="middle"></div>
-        <div class="t_right"><i class="icon iconfont icon-tixian1"></i><span th:text="'本金:'+${user.userLevel.integral}">0.00</span>
-        </div>
+        <div class="t_right"><a href="###"><i class="icon iconfont icon-tixian1"></i></a><span
+                th:text="'本金:'+${user.userLevel.integral}">0.00</span></div>
     </div>
     <ul class="list">
-        <li><i class="icon iconfont icon-geren-copy i_left"></i><span>个人资料</span><i
-                class="allow icon iconfont icon-arrow-right"></i></li>
-        <li><i class="icon iconfont icon-taobaozhanghaodenglu i_left"></i><span>淘宝账号</span><i
-                class="allow icon iconfont icon-arrow-right"></i></li>
-        <li><i class="icon iconfont icon-iconfontzhizuobiaozhun47 i_left"></i><span>福利设置</span><i
-                class="allow icon iconfont icon-arrow-right"></i></li>
-        <li><i class="icon iconfont icon-zijinmingxi i_left"></i><span>资金明细</span><i
-                class="allow icon iconfont icon-arrow-right"></i></li>
-        <li><i class="icon iconfont icon-30-copy i_left"></i><span>金币提现</span><i th:value="'/user/withdrawals/' +${userId} +'/'+${user.userLevel.gold}+'/0'"
-                class="allow icon iconfont icon-arrow-right" ></i><span class="red" th:text="${user.userLevel.gold}">10.00</span>
+        <li><a th:href="'/user/info/' + ${userId} +'/'" ><i class="icon iconfont icon-geren-copy i_left"></i><span>个人资料</span><i
+                class="allow icon iconfont icon-arrow-right"></i></a></li>
+        <li><a th:href="'/user/bind/' + ${userId} +'/'"><i class="icon iconfont icon-taobaozhanghaodenglu i_left"></i><span>淘宝账号</span><i
+                class="allow icon iconfont icon-arrow-right"></i></a></li>
+       <!-- <li><a th:href="'/user/welfare/' + ${userId} + '/'"><i class="icon iconfont icon-iconfontzhizuobiaozhun47 i_left"></i><span>福利设置</span><i
+                class="allow icon iconfont icon-arrow-right"></i></a></li>-->
+        <li>
+            <a th:href="'/user/fund-details/' + ${userId} + '/'">
+                <i class="icon iconfont icon-zijinmingxi i_left"></i><span>资金明细</span>
+                <i class="allow icon iconfont icon-arrow-right"></i>
+            </a>
         </li>
-        <li><i class="icon iconfont icon-tixian2 i_left"></i><span>本金提现</span><i
-                class="allow icon iconfont icon-arrow-right"></i><span class="red" th:text="${user.userLevel.integral}">10.00</span>
+        <li>
+            <a th:href="'/user/cash-withdrawals/'+${user.userLevel.gold}  + '/' + ${userId}">
+                <i class="icon iconfont icon-30-copy i_left"></i><span>金币提现</span>
+                <i class="allow icon iconfont icon-arrow-right"></i>
+                <span class="red" th:text="${user.userLevel.gold}">10.00</span>
+            </a>
         </li>
-        <!--<li><i class="icon iconfont icon-gonggaotongzhi i_left"></i><span>公告通知</span><i class="allow icon iconfont icon-arrow-right"></i></li>
-        <li><i class="icon iconfont icon-bangzhuzhongxin i_left"></i><span>帮助中心</span><i class="allow icon iconfont icon-arrow-right"></i></li>-->
-        <!--<li></li>-->
+        <li>
+            <a th:href="'/user/principal-withdrawals/'+${user.userLevel.integral}  + '/' + ${userId}" >
+                <i class="icon iconfont icon-tixian2 i_left"></i>
+                <span>本金提现</span><i class="allow icon iconfont icon-arrow-right"></i>
+                <span class="red" th:text="${user.userLevel.integral}">0.00</span>
+            </a>
+        </li>
+        <!--<li><a href="###"><i class="icon iconfont icon-gonggaotongzhi i_left"></i><span>公告通知</span><i
+                class="allow icon iconfont icon-arrow-right"></i></a></li>
+        <li><a href="###"><i class="icon iconfont icon-bangzhuz hongxin i_left"></i><span>帮助中心</span><i
+                class="allow icon iconfont icon-arrow-right"></i></a></li>-->
+        <li></li>
+        <li></li>
+        <li></li>
     </ul>
     <div class="footer" th:replace="/common/foot::main_footer"></div>
 </div>
 
-<link rel="stylesheet" href="/static/css/index.css">
+<link rel="stylesheet" href="/static/css/index.css"/>
 <script src="/static/scripts/index.js"></script>
 <script src="/static/scripts/user/user-center.js"></script>
 </body>

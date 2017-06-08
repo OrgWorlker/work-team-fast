@@ -1,6 +1,6 @@
 package com.wtf.buyers.application;
 
-import com.wtf.core.domain.factory.MessageQueueFactory;
+import com.wtf.core.domain.event.ShortMsgEvent;
 import com.wtf.core.domain.model.User;
 import com.wtf.core.infrastructure.adapter.ControllerAdapter;
 import com.wtf.core.interfaces.manager.ITbUserManager;
@@ -24,7 +24,7 @@ import javax.annotation.Resource;
 public class IndexController extends ControllerAdapter {
 
     @Resource
-    private MessageQueueFactory messageQueueFactory;
+    private ShortMsgEvent shortMsgEvent;
 
     @Resource
     private IUserManager userManager;
@@ -32,6 +32,7 @@ public class IndexController extends ControllerAdapter {
 
     @Resource
     private ITbUserManager tbUserManager;
+
     /**
      * Main string.
      * 页面跳转主入口
@@ -44,40 +45,7 @@ public class IndexController extends ControllerAdapter {
         return new ModelAndView("buyers/" + path);
     }
 
-    /**
-     * Pages model and view.
-     *
-     * @param path the path
-     * @param file the file
-     * @return the model and view
-     */
-/*
-     * Main string.
-     * 页面跳转主入口
-     * @param path the path
-     * @return the string
-     */
-    @GetMapping("/{path}/{file}")
-    public ModelAndView pages(@PathVariable String path, @PathVariable String file) {
-        return new ModelAndView("buyers/" + path + "/" + file);
-    }
 
-    /*
-     * Main string.
-     * 接单页面入口
-     * @param path the path
-     * @return the string
-     */
-    @GetMapping("/task/welfare/{userId}")
-    public ModelAndView taskWelfare(@PathVariable Long userId, Model model) {
-        model.addAttribute("userId", userId);
-        try {
-            model.addAttribute("tbUsers", this.tbUserManager.findTbUserNumByUserId(userId));
-        } catch (Exception e) {
-            log.error(e.getMessage(), e);
-        }
-        return new ModelAndView("buyers/task/welfare");
-    }
 
     /**
      * User center model and view.
@@ -98,6 +66,8 @@ public class IndexController extends ControllerAdapter {
      *
      * @param model  the model
      * @param userId the user id
+     * @param type   the type
+     * @param price  the price
      * @return the model and view
      */
     @GetMapping("/user/withdrawals/{userId}/{price}/{type}")
@@ -109,7 +79,10 @@ public class IndexController extends ControllerAdapter {
         model.addAttribute("price", price);
         final String wechatQrcodeUrl = user.getPayment().getWechatQrcodeUrl();
         model.addAttribute("src", StringUtils.isBlank(wechatQrcodeUrl) ?"/static/images/weqrcode.png": wechatQrcodeUrl);
-        return new ModelAndView("buyers/user/withdrawals");
+        if (type == 0) {
+            return new ModelAndView("buyers/user/case-withdrawals");
+        }
+        return new ModelAndView("buyers/user/principal-withdrawals");
     }
 
 
@@ -119,12 +92,6 @@ public class IndexController extends ControllerAdapter {
      * @param model  the model
      * @param userId the user id
      * @return the model and view
-     */
-/*
-     * Main string.
-     * 页面跳转主入口
-     * @param path the path
-     * @return the string
      */
     @GetMapping("/user/first-into/{userId}")
     public ModelAndView firstInto(Model model, @PathVariable Long userId) {
@@ -152,7 +119,7 @@ public class IndexController extends ControllerAdapter {
     @GetMapping("shortMessage/{phoneNum}")
     @ResponseBody
     public String sendShortMessage(@PathVariable String phoneNum) {
-        this.messageQueueFactory.sendShortMessage(phoneNum);
+        this.shortMsgEvent.sendShortMessage(phoneNum);
         return SUCCESS;
     }
 }

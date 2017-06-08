@@ -2,23 +2,38 @@ package com.wtf.core.domain.manager;
 
 import com.wtf.core.domain.dto.UserLoginDto;
 import com.wtf.core.domain.model.User;
+import com.wtf.core.domain.model.UserInfo;
+import com.wtf.core.domain.model.UserLevel;
+import com.wtf.core.domain.model.UserOrder;
 import com.wtf.core.interfaces.manager.IUserManager;
+import com.wtf.core.interfaces.service.IUserInfoService;
+import com.wtf.core.interfaces.service.IUserLevelService;
+import com.wtf.core.interfaces.service.IUserOrderService;
 import com.wtf.core.interfaces.service.IUserService;
-import com.wtf.infsc.infrastructure.stereotype.Manager;
+import com.wtf.infsc.infrastructure.stereotype.ManagerService;
 import com.wtf.infsc.infrastructure.util.MD5Util;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
  * The type User manager.
  */
-@Manager
+@ManagerService
+@Transactional
 public class UserManagerImpl implements IUserManager {
 
     @Resource
     private IUserService userService;
 
+    @Resource
+    private IUserInfoService userInfoService;
+    @Resource
+    private IUserLevelService userLevelService;
+    @Resource
+    private IUserOrderService userOrderService;
 
     /**
      * Check user name and password int.
@@ -82,5 +97,63 @@ public class UserManagerImpl implements IUserManager {
     @Override
     public int updateUser(User user) throws Exception {
         return this.userService.update(user);
+    }
+
+    /**
+     * Update pwd by login name int.
+     *
+     * @param phoneNum the phone num
+     * @param checkNum the check num
+     * @return the int
+     */
+    @Override
+    public int updatePwdByPhoneName(String phoneNum, String checkNum) {
+        final User user = this.userService.findByPhoneNum(phoneNum);
+        user.setLoginPwd(MD5Util.md5Encode(checkNum));
+        return this.userService.update(user);
+    }
+
+    /**
+     * Register int.
+     *
+     * @param loginName the login name
+     * @param qq        the qq
+     * @param phoneNum  the phone num
+     * @param checknum  the checknum
+     * @return the int
+     */
+    @Override
+    public int register(String loginName, String qq, String phoneNum, String checknum) {
+        final Date date = new Date();
+        final User user = new User();
+        final UserInfo userInfo = new UserInfo();
+        final UserLevel userLevel = new UserLevel();
+        userInfo.setQq(qq);
+        userInfo.setTelphone(phoneNum);
+        userInfo.setCrtTime(date);
+        userInfo.setUpdTime(date);
+        this.userInfoService.insert(userInfo);
+        userLevel.setCrtTime(date);
+        userLevel.setUpdTime(date);
+        userLevel.setVip(1);
+        this.userLevelService.insert(userLevel);
+        user.setUserInfo(userInfo);
+        user.setUserLevel(userLevel);
+        user.setLoginName(loginName);
+        user.setLoginPwd(checknum);
+
+        return this.userService.insert(user);
+    }
+
+    /**
+     * Find user order by user id user order.
+     *
+     * @param userId the user id
+     * @return the user order
+     * @throws Exception the exception
+     */
+    @Override
+    public UserOrder findUserOrderByUserId(Long userId) throws Exception {
+        return this.userOrderService.findByUserId(userId);
     }
 }

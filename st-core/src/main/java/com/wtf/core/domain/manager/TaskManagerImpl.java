@@ -4,7 +4,7 @@ import com.wtf.core.domain.model.Task;
 import com.wtf.core.domain.model.User;
 import com.wtf.core.interfaces.manager.ITaskManager;
 import com.wtf.core.interfaces.service.ITaskService;
-import com.wtf.infsc.infrastructure.stereotype.Manager;
+import com.wtf.infsc.infrastructure.stereotype.ManagerService;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * The type Task manager.
  */
-@Manager
+@ManagerService
 public class TaskManagerImpl implements ITaskManager {
     /**
      * The Task service.

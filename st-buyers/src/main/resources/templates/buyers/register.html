@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/header::head_main_css">
+</head>
+<link rel="stylesheet" href="/static/css/register.css">
+<body>
+    <div class="register">
+        <div class="header"><i class="icon iconfont icon-jinlingyingcaiicon01"></i></div>
+        <div class="vip"><img src="/static/images/vip.png" alt=""></div>
+        <div   class="form">
+            <ul>
+                <li><img src="/static/images/user.png" alt=""><input type="text" placeholder="用户名"></li>
+                <li><img src="/static/images/qq.png" alt=""><input type="text" placeholder="QQ"></li>
+                <li><img src="/static/images/mobile.png" alt=""><input type="text" placeholder="手机号码"></li>
+                <li><img src="/static/images/confirm.png" alt=""><input type="text" placeholder="验证码"><button class="confirm">获取验证码</button></li>
+                <li><img src="/static/images/password.png" alt=""><input type="password" placeholder="请输入6到18位密码"></li>
+                <li><img src="/static/images/password.png" alt=""><input type="password" placeholder="确认密码"></li>
+            </ul>
+            <input class="button" type="submit" id="register" value="注册">
+        </div>
+        <div class="footer">
+            <div class="left"><p><a href="/login">返回登录</a></p></div>
+            <div class="right"><p><a href="/retrieve-pwd">找回密码</a></p></div>
+        </div>
+    </div>
+</body>
+</html>

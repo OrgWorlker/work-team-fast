@@ -3,7 +3,7 @@ package com.wtf.core.domain.manager;
 import com.wtf.core.domain.model.UserTask;
 import com.wtf.core.interfaces.manager.IUserTaskManager;
 import com.wtf.core.interfaces.service.IUserTaskService;
-import com.wtf.infsc.infrastructure.stereotype.Manager;
+import com.wtf.infsc.infrastructure.stereotype.ManagerService;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * The type User task manager.
  */
-@Manager
+@ManagerService
 public class UserTaskManagerImpl implements IUserTaskManager {
 
     @Resource

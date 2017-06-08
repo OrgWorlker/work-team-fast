@@ -25,6 +25,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         final String redirectLogin = "/login";
         if (currentUser == null) {
             log.debug("用户未登录");
+            log.debug(request.getRequestURI());
             response.sendRedirect(redirectLogin);
             return false;
         }

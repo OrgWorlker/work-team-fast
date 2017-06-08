@@ -4,6 +4,7 @@ server:
 file:
   linux-path: /home/wtf/file/
   window-path: D:/wtf/file/
+  pattern: yyyyMMdd
 spring:
   http:
     multipart:

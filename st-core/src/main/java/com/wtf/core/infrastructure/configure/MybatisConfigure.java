@@ -31,6 +31,7 @@ public class MybatisConfigure {
         return pageHelper;
     }
 
+
     /**
      * Sql statement interceptor sql statement interceptor.
      *
