@@ -49,12 +49,5 @@ $(function(){
         return false;
     }
     
-    function checkPhoneNum(str) {
-        var myreg = /^((1[0-9]{2})+\d{8})$/;
-        var isPhone = myreg.test(str);
-        if (!isPhone) {
-            alert("请输入正确手机号码")
-        }
-        return isPhone;
-    }
+
 });

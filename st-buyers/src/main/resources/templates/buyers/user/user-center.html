@@ -7,17 +7,17 @@
 
     <div class="header">
         <a href="###"><i class="left icon iconfont icon-kefu"></i></a>
-        <div class="user"><a href="user-info.html"><img src="/static/images/bingo.jpg" alt=""></a><span
+        <div class="user"><a th:href="'/user/info/' + ${userId} +'/'"><img src="/static/images/bingo.jpg" alt=""></a><span
                 th:text="${user.name}">Bingo</span>
             <div><i class="icon iconfont icon-v1 v1"></i></div>
         </div>
         <a href="###"><i class="right icon iconfont icon-shezhi"></i></a>
     </div>
     <div class="title">
-        <div class="t_left"><a href="###"><i class="icon iconfont icon-meiyuanyuanquan-fill"></i></a><span
+        <div class="t_left"><a th:href="'/user/cash-withdrawals/'+${user.userLevel.gold}  + '/' + ${userId}"><i class="icon iconfont icon-meiyuanyuanquan-fill"></i></a><span
                 th:text="'金币:'+${user.userLevel.gold}">金币 : 10.00</span></div>
         <div class="middle"></div>
-        <div class="t_right"><a href="###"><i class="icon iconfont icon-tixian1"></i></a><span
+        <div class="t_right"><a th:href="'/user/principal-withdrawals/'+${user.userLevel.integral}  + '/' + ${userId}" ><i class="icon iconfont icon-tixian1"></i></a><span
                 th:text="'本金:'+${user.userLevel.integral}">0.00</span></div>
     </div>
     <ul class="list">
@@ -47,9 +47,9 @@
                 <span class="red" th:text="${user.userLevel.integral}">0.00</span>
             </a>
         </li>
-        <!--<li><a href="###"><i class="icon iconfont icon-gonggaotongzhi i_left"></i><span>公告通知</span><i
+        <li><a th:href="'/user/withdrawals/' + ${userId}"><i class="icon iconfont icon-tixian1 i_left"></i><span>我的银行卡</span><i
                 class="allow icon iconfont icon-arrow-right"></i></a></li>
-        <li><a href="###"><i class="icon iconfont icon-bangzhuz hongxin i_left"></i><span>帮助中心</span><i
+        <!--<li><a href="###"><i class="icon iconfont icon-bangzhuz hongxin i_left"></i><span>帮助中心</span><i
                 class="allow icon iconfont icon-arrow-right"></i></a></li>-->
         <li></li>
         <li></li>

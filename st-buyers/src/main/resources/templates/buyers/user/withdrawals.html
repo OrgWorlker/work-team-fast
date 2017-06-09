@@ -5,22 +5,37 @@
 <body>
     <div class="withdrawals">
         <div class="header"><i class="icon iconfont icon-jinlingyingcaiicon01"></i></div>
-        <div class="title"><span th:text="${type} + 提现">资金提现</span></div>
+        <div class="title"><span>我的银行卡</span></div>
         <div class="content">
             <div class="top">
                 <div class="left">
+                    <div class="radio">
+                        <input type="radio" checked />
+                        <div class="text">
+                            <p class="cash">提现设置</p><p>银行账号收款</p>
+                        </div>
+                    </div>
+                    <div class="payee" >
+                        <label for="" style="margin-top: 10px;">收&nbsp;&nbsp;款&nbsp;&nbsp;人: </label><input type="text" th:value="${user.userInfo.realName}" style="margin-top: 10px;">
+                        <label for="" style="margin-top: 10px;">开&nbsp;&nbsp;户&nbsp;&nbsp;行: </label><input type="text"  style="margin-top: 10px;">
+                        <label for="" style="margin-top: 10px;">银行卡号: </label><input type="text" style="margin-top: 10px;">
+                    </div>
+                </div>
+            </div>
+            <div class="bottom" hidden>
+                <!--<div class="left">
                     <input hidden id="withdrawals_qrcode" th:value="${src}"/>
-                    <div class="radio"><input type="radio" checked><div class="text"><p class="cash">提现</p><p>微信收款二维码</p></div></div>
+                    <div class="radio"><input type="radio" ><div class="text"><p class="cash">提现</p><p>微信收款二维码</p></div></div>
                     <div class="payee" >
                         <label for="" style="margin-top: 10px;">收款人: </label><input type="text" th:value="${user.userInfo.realName}" style="margin-top: 10px;">
                         <label for="" style="margin-top: 10px;">金&nbsp;&nbsp;&nbsp;额: </label><input type="text" th:value="${price}" style="margin-top: 10px;">
                     </div>
                 </div>
-                <div class="right"><img  th:src="${src}" alt=""><p>微信收款二维码</p></div>
+                <div class="right"><img  th:src="${src}" alt=""><p>微信收款二维码</p></div>-->
             </div>
-            <div class="bottom" hidden><div class="left"><div class="radio"><input type="radio"><div class="text"><p class="cash">提现</p><p>银行账号收款</p></div></div></div></div>
+
         </div>
-        <div class="footer"><button id="withdrawals_commit">提交任务</button></div>
+        <div class="footer"><button id="withdrawals_commit">提交</button></div>
     </div>
 </body>
 </html>

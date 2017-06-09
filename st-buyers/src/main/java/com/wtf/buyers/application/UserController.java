@@ -31,6 +31,21 @@ public class UserController extends ControllerAdapter {
     private FileServerConfigure fileServerConfigure;
 
     /**
+     * User center model and view.
+     *
+     * @param model  the model
+     * @param userId the user id
+     * @return the model and view
+     */
+    @GetMapping("withdrawals/{userId}")
+    public ModelAndView userWith(Model model, @PathVariable Long userId) {
+        final User user = this.userManager.findById(userId);
+        model.addAttribute("user", user);
+        model.addAttribute("userId", userId);
+        return new ModelAndView("buyers/user/withdrawals");
+    }
+
+    /**
      * Pages model and view.
      *
      * @param userId the user id
@@ -102,9 +117,32 @@ public class UserController extends ControllerAdapter {
         return new ModelAndView("buyers/user/bind");
     }
 
-    public ModelAndView modify(Long userId) {
-        return new ModelAndView();
+    /**
+     * Modify model and view.
+     *
+     * @param userId the user id
+     * @param model  the model
+     * @return the model and view
+     */
+    @RequestMapping("modifyLoginPwd/{userId}")
+    public ModelAndView modify(@PathVariable Long userId, Model model) {
+        model.addAttribute("userId", userId);
+        return new ModelAndView("buyers/user/modify-login-pwd");
     }
+
+    /**
+     * Modify model and view.
+     *
+     * @param userId the user id
+     * @param model  the model
+     * @return the model and view
+     */
+    @RequestMapping("modifyTradPwd/{userId}")
+    public ModelAndView addTradPwd(@PathVariable Long userId, Model model) {
+        model.addAttribute("userId", userId);
+        return new ModelAndView("buyers/user/modify-trad-pwd");
+    }
+
     /**
      * Login string.
      * 用户登录的方法，成功返回success，失败返回error
@@ -148,6 +186,28 @@ public class UserController extends ControllerAdapter {
         final int resultNum = this.userManager.checkAndUpdatePwd(userId, oldPwd, newPwd, type);
         if (resultNum > 0) {
             return SUCCESS;
+        } else if (resultNum == -2) {
+            return ERROR;
+        }
+        return FAILD;
+    }
+
+    /**
+     * Update login string.
+     *
+     * @param newPwd the new pwd
+     * @param userId the user id
+     * @param type   the type 0:LOGIN_PWD, 1:TRAD_PWD
+     * @return the string
+     */
+    @RequestMapping("tradPwd/{userId}/{type}")
+    @ResponseBody
+    public String addTradPwd(String newPwd, @PathVariable Long userId, @PathVariable Integer type) {
+        final int resultNum = this.userManager.checkAndUpdatePwd(userId, "", newPwd, type);
+        if (resultNum > 0) {
+            return SUCCESS;
+        } else if (resultNum == -2) {
+            return ERROR;
         }
         return FAILD;
     }

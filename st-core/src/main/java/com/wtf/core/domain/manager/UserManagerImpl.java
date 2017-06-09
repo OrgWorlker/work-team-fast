@@ -82,14 +82,14 @@ public class UserManagerImpl implements IUserManager {
         final User user = this.userService.findById(id);
         if (type == 0) {
             if (!MD5Util.md5Encode(oldPwd).equals(user.getLoginPwd())) {
-                return -1;
+                return -2;
             }
-            user.setLoginPwd(newPwd);
+            user.setLoginPwd(MD5Util.md5Encode(newPwd));
         } else if (type == 1) {
-            if (!MD5Util.md5Encode(oldPwd).equals(user.getLoginPwd())) {
-                return -1;
+            if (!MD5Util.md5Encode(oldPwd).equals(user.getTradePwd())) {
+                return -2;
             }
-            user.setTradePwd(newPwd);
+            user.setTradePwd(MD5Util.md5Encode(newPwd));
         }
         return this.userService.update(user);
     }
