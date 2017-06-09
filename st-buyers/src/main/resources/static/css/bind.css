@@ -20,3 +20,8 @@
 .bind form li span{color: #3db098;}
 .bind form li .addImg img{width: 2.27rem; height:3.25rem;}
 .bind form li .addImg input{width: 2.27rem; height: 3.25rem; position: absolute; left:27%; opacity: 0;}
+.dialog-1{width: 100%; height: auto; background-color: #fff}
+.content{width: 100%; height: auto;}
+.content ul{width: 92%; margin: .2rem auto;}
+.content ul li{width: auto; padding: .1rem; border: 1px solid #c0c0c0; border-radius: 10px; display: inline; line-height: 1rem; margin-right: .4rem;}
+.back-green{background-color: #3db098;}

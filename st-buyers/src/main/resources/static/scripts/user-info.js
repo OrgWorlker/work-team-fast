@@ -8,10 +8,7 @@ $(function () {
         var windowURL = window.URL || window.webkitURL;
         var dataURL;
         // var $img = $("#preview");
-        var $img = $(this).siblings("img");
-        /*if($img.length == 0){
-            $img = $(this).closest(".addImg").find("img");
-        }*/
+        var $img = $img = $(this).closest(".addImg").find("img");
 
         if(fileObj && fileObj.files && fileObj.files[0]){
             dataURL = windowURL.createObjectURL(fileObj.files[0]);
@@ -27,4 +24,11 @@ $(function () {
 
         }
     });
+
+
+    var selectArea = new MobileSelectArea();
+    selectArea.init({trigger:$('#text_addr'),value:$('#hd_addr').val(),data:'../json/data.json', callback: function (_this, scroller, text, value) {
+        $("li.text_addr .right span").text(scroller.toString());
+    }});
+
 })
