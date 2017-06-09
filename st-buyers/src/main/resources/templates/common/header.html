@@ -16,11 +16,20 @@
     <script src="/static/scripts/plugins/jquery-2.1.1.min.js"></script>
     <script src="/static/scripts/plugins/jquery.cookie.js"></script>
     <script type="application/javascript"  >
+        function checkPhoneNum(str) {
+            var myreg = /^((1[0-9]{2})+\d{8})$/;
+            var isPhone = myreg.test(str);
+            if (!isPhone) {
+                alert("请输入正确手机号码")
+            }
+            return isPhone;
+        }
         $(function () {
             $(".icon-jinlingyingcaiicon01").click(function () {
                 history.go(-1);
             });
         });
+
     </script>
 </head>
 </html>
