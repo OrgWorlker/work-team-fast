@@ -36,7 +36,10 @@ public class ApplicationAspect {
             resultMap.put("info", "");
             proceed = resultMap;
         } finally {
-            log.debug("Request Time : {}(ms)", System.currentTimeMillis() - start);
+            final long time = System.currentTimeMillis() - start;
+            if (time > 0) {
+                log.debug("Request Time : {}(ms)", time);
+            }
         }
         return proceed;
     }

@@ -99,11 +99,24 @@ public class UserController extends ControllerAdapter {
 
         final ArrayList<Map<String , Object>> o = new ArrayList<>();
         Map<String , Object> map = new HashMap<>();
-        map.put("time", "1");
+        map.put("time", "2017-05-09 12:00:12");
         map.put("count", "3");
         o.add(map);
         model.addAttribute("list", o);
         return new ModelAndView("buyers/user/gold-log");
+    }
+
+    @GetMapping("take-log/{userId}")
+    public ModelAndView takeLogView(@PathVariable Long userId,  Model model) {
+        model.addAttribute("userId", userId);
+
+        final ArrayList<Map<String , Object>> o = new ArrayList<>();
+        Map<String , Object> map = new HashMap<>();
+        map.put("time", "2017-06-09 12:00:12");
+        map.put("count", "3");
+        o.add(map);
+        model.addAttribute("list", o);
+        return new ModelAndView("buyers/user/take-log");
     }
     /**
      * Cash model and view.
