@@ -367,7 +367,7 @@
 				_this.dialogContainer.css({
 					position: position,
 					width:"100%",
-					height:'200px',
+					height:'4rem',
 					bottom: 0,
 					left:0
 					// left: 0
