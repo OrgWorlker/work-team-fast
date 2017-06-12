@@ -9,21 +9,29 @@
     <script src="/static/scripts/plugins/flexible.js"></script>
     <!--<link rel="stylesheet" href="//at.alicdn.com/t/font_pae0fnfml5jt6gvi.css">-->
     <link rel="stylesheet" href="/static/css/iconfont.css">
+    <link rel="stylesheet" href="/static/css/art-dialog.css">
     <link rel="stylesheet" href="/static/css/base.css">
     <script th:inline="javascript" >
     var userId = [[${userId}]];
+    function checkPhoneNum(str) {
+        var myreg = /^((1[0-9]{2})+\d{8})$/;
+        var isPhone = myreg.test(str);
+        if (!isPhone) {
+            alert("请输入正确手机号码")
+        }
+        return isPhone;
+    }
+    function unclickConfirm() {
+
+    }
     </script>
     <script src="/static/scripts/plugins/jquery-2.1.1.min.js"></script>
     <script src="/static/scripts/plugins/jquery.cookie.js"></script>
+    <script src="/static/scripts/plugins/art-dialog.js"></script>
+    <script src="/static/scripts/common/main.js"></script>
+
     <script type="application/javascript"  >
-        function checkPhoneNum(str) {
-            var myreg = /^((1[0-9]{2})+\d{8})$/;
-            var isPhone = myreg.test(str);
-            if (!isPhone) {
-                alert("请输入正确手机号码")
-            }
-            return isPhone;
-        }
+
         $(function () {
             $(".icon-jinlingyingcaiicon01").click(function () {
                 history.go(-1);

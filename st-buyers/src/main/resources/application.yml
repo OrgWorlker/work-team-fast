@@ -17,14 +17,14 @@ spring:
   thymeleaf:
     mode: LEGACYHTML5
   rabbitmq:
-    host: localhost
+    host: 42.51.39.56
     port: 5672
     username: spring
     password: 123456
   application:
     name: st-buyers
   redis:
-    host: localhost
+    host: 42.51.39.56
     port: 6379
     pool:
       max-idle: 8

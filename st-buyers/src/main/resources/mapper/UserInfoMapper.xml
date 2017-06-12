@@ -122,7 +122,7 @@
         UPDATE user_info
         <set>
             <if test="pojo.realName != null">real_name = #{pojo.realName},</if>
-            <if test="pojo.qq != null">real_name = #{pojo.q},</if>
+            <if test="pojo.qq != null">real_name = #{pojo.qq},</if>
             <if test="pojo.cid != null">cid = #{pojo.cid},</if>
             <if test="pojo.cidImg1 != null">cid_img1 = #{pojo.cidImg1},</if>
             <if test="pojo.cidImg2 != null">cid_img2 = #{pojo.cidImg2},</if>
