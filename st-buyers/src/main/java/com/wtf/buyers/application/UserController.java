@@ -16,6 +16,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The type User controller.
@@ -90,6 +93,18 @@ public class UserController extends ControllerAdapter {
         return new ModelAndView("buyers/user/cash-withdrawals");
     }
 
+    @GetMapping("gold-log/{userId}")
+    public ModelAndView goldLogView(@PathVariable Long userId,  Model model) {
+        model.addAttribute("userId", userId);
+
+        final ArrayList<Map<String , Object>> o = new ArrayList<>();
+        Map<String , Object> map = new HashMap<>();
+        map.put("time", "1");
+        map.put("count", "3");
+        o.add(map);
+        model.addAttribute("list", o);
+        return new ModelAndView("buyers/user/gold-log");
+    }
     /**
      * Cash model and view.
      *
