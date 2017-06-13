@@ -16,7 +16,7 @@ import java.util.Date;
 @Setter
 @Getter
 @JsonIgnoreProperties({"handler"})
-class BaseModel implements Serializable {
+public class BaseModel implements Serializable {
 
     private Long id;
 

@@ -93,6 +93,13 @@ public class UserController extends ControllerAdapter {
         return new ModelAndView("buyers/user/cash-withdrawals");
     }
 
+    /**
+     * Gold log view model and view.
+     *
+     * @param userId the user id
+     * @param model  the model
+     * @return the model and view
+     */
     @GetMapping("gold-log/{userId}")
     public ModelAndView goldLogView(@PathVariable Long userId,  Model model) {
         model.addAttribute("userId", userId);
@@ -106,6 +113,13 @@ public class UserController extends ControllerAdapter {
         return new ModelAndView("buyers/user/gold-log");
     }
 
+    /**
+     * Take log view model and view.
+     *
+     * @param userId the user id
+     * @param model  the model
+     * @return the model and view
+     */
     @GetMapping("take-log/{userId}")
     public ModelAndView takeLogView(@PathVariable Long userId,  Model model) {
         model.addAttribute("userId", userId);
@@ -118,6 +132,7 @@ public class UserController extends ControllerAdapter {
         model.addAttribute("list", o);
         return new ModelAndView("buyers/user/take-log");
     }
+
     /**
      * Cash model and view.
      *
@@ -171,29 +186,42 @@ public class UserController extends ControllerAdapter {
         model.addAttribute("userId", userId);
         return new ModelAndView("buyers/user/modify-telphone");
     }
-  /**
+
+    /**
      * Modify model and view.
      *
      * @param userId the user id
      * @param model  the model
      * @return the model and view
      */
-    @RequestMapping("modifyQQ/{userId}")
+    @GetMapping("modifyQQ/{userId}")
     public ModelAndView modifyQQ(@PathVariable Long userId, Model model) {
         model.addAttribute("userId", userId);
         return new ModelAndView("buyers/user/modify-qq");
     }
-  /**
+
+    /**
      * Modify model and view.
      *
      * @param userId the user id
-     * @param model  the model
+     * @param qq     the qq
      * @return the model and view
      */
-    @RequestMapping("modifyQQ/{qq}/{userId}")
-    public ModelAndView modifyQQCode(@PathVariable Long userId, @PathVariable String qq, Model model) {
-        model.addAttribute("userId", userId);
-        return new ModelAndView("buyers/user/modify-qq");
+    @PostMapping("modifyQQ/{qq}/{userId}")
+    public String modifyQQCode(@PathVariable Long userId, @PathVariable String qq) {
+        final User uesr = this.userManager.findById(userId);
+        final UserInfo userInfo = uesr.getUserInfo();
+        userInfo.setQq(qq);
+        try {
+            final int info = this.userManager.updateUserInfo(userInfo);
+            if (info > 0) {
+                return SUCCESS;
+            }
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+            return ERROR;
+        }
+        return FAILD;
     }
 
     /**

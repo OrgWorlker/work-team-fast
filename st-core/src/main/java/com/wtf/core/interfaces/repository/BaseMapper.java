@@ -1,5 +1,6 @@
 package com.wtf.core.interfaces.repository;
 
+import com.wtf.core.domain.model.BaseModel;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 /**
  * Created by zc.lin on 2017/5/9.
  */
-public interface BaseMapper<T> {
+public interface BaseMapper<T extends BaseModel> {
 
     /**
      * Insert int.

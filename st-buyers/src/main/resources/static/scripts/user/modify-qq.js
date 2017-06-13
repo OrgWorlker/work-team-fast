@@ -1,5 +1,5 @@
 $(function () {
-    $(".confirm").click(function () {
+    $("#update").click(function () {
         var qq = $("#qq").val();
         $.post("/user/modifyQQ/" + qq + "/" + userId, function (result) {
             if (result == "success") {
