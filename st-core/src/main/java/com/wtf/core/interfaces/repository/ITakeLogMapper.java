@@ -19,5 +19,5 @@ public interface ITakeLogMapper  extends BaseMapper<TakeLog> {
      * @return the list
      * @throws Exception the exception
      */
-    List<TakeLog> findByUserIdAndType(String userId, int type) throws Exception;
+    List<TakeLog> findByUserIdAndType(Long userId, int type) throws Exception;
 }
