@@ -19,5 +19,5 @@ public interface ITakeLogManager {
      * @return the list
      * @throws Exception the exception
      */
-    List<TakeLog> findByUserIdAndType(Long userId, int type, int pageNum, int pageSize) throws Exception;
+    List<TakeLog> findByUserIdAndType(Long userId, String type, int pageNum, int pageSize) throws Exception;
 }

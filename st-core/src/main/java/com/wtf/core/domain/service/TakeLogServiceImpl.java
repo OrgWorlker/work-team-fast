@@ -14,7 +14,7 @@ import java.util.List;
 public class TakeLogServiceImpl extends  BaseServiceImpl<TakeLog, ITakeLogMapper> implements ITakeLogService {
 
     @Override
-    public List<TakeLog> findByUserIdAndType(Long userId, int type) throws Exception {
+    public List<TakeLog> findByUserIdAndType(Long userId, String type) throws Exception {
         return this.getMapper().findByUserIdAndType(userId, type);
     }
 }

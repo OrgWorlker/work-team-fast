@@ -1,11 +1,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.wtf.core.interfaces.repository.IIntegralLogMapper">
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.wtf.core.domain.model.TakeLog">
+        <result column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="count" property="count"/>
+        <result column="crt_time" property="crtTime"/>
+    </resultMap>
+
+    <sql id="all_column" >
+        id, user_id, count, crt_time
+    </sql>
+
     <insert id="insert">
         INSERT INTO
         integral_log
-       (user_id, count , crt_time)
+       (user_id, count)
        VALUES
-       (#{log.userId}, #{log.count}, #{log.crtTime})
+       (#{log.userId}, #{log.count})
     </insert>
+
+    <select id="findByUserId" resultMap="AllColumnMap">
+        SELECT
+        <include refid="all_column"/>
+        FROM integral_log
+        WHERE user_id = #{userId} ORDER BY crt_time DESC
+    </select>
 </mapper>
 

@@ -17,11 +17,8 @@ import java.util.Date;
 @Getter
 @JsonIgnoreProperties({"handler"})
 public class BaseModel implements Serializable {
-
     private Long id;
-
     private Date updTime;
-
     private Date crtTime;
 
     @Override

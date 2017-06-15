@@ -4,9 +4,13 @@ import com.wtf.core.domain.dto.UserLoginDto;
 import com.wtf.core.domain.model.User;
 import com.wtf.core.domain.model.UserInfo;
 import com.wtf.core.infrastructure.adapter.ControllerAdapter;
+import com.wtf.core.interfaces.manager.IGoldLogManager;
+import com.wtf.core.interfaces.manager.IIntegralLogManager;
+import com.wtf.core.interfaces.manager.ITakeLogManager;
 import com.wtf.core.interfaces.manager.IUserManager;
 import com.wtf.infsc.infrastructure.configure.FileServerConfigure;
 import com.wtf.infsc.infrastructure.constant.Constant;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -16,9 +20,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * The type User controller.
@@ -92,7 +93,8 @@ public class UserController extends ControllerAdapter {
         model.addAttribute("userId", userId);
         return new ModelAndView("buyers/user/cash-withdrawals");
     }
-
+@Resource
+    private IGoldLogManager goldLogManager;
     /**
      * Gold log view model and view.
      *
@@ -101,18 +103,30 @@ public class UserController extends ControllerAdapter {
      * @return the model and view
      */
     @GetMapping("gold-log/{userId}")
+    @SneakyThrows
     public ModelAndView goldLogView(@PathVariable Long userId,  Model model) {
         model.addAttribute("userId", userId);
-
-        final ArrayList<Map<String , Object>> o = new ArrayList<>();
-        Map<String , Object> map = new HashMap<>();
-        map.put("time", "2017-05-09 12:00:12");
-        map.put("count", "3");
-        o.add(map);
-        model.addAttribute("list", o);
+        model.addAttribute("list", this.goldLogManager.findByUserId(userId, 0,0));
         return new ModelAndView("buyers/user/gold-log");
     }
+    @Resource
+    private IIntegralLogManager integralLogManager;
+    /**
+     * Gold log view model and view.
+     *
+     * @param userId the user id
+     * @param model  the model
+     * @return the model and view
+     */
+    @GetMapping("integral-log/{userId}")
+    public ModelAndView integralLogView(@PathVariable Long userId,  Model model) throws Exception {
+        model.addAttribute("userId", userId);
+        model.addAttribute("list", this.integralLogManager.findByUserId(userId,0,0));
+        return new ModelAndView("buyers/user/integral-log");
+    }
 
+    @Resource
+    private ITakeLogManager takeLogManager;
     /**
      * Take log view model and view.
      *
@@ -120,16 +134,10 @@ public class UserController extends ControllerAdapter {
      * @param model  the model
      * @return the model and view
      */
-    @GetMapping("take-log/{userId}")
-    public ModelAndView takeLogView(@PathVariable Long userId,  Model model) {
+    @GetMapping("take-log/{userId}/{type}")
+    public ModelAndView takeLogView(@PathVariable Long userId, @PathVariable String type,   Model model) throws Exception {
         model.addAttribute("userId", userId);
-
-        final ArrayList<Map<String , Object>> o = new ArrayList<>();
-        Map<String , Object> map = new HashMap<>();
-        map.put("time", "2017-06-09 12:00:12");
-        map.put("count", "3");
-        o.add(map);
-        model.addAttribute("list", o);
+        model.addAttribute("list", this.takeLogManager.findByUserIdAndType(userId, type, 0, 0));
         return new ModelAndView("buyers/user/take-log");
     }
 

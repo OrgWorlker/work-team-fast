@@ -1,25 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="yes" name="apple-mobile-web-app-capable">
-    <meta content="yes" name="apple-touch-fullscreen">
-    <meta content="telephone=no,email=no" name="format-detection">
-    <!--<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>-->
-    <script src="/static/scripts/plugins/flexible.js"></script>
-    <!--<link rel="stylesheet" href="//at.alicdn.com/t/font_pae0fnfml5jt6gvi.css">-->
-    <link rel="stylesheet" href="/static/css/iconfont.css">
-    <link rel="stylesheet" href="/static/css/base.css">
-    <link rel="stylesheet" href="/static/css/user-info.css">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/header::head_main_css">
 </head>
+<link rel="stylesheet" href="/static/css/user-info.css">
 <body>
     <div class="userInfo">
         <div class="header"><i class="icon iconfont icon-jinlingyingcaiicon01"></i>资金明细</div>
         <div class="info">
             <ul>
-                <li><a href="###"><div class="left">金币记录</div><div class="right"><i class="icon iconfont icon-arrow-right"></i></div></a></li>
-                <li><a href="###"><div class="left">本金记录</div><div class="right"><i class="icon iconfont icon-arrow-right"></i></div></a></li>
-                <li><a href="###"><div class="left">提现记录</div><div class="right"><i class="icon iconfont icon-arrow-right"></i></div></a></li>
+                <li><a th:href="'/user/gold-log/' + ${userId}"><div class="left">金币记录</div><div class="right"><i class="icon iconfont icon-arrow-right"></i></div></a></li>
+                <li><a th:href="'/user/integral-log/' + ${userId}"><div class="left">本金记录</div><div class="right"><i class="icon iconfont icon-arrow-right"></i></div></a></li>
+                <li><a th:href="'/user/take-log/' + ${userId} + '/0,1'"><div class="left">提现记录</div><div class="right"><i class="icon iconfont icon-arrow-right"></i></div></a></li>
                <!-- <li><a href="###"><div class="left">佣金记录</div><div class="right"><i class="icon iconfont icon-arrow-right"></i></div></a></li>
                 <li><a href="###"><div class="left">会员记录</div><div class="right"><i class="icon iconfont icon-arrow-right"></i></div></a></li>-->
             </ul>

@@ -14,8 +14,8 @@
         </div>
         <div class="list record">
             <ul>
-                <li><a href="###">本金记录</a><i class="icon iconfont icon-arrow-right"></i></li>
-                <li><a href="###">提现记录</a><i class="icon iconfont icon-arrow-right"></i></li>
+                <li><a th:href="'/user/integral-log/' + ${userId}">本金记录<i class="icon iconfont icon-arrow-right"></i></a></li>
+                <li><a th:href="'/user/take-log/' + ${userId} + '/1'">提现记录<i class="icon iconfont icon-arrow-right"></i></a></li>
             </ul>
         </div>
         <p class="button"><button class="submitButton">提现</button></p>

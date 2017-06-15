@@ -3,18 +3,19 @@ package com.wtf.core.interfaces.repository;
 import com.wtf.core.domain.model.IntegralLog;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * The interface Gold log mapper.
  */
 @Mapper
-public interface IIntegralLogMapper {
-
+public interface IIntegralLogMapper extends BaseMapper<IntegralLog> {
     /**
-     * Insert int.
+     * Find by user id and type list.
      *
-     * @param log the log
-     * @return the int
+     * @param userId the user id
+     * @return the list
      * @throws Exception the exception
      */
-    int insert(IntegralLog log) throws Exception;
+    List<IntegralLog> findByUserId(Long userId) throws Exception ;
 }

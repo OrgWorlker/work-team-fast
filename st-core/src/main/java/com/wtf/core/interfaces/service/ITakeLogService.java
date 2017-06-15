@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface ITakeLogService extends  IBaseService<TakeLog> {
 
-    List<TakeLog> findByUserIdAndType( Long userId, int type) throws Exception;
+    List<TakeLog> findByUserIdAndType( Long userId, String type) throws Exception;
 }
