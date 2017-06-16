@@ -41,6 +41,6 @@
 [data-dpr="3"] .welfare .content .taobao .ps{font-size: 24px;}
 
 .welfare p.receive{text-align: center;}
-.welfare .receiveOrder{width: 2rem; height: 2rem; border-radius: 50%; background-color: #45b39a; border: none; font-size: 16px; margin-top: 2rem;}
+.welfare .receiveOrder{width: 2rem; height: 2rem; border-radius: 50%; background-color: #45b39a; border: none; font-size: 16px; margin-top: 2rem;color: #ffffff}
 [data-dpr="2"] .welfare .receiveOrder{font-size: 32px;}
 [data-dpr="3"] .welfare .receiveOrder{font-size: 48px;}
