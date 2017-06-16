@@ -2,13 +2,18 @@ package com.wtf.buyers.application;
 
 import com.wtf.core.domain.dto.UserLoginDto;
 import com.wtf.core.domain.model.User;
+import com.wtf.core.domain.model.UserInfo;
 import com.wtf.core.infrastructure.adapter.ControllerAdapter;
+import com.wtf.core.interfaces.manager.IGoldLogManager;
+import com.wtf.core.interfaces.manager.IIntegralLogManager;
+import com.wtf.core.interfaces.manager.ITakeLogManager;
 import com.wtf.core.interfaces.manager.IUserManager;
 import com.wtf.infsc.infrastructure.configure.FileServerConfigure;
 import com.wtf.infsc.infrastructure.constant.Constant;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,7 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * The type User controller.
  */
-@Controller
+@RestController
 @RequestMapping("user")
 @Slf4j
 public class UserController extends ControllerAdapter {
@@ -29,6 +34,12 @@ public class UserController extends ControllerAdapter {
     private StringRedisTemplate stringRedisTemplate;
     @Resource
     private FileServerConfigure fileServerConfigure;
+    @Resource
+    private IGoldLogManager goldLogManager;
+    @Resource
+    private IIntegralLogManager integralLogManager;
+    @Resource
+    private ITakeLogManager takeLogManager;
 
     /**
      * User center model and view.
@@ -90,6 +101,77 @@ public class UserController extends ControllerAdapter {
     }
 
     /**
+     * Gold log view model and view.
+     *
+     * @param userId the user id
+     * @param model  the model
+     * @return the model and view
+     */
+    @GetMapping("gold-log/{userId}")
+    @SneakyThrows
+    public ModelAndView goldLogView(@PathVariable Long userId, Model model) {
+        model.addAttribute("userId", userId);
+        model.addAttribute("list", this.goldLogManager.findByUserId(userId, 0, 0));
+        return new ModelAndView("buyers/user/gold-log");
+    }
+
+    /**
+     * Gold log view model and view.
+     *
+     * @param userId the user id
+     * @param model  the model
+     * @return the model and view
+     * @throws Exception the exception
+     */
+    @GetMapping("integral-log/{userId}")
+    public ModelAndView integralLogView(@PathVariable Long userId, Model model) throws Exception {
+        model.addAttribute("userId", userId);
+        model.addAttribute("list", this.integralLogManager.findByUserId(userId, 0, 0));
+        return new ModelAndView("buyers/user/integral-log");
+    }
+
+    /**
+     * Logout model and view.
+     *
+     * @param request the request
+     * @return the model and view
+     */
+    @GetMapping("logout")
+    public ModelAndView logout(HttpServletRequest request) {
+        request.getSession().removeAttribute(Constant.CURRENT_USER);
+        return new ModelAndView("buyers/login");
+    }
+
+    @GetMapping("take-gold/{gold}/{userId}")
+    public ModelAndView takeGoldMoney(@PathVariable Double gold,@PathVariable Long userId, Model model) {
+        model.addAttribute("gold", gold);
+        model.addAttribute("userId", userId);
+        return new ModelAndView("buyers/user/take-gold");
+    }
+
+    @GetMapping("take-integral/{integral}/{userId}")
+    public ModelAndView takeIntegralMoney(@PathVariable Double integral,@PathVariable Long userId, Model model) {
+        model.addAttribute("integral", integral);
+        model.addAttribute("userId", userId);
+        return new ModelAndView("buyers/user/take-integral");
+    }
+    /**
+     * Take log view model and view.
+     *
+     * @param userId the user id
+     * @param type   the type
+     * @param model  the model
+     * @return the model and view
+     * @throws Exception the exception
+     */
+    @GetMapping("take-log/{userId}/{type}")
+    public ModelAndView takeLogView(@PathVariable Long userId, @PathVariable String type, Model model) throws Exception {
+        model.addAttribute("userId", userId);
+        model.addAttribute("list", this.takeLogManager.findByUserIdAndType(userId, type, 0, 0));
+        return new ModelAndView("buyers/user/take-log");
+    }
+
+    /**
      * Cash model and view.
      *
      * @param userId the user id
@@ -97,10 +179,23 @@ public class UserController extends ControllerAdapter {
      * @return the model and view
      */
     @GetMapping("info/{userId}")
-    public ModelAndView userInfo(@PathVariable Long userId,Model model) {
+    public ModelAndView userInfo(@PathVariable Long userId, Model model) {
         model.addAttribute("user", this.userManager.findById(userId));
         model.addAttribute("userId", userId);
         return new ModelAndView("buyers/user/user-info");
+    }
+    /**
+     * Cash model and view.
+     *
+     * @param userId the user id
+     * @param model  the model
+     * @return the model and view
+     */
+    @GetMapping("bank/{userId}")
+    public ModelAndView userBank(@PathVariable Long userId, Model model) {
+        model.addAttribute("user", this.userManager.findById(userId));
+        model.addAttribute("userId", userId);
+        return new ModelAndView("buyers/user/user-bank");
     }
 
     /**
@@ -128,6 +223,56 @@ public class UserController extends ControllerAdapter {
     public ModelAndView modify(@PathVariable Long userId, Model model) {
         model.addAttribute("userId", userId);
         return new ModelAndView("buyers/user/modify-login-pwd");
+    }
+
+    /**
+     * Modify model and view.
+     *
+     * @param userId the user id
+     * @param model  the model
+     * @return the model and view
+     */
+    @RequestMapping("modifyTelphone/{userId}")
+    public ModelAndView modifyTelphone(@PathVariable Long userId, Model model) {
+        model.addAttribute("userId", userId);
+        return new ModelAndView("buyers/user/modify-telphone");
+    }
+
+    /**
+     * Modify model and view.
+     *
+     * @param userId the user id
+     * @param model  the model
+     * @return the model and view
+     */
+    @GetMapping("modifyQQ/{userId}")
+    public ModelAndView modifyQQ(@PathVariable Long userId, Model model) {
+        model.addAttribute("userId", userId);
+        return new ModelAndView("buyers/user/modify-qq");
+    }
+
+    /**
+     * Modify model and view.
+     *
+     * @param userId the user id
+     * @param qq     the qq
+     * @return the model and view
+     */
+    @PostMapping("modifyQQ/{qq}/{userId}")
+    public String modifyQQCode(@PathVariable Long userId, @PathVariable String qq) {
+        final User uesr = this.userManager.findById(userId);
+        final UserInfo userInfo = uesr.getUserInfo();
+        userInfo.setQq(qq);
+        try {
+            final int info = this.userManager.updateUserInfo(userInfo);
+            if (info > 0) {
+                return SUCCESS;
+            }
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+            return ERROR;
+        }
+        return FAILD;
     }
 
     /**
@@ -248,5 +393,31 @@ public class UserController extends ControllerAdapter {
     public String register(String loginName, String qq, String phoneNum, String checknum) {
         final int i = this.userManager.register(loginName, qq, phoneNum, checknum);
         return FAILD;
+    }
+
+    /**
+     * Upd telphone string.
+     *
+     * @param userId   the user id
+     * @param telphone the telphone
+     * @param valicode the valicode
+     * @return the string
+     */
+    @PostMapping("updateTelphone/{userId}")
+    public String updTelphone(@PathVariable Long userId, String telphone, String valicode) {
+        final String code = this.stringRedisTemplate.opsForValue().get(telphone);
+        if (StringUtils.isNotBlank(code) && code.equals(valicode)) {
+            final User user = this.userManager.findById(userId);
+            final UserInfo userInfo = user.getUserInfo();
+            userInfo.setTelphone(telphone);
+            try {
+                this.userManager.updateUserInfo(userInfo);
+            } catch (Exception e) {
+                log.error(e.getMessage(), e);
+                return FAILD;
+            }
+            return SUCCESS;
+        }
+        return ERROR;
     }
 }

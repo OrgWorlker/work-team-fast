@@ -36,7 +36,7 @@ public class ShortMessageEvent {
 
         this.stringRedisTemplate.opsForValue().set(context, valicode + "");
         this.stringRedisTemplate.expire(context, 180, TimeUnit.SECONDS);
-        final String message = "欢迎使用VIP福利平台，您的验证码为" + valicode + "，180秒内有效，请勿泄漏！";
+        final String message = "欢迎使用VIP福利平台，您的验证码为 " + valicode + "，180秒内有效，请勿泄漏！";
         log.debug("{} short-message {}", context, message);
     }
 }

@@ -156,4 +156,16 @@ public class UserManagerImpl implements IUserManager {
     public UserOrder findUserOrderByUserId(Long userId) throws Exception {
         return this.userOrderService.findByUserId(userId);
     }
+
+    /**
+     * Update user info int.
+     *
+     * @param userInfo the user info
+     * @return the int
+     * @throws Exception the exception
+     */
+    @Override
+    public int updateUserInfo(UserInfo userInfo) throws Exception {
+        return this.userInfoService.update(userInfo);
+    }
 }

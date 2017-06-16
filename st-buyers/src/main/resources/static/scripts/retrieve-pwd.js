@@ -30,11 +30,7 @@ $(function(){
             })
         }
     });
-    
-    function unclickConfirm() {
-        
-    }
-    
+
     function checkPwd() {
         var checkNum = $("#checknum").val();
         var password = $("#password").val();

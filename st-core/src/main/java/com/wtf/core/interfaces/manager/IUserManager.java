@@ -3,6 +3,7 @@ package com.wtf.core.interfaces.manager;
 
 import com.wtf.core.domain.dto.UserLoginDto;
 import com.wtf.core.domain.model.User;
+import com.wtf.core.domain.model.UserInfo;
 import com.wtf.core.domain.model.UserOrder;
 
 import java.util.List;
@@ -98,4 +99,13 @@ public interface IUserManager {
      * @throws Exception the exception
      */
     UserOrder findUserOrderByUserId(Long userId) throws  Exception;
+
+    /**
+     * Update user info int.
+     *
+     * @param userInfo the user info
+     * @return the int
+     * @throws Exception the exception
+     */
+    int updateUserInfo(UserInfo userInfo) throws Exception;
 }

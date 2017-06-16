@@ -6,7 +6,7 @@
 <body>
     <div class="cashWithdrawals">
         <div class="header"><i class="icon iconfont icon-jinlingyingcaiicon01"></i>金币</div>
-        <div class="content">
+        <div class="content" style="padding: 20px;">
             <p class="rule"><a href="###">提现收费规则></a></p>
             <p><img src="/static/images/cash.png" alt=""></p>
             <p>我的金币</p>
@@ -14,11 +14,11 @@
         </div>
         <div class="list record">
             <ul>
-                <li><a href="###">金币记录</a><i class="icon iconfont icon-arrow-right"></i></li>
-                <li><a href="###">提现记录</a><i class="icon iconfont icon-arrow-right"></i></li>
+                <li><a th:href="'/user/gold-log/' + ${userId}">金币记录<i class="icon iconfont icon-arrow-right"></i></a></li>
+                <li><a th:href="'/user/take-log/' + ${userId} + '/0'">提现记录<i class="icon iconfont icon-arrow-right"></i></a></li>
             </ul>
         </div>
-        <p class="button"><button class="submitButton">提现</button></p>
+        <p class="button"><a th:href="'/user/take-gold/' + ${money} + '/' + ${userId}"><button class="submitButton">提现</button></a></p>
     </div>
 </body>
 </html>

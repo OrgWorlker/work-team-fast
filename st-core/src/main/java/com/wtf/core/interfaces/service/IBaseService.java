@@ -1,13 +1,14 @@
 package com.wtf.core.interfaces.service;
 
-import java.util.List;
+import com.wtf.core.domain.model.BaseModel;
 
+import java.util.List;
 /**
  * Created by zc.lin on 2017/5/9.
  *
  * @param <T> the type parameter
  */
-public interface IBaseService<T> {
+public interface IBaseService<T extends BaseModel> {
 
     /**
      * Insert int.

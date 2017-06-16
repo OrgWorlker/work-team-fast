@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wtf.core.interfaces.repository.ITakeLogMapper">
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.wtf.core.domain.model.TakeLog">
+        <result column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="count" property="count"/>
+        <result column="flag" property="flag"/>
+        <result column="type" property="type"/>
+        <result column="crt_time" property="crtTime"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="all_column">
+        user_id,
+        count,
+        id,
+        flag,
+        type,
+        crt_time
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO take_log (
+            user_id,
+            count,
+            id,
+            flag,
+            type,
+            crt_time
+        ) VALUES (
+            #{pojo.userId},
+            #{pojo.count},
+            #{pojo.id},
+            #{pojo.flag},
+            #{pojo.type},
+            #{pojo.crtTime}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO take_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.userId!=null">user_id,</if>
+            <if test="pojo.count!=null">count,</if>
+            <if test="pojo.id!=null">id,</if>
+            <if test="pojo.type!=null">type,</if>
+            <if test="pojo.flag!=null">flag,</if>
+            <if test="pojo.crtTime!=null">crt_time,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.userId!=null">#{pojo.user_id},</if>
+            <if test="pojo.count!=null">#{pojo.count},</if>
+            <if test="pojo.id!=null">#{pojo.id},</if>
+            <if test="pojo.type!=null">#{pojo.type},</if>
+            <if test="pojo.flag!=null">#{pojo.flag},</if>
+            <if test="pojo.crtTime!=null">#{pojo.crtTime},</if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO take_log (
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.userId},
+            #{pojo.count},
+            #{pojo.id},
+            #{pojo.flag},
+            #{pojo.type},
+            #{pojo.crtTime}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="update">
+        UPDATE take_log
+        <set>
+            <if test="pojo.userId != null">user_id = #{pojo.userId},</if>
+            <if test="pojo.count != null">count = #{pojo.count},</if>
+            <if test="pojo.id != null">id = #{pojo.id},</if>
+            <if test="pojo.flag != null">id = #{pojo.flag},</if>
+            <if test="pojo.type != null">id = #{pojo.type},</if>
+            <if test="pojo.crtTime != null">crt_time = #{pojo.crtTime}</if>
+        </set>
+        WHERE id = #{pojo.id}
+    </update>
+
+    <select id="findByUserIdAndType" resultMap="AllColumnMap">
+        SELECT
+        <include refid="all_column"/>
+        FROM take_log
+        WHERE user_id = #{userId} AND type in ( #{type} ) ORDER BY crt_time DESC
+    </select>
+</mapper>
+

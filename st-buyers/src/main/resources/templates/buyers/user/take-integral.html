@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/header::head_main_css">
+</head>
+<link rel="stylesheet" href="/static/css/register.css">
+<link rel="stylesheet" href="/static/css/user-info.css">
+<style>
+    input:focus {
+        color: black;
+        width: 3em;
+    }
+</style>
+<body>
+<div class="register userInfo container">
+    <div class="header"><i class="icon iconfont icon-jinlingyingcaiicon01"></i>金币提现</div>
+    <div class="form">
+        <ul style="line-height: 500px;height: 500px;">
+            <li style="border: 0px;">
+                <span style="font-size: 120px;">￥</span>
+                <input type="text" id="count" style="text-align: center;font-size: 120px;height: 122px;color: black;" onkeyup="this.value=this.value.replace(/\D/g,'')" />
+                <input type="hidden" th:value="${integral}" id="allCount"/>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <span th:text="'可提现金额为：'+${integral}" class="left">可提现金额为：0.0</span>
+                <span class="left red" id="allTake">全部提现</span>
+                <input type="hidden" value="1" id="isConfirm" />
+                <input class="button" type="button" id="confirm" value="确认" />
+            <li>
+        </ul>
+    </div>
+    <div class="info">
+        <ul>
+            <li></li>
+            <li><a th:href="'/user/withdrawals/' + ${userId}">
+                <div class="left">我的银行卡</div>
+                <div class="right"><i class="icon iconfont icon-arrow-right"></i><span
+                        style="float:right;padding: 10px;color:red;">绑定银行卡</span></div>
+            </a></li>
+        </ul>
+    </div>
+</div>
+<script src="/static/scripts/user/take-integral.js"></script>
+</body>
+</html>

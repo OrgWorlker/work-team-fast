@@ -1,10 +1,12 @@
 package com.wtf.core.domain.service;
 
 
+import com.wtf.core.domain.model.BaseModel;
 import com.wtf.core.interfaces.repository.BaseMapper;
 import com.wtf.core.interfaces.service.IBaseService;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,7 +15,7 @@ import java.util.List;
  * @param <T> the type parameter
  * @param <M> the type parameter
  */
-public class BaseServiceImpl<T, M extends BaseMapper<T>> implements IBaseService<T> {
+public class BaseServiceImpl<T extends BaseModel, M extends BaseMapper<T>> implements IBaseService<T> {
 
     private M mapper;
 
@@ -24,6 +26,7 @@ public class BaseServiceImpl<T, M extends BaseMapper<T>> implements IBaseService
      * @return the int
      */
     public int insert(T pojo) {
+        pojo.setCrtTime(new Date());
         return this.mapper.insert(pojo);
     }
 
@@ -54,6 +57,7 @@ public class BaseServiceImpl<T, M extends BaseMapper<T>> implements IBaseService
      * @return the int
      */
     public int update(T pojo) {
+        pojo.setUpdTime(new Date());
         return this.mapper.update(pojo);
     }
 
