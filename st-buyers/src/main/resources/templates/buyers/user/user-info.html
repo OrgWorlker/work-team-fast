@@ -2,14 +2,17 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/common/header::head_main_css">
 </head>
+<link rel="stylesheet" href="/static/css/mobile-select-area.css">
     <link rel="stylesheet" href="/static/css/user-info.css">
+<link rel="stylesheet" href="/static/css/dialog.css">
 <body>
     <div class="userInfo">
         <div class="header"><i class="icon iconfont icon-jinlingyingcaiicon01"></i>个人资料</div>
         <div class="info">
             <ul>
-                <li><div class="left">头像</div><div class="right"><i class="icon iconfont icon-arrow-right"></i></div></li>
-                <li><div class="left">地区</div><div class="right"><span>北京，东城区</span><i class="icon iconfont icon-arrow-right"></i></div></li>
+                <li class="addImg"><div class="left">头像</div><div class="right"><i class="icon iconfont icon-arrow-right"></i><img class="headImg" src="/static/images/bingo.jpg" alt=""></div><input type="file"></li>
+                <li class="text_addr"><div class="left">地区</div><div class="right"><span>北京,北京,东城区</span><i class="icon iconfont icon-arrow-right"></i></div>
+                    <input type="text" id="text_addr" value="" /><input type="hidden" id="hd_addr" value=""/></li>
                 <li><a th:href="'/user/modifyQQ/' + ${userId}"><div class="left">QQ号码</div><div class="right"><span th:text="${user.userInfo.qq}"></span><i class="icon iconfont icon-arrow-right"></i></div></a></li>
                 <li><a th:href="'/user/modifyTelphone/' + ${userId}"><div class="left">手机号码</div><div class="right"><span th:text="${user.userInfo.telphone}"></span><i class="icon iconfont icon-arrow-right"></i></div></a></li>
                 <li><a th:href="'/user/modifyLoginPwd/' + ${userId}"><div class="left">登录密码</div><div class="right"><i class="icon iconfont icon-arrow-right"></i></div></a></li>
@@ -20,6 +23,8 @@
         <input th:value="${user.tradePwd}" id="trade" hidden />
     </div>
 </body>
+<script src="/static/scripts/plugins/mobile-select-area.js"></script>
+<script src="/static/scripts/plugins/dialog.js"></script>
 <script th:inline="javascript" src="/static/scripts/user/user-info.js" >
 </script>
 </html>

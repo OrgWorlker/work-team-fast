@@ -4,10 +4,11 @@
 $(function () {
     function login(username, checknum) {
         var params = {'username': username, 'checknum': checknum};
+        console.log(params)
         $.post("/user/login", params, function (result) {
             if (result.flag) {
-                $.cookie('username', username);
-                $.cookie('checknum', checknum);
+                $.cookie('username', username, {path:"/"});
+                $.cookie('checknum', checknum, {path:"/"});
                 location.href = "/user/user-center/" + result.user.id;
             } else {
                 alert(result.msg)

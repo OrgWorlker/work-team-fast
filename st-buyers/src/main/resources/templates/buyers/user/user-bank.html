@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common/header::head_main_css">
+</head>
+<link rel="stylesheet" href="/static/css/mobile-select-area.css">
+<link rel="stylesheet" href="/static/css/dialog.css">
+<link rel="stylesheet" href="/static/css/bind.css">
+<body>
+<div class="bind">
+    <div class="header"><i class="icon iconfont icon-jinlingyingcaiicon01"></i>我的银行卡</div>
+    <form action="">
+        <ul>
+            <li><input type="text" style="width: 100%"  placeholder="真实姓名"></li>
+            <li><input type="text" style="width: 100%"  placeholder="银行卡号"></li>
+            <li><input id="text_age" style="width: 100%"  type="text" placeholder="点击选择开户行"><input type="hidden" id="hd_age" value="1,1,1"/></li>
+            <li><input type="text"  style="width: 100%" id="text_area" placeholder="点击选择开户行所在地"><input type="hidden" id="hd_area" value="1,1,1"></li>
+            <li><input type="text" style="width: 100%" placeholder="开户支行名称"></li>
+        </ul>
+        <input class="submitButton" type="submit" value="提交"/>
+    </form>
+</div>
+<script src="/static/scripts/plugins/dialog.js"></script>
+<script src="/static/scripts/plugins/mobile-select-area.js"></script>
+<script src="/static/scripts/user/user-bank.js"></script>
+</body>
+</html>
