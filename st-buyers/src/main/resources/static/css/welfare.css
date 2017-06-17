@@ -19,10 +19,11 @@
 .welfare .content .category{width: 100%; height: 3.733rem;}
 .welfare .content .category p{line-height: .8rem;}
 .welfare .content .category .category_content{width: 100%; height: 2.8rem;}
+.welfare .content .category .category_content .active{background-color: #45b39a; color: #fff;}
 .welfare .content .category .category_content .left{width: 3.47rem; float: left;}
 .welfare .content .category .category_content .right{width: 3.47rem; float: left; margin-left: .48rem;}
-.welfare .content .category .category_content .left .text{width: 3.45rem; height: 1.6rem; background-color: #45b39a; color: #fff; text-align: center;}
-.welfare .content .category .category_content .right .text{width: 3.45rem; height: 1.6rem; color: #000; text-align: center; border: 1px solid #939393;}
+.welfare .content .category .category_content .left .text{width: 3.45rem; height: 1.6rem; text-align: center;border: 1px solid #939393;}
+.welfare .content .category .category_content .right .text{width: 3.45rem; height: 1.6rem; text-align: center; border: 1px solid #939393;}
 .welfare .content .category .category_content .left .text .redPackets{font-size: 24px;}
 [data-dpr="2"] .welfare .content .category .category_content .left .text .redPackets{font-size: 48px;}
 [data-dpr="3"] .welfare .content .category .category_content .left .text .redPackets{font-size: 72px;}

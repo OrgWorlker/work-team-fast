@@ -16,6 +16,7 @@ spring:
   ##模板引擎配置
   thymeleaf:
     mode: LEGACYHTML5
+    cache: false
   rabbitmq:
     host: 42.51.39.56
     port: 5672

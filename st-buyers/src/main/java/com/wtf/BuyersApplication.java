@@ -5,9 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
@@ -18,7 +17,7 @@ import javax.annotation.Resource;
 @SpringBootApplication
 @ServletComponentScan
 @EnableCaching
-@RestController
+@EnableScheduling
 public class BuyersApplication {
 
     @Resource
@@ -32,10 +31,5 @@ public class BuyersApplication {
 
         SpringApplication.run(BuyersApplication.class, args);
 
-    }
-
-    @GetMapping("/")
-    public String url(){
-        return this.fileServerConfigure.getFileServerUrl();
     }
 }
