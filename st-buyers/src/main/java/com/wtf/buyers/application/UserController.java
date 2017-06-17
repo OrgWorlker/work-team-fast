@@ -2,6 +2,7 @@ package com.wtf.buyers.application;
 
 import com.wtf.core.domain.dto.UserLoginDto;
 import com.wtf.core.domain.model.User;
+import com.wtf.core.domain.model.UserBank;
 import com.wtf.core.domain.model.UserInfo;
 import com.wtf.core.infrastructure.adapter.ControllerAdapter;
 import com.wtf.core.interfaces.manager.IGoldLogManager;
@@ -142,19 +143,36 @@ public class UserController extends ControllerAdapter {
         return new ModelAndView("buyers/login");
     }
 
+    /**
+     * Take gold money model and view.
+     *
+     * @param gold   the gold
+     * @param userId the user id
+     * @param model  the model
+     * @return the model and view
+     */
     @GetMapping("take-gold/{gold}/{userId}")
-    public ModelAndView takeGoldMoney(@PathVariable Double gold,@PathVariable Long userId, Model model) {
+    public ModelAndView takeGoldMoney(@PathVariable Double gold, @PathVariable Long userId, Model model) {
         model.addAttribute("gold", gold);
         model.addAttribute("userId", userId);
         return new ModelAndView("buyers/user/take-gold");
     }
 
+    /**
+     * Take integral money model and view.
+     *
+     * @param integral the integral
+     * @param userId   the user id
+     * @param model    the model
+     * @return the model and view
+     */
     @GetMapping("take-integral/{integral}/{userId}")
-    public ModelAndView takeIntegralMoney(@PathVariable Double integral,@PathVariable Long userId, Model model) {
+    public ModelAndView takeIntegralMoney(@PathVariable Double integral, @PathVariable Long userId, Model model) {
         model.addAttribute("integral", integral);
         model.addAttribute("userId", userId);
         return new ModelAndView("buyers/user/take-integral");
     }
+
     /**
      * Take log view model and view.
      *
@@ -184,18 +202,48 @@ public class UserController extends ControllerAdapter {
         model.addAttribute("userId", userId);
         return new ModelAndView("buyers/user/user-info");
     }
+
     /**
      * Cash model and view.
      *
      * @param userId the user id
      * @param model  the model
      * @return the model and view
+     * @throws Exception the exception
      */
     @GetMapping("bank/{userId}")
-    public ModelAndView userBank(@PathVariable Long userId, Model model) {
-        model.addAttribute("user", this.userManager.findById(userId));
+    public ModelAndView userBank(@PathVariable Long userId, Model model) throws Exception {
+        UserBank bank = this.userManager.findBankByUserId(userId);
+        if (bank == null) {
+            bank = new UserBank();
+        }
+        model.addAttribute("bank", bank);
         model.addAttribute("userId", userId);
+        model.addAttribute("msg", "");
         return new ModelAndView("buyers/user/user-bank");
+    }
+
+    /**
+     * Save bank string.
+     *
+     * @param userBank the user bank
+     * @return the string
+     * @throws Exception the exception
+     */
+    @PostMapping("bank/save")
+    public String saveBank(UserBank userBank) throws Exception {
+        if (userBank.getId() == null) {
+            final int flag = this.userManager.insertBank(userBank);
+            if (flag > 0) {
+                return SUCCESS;
+            }
+        } else {
+            final int flag = this.userManager.updateBank(userBank);
+            if (flag > 0) {
+                return SUCCESS;
+            }
+        }
+        return ERROR;
     }
 
     /**
@@ -277,9 +325,10 @@ public class UserController extends ControllerAdapter {
 
     /**
      * 修改用户地区，直接把地区名字用逗号组装一起保存
-     * @param userId
-     * @param city
-     * @return
+     *
+     * @param userId the user id
+     * @param city   the city
+     * @return string
      */
     @PostMapping("modifyCity/{city}/{userId}")
     public String modifyCityName(@PathVariable Long userId, @PathVariable String city) {
@@ -409,13 +458,23 @@ public class UserController extends ControllerAdapter {
      * @param qq        the qq
      * @param phoneNum  the phone num
      * @param checknum  the checknum
+     * @param passWord  the checknum
      * @return the string
      */
     @PostMapping("register")
     @ResponseBody
-    public String register(String loginName, String qq, String phoneNum, String checknum) {
-        final int i = this.userManager.register(loginName, qq, phoneNum, checknum);
-        return FAILD;
+    public String register(String loginName, String qq, String phoneNum, String checknum, String passWord) {
+        final String code = this.stringRedisTemplate.opsForValue().get(phoneNum);
+        if (StringUtils.isNotBlank(code) && code.equals(checknum)) {
+            try {
+                this.userManager.register(loginName, qq, phoneNum, passWord);
+            } catch (Exception e) {
+                log.error(e.getMessage(), e);
+                return FAILD;
+            }
+            return SUCCESS;
+        }
+        return ERROR;
     }
 
     /**

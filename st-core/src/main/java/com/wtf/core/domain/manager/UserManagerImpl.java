@@ -1,15 +1,9 @@
 package com.wtf.core.domain.manager;
 
 import com.wtf.core.domain.dto.UserLoginDto;
-import com.wtf.core.domain.model.User;
-import com.wtf.core.domain.model.UserInfo;
-import com.wtf.core.domain.model.UserLevel;
-import com.wtf.core.domain.model.UserOrder;
+import com.wtf.core.domain.model.*;
 import com.wtf.core.interfaces.manager.IUserManager;
-import com.wtf.core.interfaces.service.IUserInfoService;
-import com.wtf.core.interfaces.service.IUserLevelService;
-import com.wtf.core.interfaces.service.IUserOrderService;
-import com.wtf.core.interfaces.service.IUserService;
+import com.wtf.core.interfaces.service.*;
 import com.wtf.infsc.infrastructure.stereotype.ManagerService;
 import com.wtf.infsc.infrastructure.util.MD5Util;
 import org.springframework.transaction.annotation.Transactional;
@@ -119,11 +113,12 @@ public class UserManagerImpl implements IUserManager {
      * @param loginName the login name
      * @param qq        the qq
      * @param phoneNum  the phone num
-     * @param checknum  the checknum
+     * @param passWord  the passWord
      * @return the int
      */
     @Override
-    public int register(String loginName, String qq, String phoneNum, String checknum) {
+    public int register(String loginName, String qq, String phoneNum, String passWord) {
+        final TbUser tbUser = new TbUser();
         final Date date = new Date();
         final User user = new User();
         final UserInfo userInfo = new UserInfo();
@@ -140,7 +135,8 @@ public class UserManagerImpl implements IUserManager {
         user.setUserInfo(userInfo);
         user.setUserLevel(userLevel);
         user.setLoginName(loginName);
-        user.setLoginPwd(checknum);
+        user.setLoginPwd(MD5Util.md5Encode(passWord));
+        user.setCount(0l);
 
         return this.userService.insert(user);
     }
@@ -167,5 +163,41 @@ public class UserManagerImpl implements IUserManager {
     @Override
     public int updateUserInfo(UserInfo userInfo) throws Exception {
         return this.userInfoService.update(userInfo);
+    }
+
+    @Resource
+    private IUserBankService userBankService;
+    /**
+     * Find bank by user id user bank.
+     *
+     * @param userId the user id
+     * @return the user bank
+     * @throws Exception the exception
+     */
+    @Override
+    public UserBank findBankByUserId(Long userId) throws Exception {
+        return this.userBankService.findByUserId(userId);
+    }
+
+    /**
+     * Insert bank int.
+     *
+     * @param userBank the user bank
+     * @return the int
+     */
+    @Override
+    public int insertBank(UserBank userBank) {
+        return this.userBankService.insert(userBank);
+    }
+
+    /**
+     * Update bank int.
+     *
+     * @param userBank the user bank
+     * @return the int
+     */
+    @Override
+    public int updateBank(UserBank userBank) {
+        return this.userBankService.update(userBank);
     }
 }

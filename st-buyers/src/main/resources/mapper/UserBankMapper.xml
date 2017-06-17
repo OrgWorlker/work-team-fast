@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wtf.core.interfaces.repository.IUserBankMapper">
+    <resultMap id="allMap" type="com.wtf.core.domain.model.UserBank">
+        <result column="id" property="id"/>
+        <result column="real_name" property="realName"/>
+        <result column="card" property="card"/>
+        <result column="bank_name" property="bankName"/>
+        <result column="bank_city" property="bankCity"/>
+        <result column="bank_detail_name" property="bankDetailName"/>
+        <result column="user_id" property="userId"/>
+        <result column="crt_time" property="crtTime"/>
+        <result column="upd_time" property="updTime"/>
+    </resultMap>
+
+    <sql id="allColumn">
+        id, real_name, card, bank_name, bank_city, bank_detail_name, user_id, crt_time, upd_time
+    </sql>
+
+    <select id="findByUserId" resultMap="allMap">
+        SELECT
+        <include refid="allColumn"/>
+        FROM user_bank
+        WHERE user_id = #{userId}
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id">
+        INSERT INTO user_bank (
+        <include refid="allColumn"/>
+        ) VALUES (
+        #{pojo.id},
+        #{pojo.realName},
+        #{pojo.card},
+        #{pojo.bankName},
+        #{pojo.bankCity},
+        #{pojo.bankDetailName},
+        #{pojo.userId},
+        #{pojo.crtTime},
+        #{pojo.updTime}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="update">
+        UPDATE user_bank
+        <set>
+            <if test="pojo.realName != null">real_name = #{pojo.realName},</if>
+            <if test="pojo.card != null">card = #{pojo.card},</if>
+            <if test="pojo.bankName != null">bank_name = #{pojo.bankName},</if>
+            <if test="pojo.bankCity != null">bank_city = #{pojo.bankCity},</if>
+            <if test="pojo.bankDetailName != null">bank_detail_name = #{pojo.bankDetailName},</if>
+            <if test="pojo.userId != null">user_id = #{pojo.userId},</if>
+            <if test="pojo.crtTime != null">crt_time = #{pojo.crtTime},</if>
+            <if test="pojo.updTime != null">upd_time = #{pojo.updTime}</if>
+        </set>
+        WHERE id = #{pojo.id}
+    </update>
+</mapper>

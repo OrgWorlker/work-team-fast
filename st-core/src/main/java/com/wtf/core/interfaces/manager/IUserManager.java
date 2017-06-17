@@ -3,6 +3,7 @@ package com.wtf.core.interfaces.manager;
 
 import com.wtf.core.domain.dto.UserLoginDto;
 import com.wtf.core.domain.model.User;
+import com.wtf.core.domain.model.UserBank;
 import com.wtf.core.domain.model.UserInfo;
 import com.wtf.core.domain.model.UserOrder;
 
@@ -85,10 +86,10 @@ public interface IUserManager {
      * @param loginName the login name
      * @param qq        the qq
      * @param phoneNum  the phone num
-     * @param checknum  the checknum
+     * @param passWord  the passWord
      * @return the int
      */
-    int register(String loginName, String qq, String phoneNum, String checknum);
+    int register(String loginName, String qq, String phoneNum, String passWord);
 
 
     /**
@@ -108,4 +109,29 @@ public interface IUserManager {
      * @throws Exception the exception
      */
     int updateUserInfo(UserInfo userInfo) throws Exception;
+
+    /**
+     * Find bank by user id user bank.
+     *
+     * @param userId the user id
+     * @return the user bank
+     * @throws Exception the exception
+     */
+    UserBank findBankByUserId(Long userId) throws Exception;
+
+    /**
+     * Insert bank int.
+     *
+     * @param userBank the user bank
+     * @return the int
+     */
+    int insertBank(UserBank userBank);
+
+    /**
+     * Update bank int.
+     *
+     * @param userBank the user bank
+     * @return the int
+     */
+    int updateBank(UserBank userBank);
 }
