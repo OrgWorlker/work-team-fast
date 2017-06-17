@@ -231,28 +231,19 @@ public class UserController extends ControllerAdapter {
      * @throws Exception the exception
      */
     @PostMapping("bank/save")
-    public ModelAndView saveBank(UserBank userBank, Model model) throws Exception {
-        String url = "buyers/user/user-center";
+    public String saveBank(UserBank userBank) throws Exception {
         if (userBank.getId() == null) {
             final int flag = this.userManager.insertBank(userBank);
-            if (flag <= 0) {
-                url = "buyers/user/user-bank";
-                model.addAttribute("msg", "添加银行卡失败");
-            } else {
-                model.addAttribute("user", this.userManager.findById(userBank.getUserId()));
+            if (flag > 0) {
+                return SUCCESS;
             }
         } else {
             final int flag = this.userManager.updateBank(userBank);
-            if (flag <= 0) {
-                url = "buyers/user/user-bank";
-                model.addAttribute("msg", "修改银行卡信息失败");
-            } else {
-                model.addAttribute("user", this.userManager.findById(userBank.getUserId()));
+            if (flag > 0) {
+                return SUCCESS;
             }
         }
-
-        model.addAttribute("userId", userBank.getUserId());
-        return new ModelAndView(url);
+        return ERROR;
     }
 
     /**
