@@ -86,10 +86,10 @@ public interface IUserManager {
      * @param loginName the login name
      * @param qq        the qq
      * @param phoneNum  the phone num
-     * @param checknum  the checknum
+     * @param passWord  the passWord
      * @return the int
      */
-    int register(String loginName, String qq, String phoneNum, String checknum);
+    int register(String loginName, String qq, String phoneNum, String passWord);
 
 
     /**

@@ -113,11 +113,12 @@ public class UserManagerImpl implements IUserManager {
      * @param loginName the login name
      * @param qq        the qq
      * @param phoneNum  the phone num
-     * @param checknum  the checknum
+     * @param passWord  the passWord
      * @return the int
      */
     @Override
-    public int register(String loginName, String qq, String phoneNum, String checknum) {
+    public int register(String loginName, String qq, String phoneNum, String passWord) {
+        final TbUser tbUser = new TbUser();
         final Date date = new Date();
         final User user = new User();
         final UserInfo userInfo = new UserInfo();
@@ -134,7 +135,8 @@ public class UserManagerImpl implements IUserManager {
         user.setUserInfo(userInfo);
         user.setUserLevel(userLevel);
         user.setLoginName(loginName);
-        user.setLoginPwd(checknum);
+        user.setLoginPwd(MD5Util.md5Encode(passWord));
+        user.setCount(0l);
 
         return this.userService.insert(user);
     }

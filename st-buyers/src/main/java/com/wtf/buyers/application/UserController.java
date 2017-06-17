@@ -458,13 +458,23 @@ public class UserController extends ControllerAdapter {
      * @param qq        the qq
      * @param phoneNum  the phone num
      * @param checknum  the checknum
+     * @param passWord  the checknum
      * @return the string
      */
     @PostMapping("register")
     @ResponseBody
-    public String register(String loginName, String qq, String phoneNum, String checknum) {
-        final int i = this.userManager.register(loginName, qq, phoneNum, checknum);
-        return FAILD;
+    public String register(String loginName, String qq, String phoneNum, String checknum, String passWord) {
+        final String code = this.stringRedisTemplate.opsForValue().get(phoneNum);
+        if (StringUtils.isNotBlank(code) && code.equals(checknum)) {
+            try {
+                this.userManager.register(loginName, qq, phoneNum, passWord);
+            } catch (Exception e) {
+                log.error(e.getMessage(), e);
+                return FAILD;
+            }
+            return SUCCESS;
+        }
+        return ERROR;
     }
 
     /**
