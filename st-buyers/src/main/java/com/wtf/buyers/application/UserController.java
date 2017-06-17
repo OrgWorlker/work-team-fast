@@ -276,6 +276,29 @@ public class UserController extends ControllerAdapter {
     }
 
     /**
+     * 修改用户地区，直接把地区名字用逗号组装一起保存
+     * @param userId
+     * @param city
+     * @return
+     */
+    @PostMapping("modifyCity/{city}/{userId}")
+    public String modifyCityName(@PathVariable Long userId, @PathVariable String city) {
+        final User uesr = this.userManager.findById(userId);
+        final UserInfo userInfo = uesr.getUserInfo();
+        userInfo.setCity(city);
+        try {
+            final int info = this.userManager.updateUserInfo(userInfo);
+            if (info > 0) {
+                return SUCCESS;
+            }
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+            return ERROR;
+        }
+        return FAILD;
+    }
+
+    /**
      * Modify model and view.
      *
      * @param userId the user id

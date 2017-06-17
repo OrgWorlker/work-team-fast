@@ -3,6 +3,6 @@
  */
 $(function(){
 $(".icon-arrow-right").click(function (e) {
-    location.href=e.attr('value')
+    location.href=e.attr('value');
 });
 });
