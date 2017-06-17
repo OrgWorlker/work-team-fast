@@ -25,10 +25,26 @@
             </ul>
             <input class="button" type="submit" value="登录">
         </form>
+        <button class="f">loading</button>
+        <button class="o">123</button>
         <div class="footer">
             <div class="left"><p><a href="register.html">注册</a></p></div>
             <div class="right"><p><a href="retrieve-pwd.html">找回密码</a></p></div>
         </div>
     </div>
+    <div id="loadingModal"><div id="loading"></div></div>
+    <script src="../scripts/plugins/jquery-2.1.1.min.js"></script>
+    <script>
+        $(function () {
+            $(".f").on("click", function () {
+                $("#loadingModal").fadeIn(); //显示
+//                $("#loadingModal").fadeOut(); //隐藏
+            })
+            $(".o").on("click", function () {
+//                $("#loading").fadeIn(); //显示
+                $("#loadingModal").fadeOut(); //隐藏
+            })
+        })
+    </script>
 </body>
 </html>

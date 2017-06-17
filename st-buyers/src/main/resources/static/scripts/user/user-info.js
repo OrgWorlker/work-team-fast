@@ -17,6 +17,10 @@ $(function () {
 
     $("input[type]").change(function() {
         var $file = $(this);
+        $file.closest("form").submit();
+        // var promise = $(this).siblings("iframe");
+        console.log(window.frames["hidden_frame"].document);
+        // console.log(document.getElementById("hidden_frame").contentDocument.getElementsByTagName("pre"));
         var fileObj = $file[0];
         var windowURL = window.URL || window.webkitURL;
         var dataURL;

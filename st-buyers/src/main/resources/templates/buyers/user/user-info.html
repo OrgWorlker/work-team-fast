@@ -10,7 +10,8 @@
         <div class="header"><i class="icon iconfont icon-jinlingyingcaiicon01"></i>个人资料</div>
         <div class="info">
             <ul>
-                <li class="addImg"><div class="left">头像</div><div class="right"><i class="icon iconfont icon-arrow-right"></i><img class="headImg" src="/static/images/bingo.jpg" alt=""></div><input type="file"></li>
+                <li class="addImg"><div class="left">头像</div><div class="right"><i class="icon iconfont icon-arrow-right"></i><img class="headImg" src="/static/images/bingo.jpg" alt=""></div>
+                    <form action="http://127.0.0.1:9100/upload" enctype="multipart/form-data" method="post" target="hidden_frame"><input type="file" name="file"><iframe name="hidden_frame" id="hidden_frame" style="display:none"></iframe></form></li>
                 <li class="text_addr"><div class="left">地区</div><div class="right"><span th:text="${user.userInfo.city}"></span><i class="icon iconfont icon-arrow-right"></i></div>
                     <input type="text" id="text_addr" value="" /><input type="hidden" id="hd_addr" value=""/></li>
                 <li><a th:href="'/user/modifyQQ/' + ${userId}"><div class="left">QQ号码</div><div class="right"><span th:text="${user.userInfo.qq}"></span><i class="icon iconfont icon-arrow-right"></i></div></a></li>
