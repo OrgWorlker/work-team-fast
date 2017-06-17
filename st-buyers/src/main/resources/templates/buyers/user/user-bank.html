@@ -8,15 +8,16 @@
 <body>
 <div class="bind">
     <div class="header"><i class="icon iconfont icon-jinlingyingcaiicon01"></i>我的银行卡</div>
-    <form action="">
+    <form id="bankForm" action="/user/bank/save" method="post">
         <ul>
-            <li><input type="text" style="width: 100%"  placeholder="真实姓名"></li>
-            <li><input type="text" style="width: 100%"  placeholder="银行卡号"></li>
-            <li><input id="text_age" style="width: 100%"  type="text" placeholder="点击选择开户行"><input type="hidden" id="hd_age" value="1,1,1"/></li>
-            <li><input type="text"  style="width: 100%" id="text_area" placeholder="点击选择开户行所在地"><input type="hidden" id="hd_area" value="1,1,1"></li>
-            <li><input type="text" style="width: 100%" placeholder="开户支行名称"></li>
+            <li><input type="text" style="width: 100%" name="realName" placeholder="真实姓名" th:value="${bank.realName}"></li>
+            <li><input type="text" style="width: 100%" name="card" placeholder="银行卡号" onkeyup="this.value=this.value.replace(/\D/g,'')" th:value="${bank.card}"></li>
+            <li><input id="text_age" style="width: 100%" name="bankName" type="text" placeholder="点击选择开户行" th:value="${bank.bankName}"><input type="hidden" id="hd_age" value="1,1,1"/></li>
+            <li><input type="text"  style="width: 100%" name="bankCity" id="text_area" placeholder="点击选择开户行所在地" th:value="${bank.bankCity}"><input type="hidden" id="hd_area" value="1,1,1"></li>
+            <li><input type="text" style="width: 100%" name="bankDetailName" placeholder="开户支行名称" th:value="${bank.bankDetailName}"></li>
+            <li><input type="hidden" name="id" th:value="${bank.id}" /> <input type="hidden" name="userId" th:value="${userId}"/><span style="color:red;" th:text="${msg}"> </span></li>
         </ul>
-        <input class="submitButton" type="submit" value="提交"/>
+        <input class="submitButton" type="button" value="提交"/>
     </form>
 </div>
 <script src="/static/scripts/plugins/dialog.js"></script>
