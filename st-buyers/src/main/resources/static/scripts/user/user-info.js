@@ -41,7 +41,14 @@ $(function () {
 
     var selectArea = new MobileSelectArea();
     selectArea.init({trigger:$('#text_addr'),value:$('#hd_addr').val(),data:'/static/json/data.json', callback: function (_this, scroller, text, value) {
-        $("li.text_addr .right span").text(scroller.toString());
+        var cityName = scroller.toString();
+        $.post("/user/modifyCity/" + cityName + "/" + userId, function (result) {
+          if (result == "success") {
+            $("li.text_addr .right span").text(cityName);
+          } else {
+            $.alert("地区修改失败！");
+          }
+        });
     }});
 
 });
