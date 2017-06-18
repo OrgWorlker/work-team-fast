@@ -45,6 +45,7 @@ public class FileController {
 //文件上传相关代码
     @RequestMapping(value = "upload")
     @ResponseBody
+    @CrossOrigin
     public FileResult upload(@RequestParam MultipartFile file, HttpServletResponse response) {
         final String fileKey = this.fileSaveFactory.saveFile(file);
         if (StringUtils.isNotBlank(fileKey)) {
