@@ -17,6 +17,11 @@ $(function () {
 
     $("input[type]").change(function() {
         var $file = $(this);
+        // $file.closest("form").submit();
+        // var promise = $(this).siblings("iframe");
+        // console.log(window.frames["hidden_frame"].document);
+        // console.log(document.getElementById("hidden_frame").contentDocument.getElementsByTagName("pre"));
+        uploadAjax();
         var fileObj = $file[0];
         var windowURL = window.URL || window.webkitURL;
         var dataURL;
@@ -38,7 +43,23 @@ $(function () {
         }
     });
 
-
+function uploadAjax() {
+    var formdata = new FormData($("#uploadForm")[0]);
+    $.ajax({
+        url: "http://127.0.0.1:9100/upload",
+        type: "post",
+        data: formdata,    //处理表单数据
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        success: function(data){
+            console.log(data);
+        },
+        error: function(data){
+            console.log(data);
+        }
+    })
+}
     var selectArea = new MobileSelectArea();
     selectArea.init({trigger:$('#text_addr'),value:$('#hd_addr').val(),data:'/static/json/data.json', callback: function (_this, scroller, text, value) {
         var cityName = scroller.toString();

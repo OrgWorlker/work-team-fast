@@ -10,7 +10,7 @@
 .activeTask .top p{width: 50%; float: left; margin:.3rem;}
 .activeTask .top button{color: #3db098; float: right; margin:.2rem;}
 
-.activeTask .list{width:100%;}
+.activeTask .list{width:100%; height: 100%; overflow-y: scroll;}
 .activeTask .list li{width: 100%; height:2.83rem; background-color: #fff; margin-top: .14rem;}
 .activeTask .list li .left{width: 64%; float: left; padding: .3rem;}
 .activeTask .list li .left .username{}
@@ -24,3 +24,5 @@
 [data-dpr="2"] .activeTask .list li .right p{font-size: 32px;}
 [data-dpr="3"] .activeTask .list li .right p{font-size: 48px;}
 .activeTask .list li .right button{color: #3db098;}
+
+.outer{position: absolute;height: 100%;width: 100%;display: flex;flex-direction: column;}
