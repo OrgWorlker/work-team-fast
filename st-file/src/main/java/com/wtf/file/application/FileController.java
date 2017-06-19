@@ -6,11 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.InputStreamResource;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -27,14 +25,12 @@ import java.util.List;
 /**
  * The type File controller.
  */
-@Controller
+@RestController
 @Slf4j
 public class FileController {
 
     @Resource
     private FileSaveFactory fileSaveFactory;
-    @Resource
-    private ResourceLoader resourceLoader;
 
     /**
      * Upload file result.
@@ -44,7 +40,6 @@ public class FileController {
      */
 //文件上传相关代码
     @RequestMapping(value = "upload")
-    @ResponseBody
     @CrossOrigin
     public FileResult upload(@RequestParam MultipartFile file, HttpServletResponse response) {
         final String fileKey = this.fileSaveFactory.saveFile(file);
@@ -116,13 +111,13 @@ public class FileController {
 
     /**
      * Handle file upload object.
+     * 多文件上传
      *
      * @param request the request
      * @return the object
      */
-//多文件上传
-    @RequestMapping(value = "/batch/upload" )
-    @ResponseBody
+    @RequestMapping(value = "/batch/upload")
+    @CrossOrigin
     public Object handleFileUpload(HttpServletRequest request) {
         List<MultipartFile> files = ((MultipartHttpServletRequest) request)
                 .getFiles("file");
