@@ -1,14 +1,12 @@
 package com.wtf.buyers.application;
 
 import com.wtf.core.domain.dto.UserLoginDto;
+import com.wtf.core.domain.model.TbUser;
 import com.wtf.core.domain.model.User;
 import com.wtf.core.domain.model.UserBank;
 import com.wtf.core.domain.model.UserInfo;
 import com.wtf.core.infrastructure.adapter.ControllerAdapter;
-import com.wtf.core.interfaces.manager.IGoldLogManager;
-import com.wtf.core.interfaces.manager.IIntegralLogManager;
-import com.wtf.core.interfaces.manager.ITakeLogManager;
-import com.wtf.core.interfaces.manager.IUserManager;
+import com.wtf.core.interfaces.manager.*;
 import com.wtf.infsc.infrastructure.configure.FileServerConfigure;
 import com.wtf.infsc.infrastructure.constant.Constant;
 import lombok.SneakyThrows;
@@ -21,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * The type User controller.
@@ -41,6 +40,8 @@ public class UserController extends ControllerAdapter {
     private IIntegralLogManager integralLogManager;
     @Resource
     private ITakeLogManager takeLogManager;
+    @Resource
+    private ITbUserManager tbUserManager;
 
     /**
      * User center model and view.
@@ -256,6 +257,16 @@ public class UserController extends ControllerAdapter {
     @GetMapping("bind/{userId}")
     public ModelAndView bind(@PathVariable Long userId, Model model) {
         model.addAttribute("userId", userId);
+        try {
+            final List<TbUser> tbUser = this.tbUserManager.findTbUserNumByUserId(userId);
+            if (null != tbUser || tbUser.size() > 0) {
+                model.addAttribute("tbUser", this.tbUserManager.findTbUserNumByUserId(userId).get(0));
+            } else {
+                model.addAttribute("tbUser", new TbUser());
+            }
+        } catch (Exception e){
+            log.error(e.getMessage(), e);
+        }
         model.addAttribute("fileConfig", this.fileServerConfigure);
         return new ModelAndView("buyers/user/bind");
     }
@@ -386,6 +397,29 @@ public class UserController extends ControllerAdapter {
             return userLoginDto;
         }
         return userLoginDto;
+    }
+
+    /**
+     * Upd telphone string.
+     *
+     * @param userId   the user id
+     * @param telphone the telphone
+     * @param valicode the valicode
+     * @return the string
+     */
+    @PostMapping("updateTbUser/{userId}")
+    public String updateTbUser(@PathVariable Long userId, String telphone, String valicode) {
+
+        //需要看下。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。
+        final TbUser tbUser = new TbUser();
+
+        try {
+            this.tbUserManager.updateTbUserByUserId(tbUser);
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+            return FAILD;
+        }
+        return SUCCESS;
     }
 
     /**

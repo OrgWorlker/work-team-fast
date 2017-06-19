@@ -17,4 +17,12 @@ public interface ITbUserManager {
      * @throws Exception the exception
      */
     List<TbUser> findTbUserNumByUserId(Long userId) throws Exception;
+
+    /**
+     * 根据用户id去保存淘宝用户信息
+     * @param tbUser
+     * @return
+     * @throws Exception
+     */
+    int updateTbUserByUserId(TbUser tbUser) throws Exception;
 }
