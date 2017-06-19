@@ -60,10 +60,6 @@ $(function () {
                         }
                     });
                 }
-                console.log(data);
-            },
-            error: function (data) {
-                console.log(data);
             }
         })
     }
