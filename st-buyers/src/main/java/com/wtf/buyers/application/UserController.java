@@ -200,6 +200,7 @@ public class UserController extends ControllerAdapter {
     public ModelAndView userInfo(@PathVariable Long userId, Model model) {
         model.addAttribute("user", this.userManager.findById(userId));
         model.addAttribute("userId", userId);
+        model.addAttribute("fileServer", this.fileServerConfigure);
         return new ModelAndView("buyers/user/user-info");
     }
 
@@ -311,6 +312,24 @@ public class UserController extends ControllerAdapter {
         final User uesr = this.userManager.findById(userId);
         final UserInfo userInfo = uesr.getUserInfo();
         userInfo.setQq(qq);
+        return  this.updateUserInfo(userInfo);
+    }
+
+    /**
+     * Modify tx string.
+     *
+     * @param userId the user id
+     * @param tx     the tx
+     * @return the string
+     */
+    @PostMapping("modifyTx/{tx}/{userId}")
+    public String modifyTx(@PathVariable Long userId, @PathVariable String tx){
+        final User uesr = this.userManager.findById(userId);
+        final UserInfo userInfo = uesr.getUserInfo();
+        userInfo.setTxUrl(tx);
+        return this.updateUserInfo(userInfo);
+    }
+    private String updateUserInfo(UserInfo userInfo) {
         try {
             final int info = this.userManager.updateUserInfo(userInfo);
             if (info > 0) {
@@ -328,23 +347,14 @@ public class UserController extends ControllerAdapter {
      *
      * @param userId the user id
      * @param city   the city
-     * @return string
+     * @return string string
      */
     @PostMapping("modifyCity/{city}/{userId}")
     public String modifyCityName(@PathVariable Long userId, @PathVariable String city) {
         final User uesr = this.userManager.findById(userId);
         final UserInfo userInfo = uesr.getUserInfo();
         userInfo.setCity(city);
-        try {
-            final int info = this.userManager.updateUserInfo(userInfo);
-            if (info > 0) {
-                return SUCCESS;
-            }
-        } catch (Exception e) {
-            log.error(e.getMessage(), e);
-            return ERROR;
-        }
-        return FAILD;
+        return this.updateUserInfo(userInfo);
     }
 
     /**

@@ -10,7 +10,7 @@
         <div class="header"><i class="icon iconfont icon-jinlingyingcaiicon01"></i>个人资料</div>
         <div class="info">
             <ul>
-                <li class="addImg"><div class="left">头像</div><div class="right"><i class="icon iconfont icon-arrow-right"></i><img class="headImg" src="/static/images/bingo.jpg" alt=""></div>
+                <li class="addImg"><div class="left">头像</div><div class="right"><i class="icon iconfont icon-arrow-right"></i><img class="headImg" th:src="${fileServer.fileServerUrl + user.userInfo.txUrl}" alt=""></div>
                     <form id="uploadForm" enctype="multipart/form-data" method="post"><input type="file" name="file"></form></li>
                 <li class="text_addr"><div class="left">地区</div><div class="right"><span th:text="${user.userInfo.city}"></span><i class="icon iconfont icon-arrow-right"></i></div>
                     <input type="text" id="text_addr" value="" /><input type="hidden" id="hd_addr" value=""/></li>
@@ -22,8 +22,14 @@
         </div>
         <p class="logout"><button class="submitButton">退出登录</button></p>
         <input th:value="${user.tradePwd}" id="trade" hidden />
+        <input th:value="${fileServer.fileServerUrl + fileServer.upload}"  id="uploadUrl" hidden />
     </div>
 </body>
+<script th:inline="javascript" >
+    var fileServer=[[${fileServer}]];
+//    var fileServer=[[${userId}]];
+    console.log(fileServer)
+</script>
 <script src="/static/scripts/plugins/mobile-select-area.js"></script>
 <script src="/static/scripts/plugins/dialog.js"></script>
 <script th:inline="javascript" src="/static/scripts/user/user-info.js" >

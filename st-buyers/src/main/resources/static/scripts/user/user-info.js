@@ -1,8 +1,8 @@
 $(function () {
     var trad = $("#trade").val();
-    var tradhref="/user/modifyTradPwd/"  + userId;
+    var tradhref = "/user/modifyTradPwd/" + userId;
     $("#tradUrl").click(function () {
-        if (trad){
+        if (trad) {
             $.alert("请联系客服修改密码");
             return;
         }
@@ -10,12 +10,12 @@ $(function () {
     });
 
     $(".logout").click(function () {
-        $.cookie('username', "", {path:"/"});
-        $.cookie('checknum', "", {path:"/"});
-        location.href="/user/logout";
+        $.cookie('username', "", {path: "/"});
+        $.cookie('checknum', "", {path: "/"});
+        location.href = "/user/logout";
     });
 
-    $("input[type]").change(function() {
+    $("input[type]").change(function () {
         var $file = $(this);
         // $file.closest("form").submit();
         // var promise = $(this).siblings("iframe");
@@ -28,10 +28,10 @@ $(function () {
         // var $img = $("#preview");
         var $img = $img = $(this).closest(".addImg").find("img");
 
-        if(fileObj && fileObj.files && fileObj.files[0]){
+        if (fileObj && fileObj.files && fileObj.files[0]) {
             dataURL = windowURL.createObjectURL(fileObj.files[0]);
-            $img.attr('src',dataURL);
-        }else{
+            $img.attr('src', dataURL);
+        } else {
             dataURL = $file.val();
             var imgObj = document.getElementById("preview");
 // 两个坑:
@@ -43,33 +43,46 @@ $(function () {
         }
     });
 
-function uploadAjax() {
-    var formdata = new FormData($("#uploadForm")[0]);
-    $.ajax({
-        url: "http://127.0.0.1:9100/upload",
-        type: "post",
-        data: formdata,    //处理表单数据
-        dataType: 'json',
-        processData: false,
-        contentType: false,
-        success: function(data){
-            console.log(data);
-        },
-        error: function(data){
-            console.log(data);
-        }
-    })
-}
+    function uploadAjax() {
+        var formdata = new FormData($("#uploadForm")[0]);
+        $.ajax({
+            url: $("#uploadUrl").val(),
+            type: "post",
+            data: formdata,    //处理表单数据
+            dataType: 'json',
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                if (data.code == 200) {
+                    $.post("/user/modifyTx/" + data.fileKey + "/" + userId, function (result) {
+                        if (result == "success") {
+                            $.alert("头像修改成功")
+                        }
+                    });
+                }
+                console.log(data);
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        })
+    }
+
     var selectArea = new MobileSelectArea();
-    selectArea.init({trigger:$('#text_addr'),value:$('#hd_addr').val(),data:'/static/json/data.json', callback: function (_this, scroller, text, value) {
-        var cityName = scroller.toString();
-        $.post("/user/modifyCity/" + cityName + "/" + userId, function (result) {
-          if (result == "success") {
-            $("li.text_addr .right span").text(cityName);
-          } else {
-            $.alert("地区修改失败！");
-          }
-        });
-    }});
+    selectArea.init({
+        trigger: $('#text_addr'),
+        value: $('#hd_addr').val(),
+        data: '/static/json/data.json',
+        callback: function (_this, scroller, text, value) {
+            var cityName = scroller.toString();
+            $.post("/user/modifyCity/" + cityName + "/" + userId, function (result) {
+                if (result == "success") {
+                    $("li.text_addr .right span").text(cityName);
+                } else {
+                    $.alert("地区修改失败！");
+                }
+            });
+        }
+    });
 
 });
