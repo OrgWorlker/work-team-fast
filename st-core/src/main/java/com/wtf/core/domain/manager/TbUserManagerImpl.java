@@ -25,4 +25,18 @@ public class TbUserManagerImpl implements ITbUserManager {
     public List<TbUser> findTbUserNumByUserId(Long userId) throws Exception {
         return this.tbUserService.findTbUserNumByUserId(userId);
     }
+
+    @Override
+    public int updateTbUserByUserId(TbUser tbUser) throws Exception {
+        //需要看下。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。
+        if (null == tbUser) {
+            return -1;
+        }
+
+        if (null == tbUser.getUserId() || tbUser.getUserId() <= 0) {
+            return this.tbUserService.insert(tbUser);
+        }
+
+        return this.tbUserService.update(tbUser);
+    }
 }

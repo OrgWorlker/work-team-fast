@@ -167,8 +167,7 @@
 
     <select id="findTbUserNumByUserId" resultMap="AllColumnMap">
         SELECT
-            id,
-            tb_user_num
+        <include refid="all_column"/>
         FROM tb_user
         WHERE user_id = #{userId}
     </select>
