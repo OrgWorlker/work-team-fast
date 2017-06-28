@@ -1,5 +1,6 @@
 package com.wtf.buyers.application;
 
+import com.wtf.core.domain.model.TbUser;
 import com.wtf.core.domain.model.UserOrder;
 import com.wtf.core.interfaces.manager.ITbUserManager;
 import com.wtf.core.interfaces.manager.IUserManager;
@@ -8,13 +9,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
+/**
+ * The type Task controller.
+ */
 @Controller
 @Slf4j
+@RequestMapping("task")
 public class TaskController {
     @Resource
     private ITbUserManager tbUserManager;
@@ -24,11 +31,12 @@ public class TaskController {
     /**
      * Task welfare model and view.
      *
-     * @param userId the user id
-     * @param model  the model
+     * @param userId  the user id
+     * @param model   the model
+     * @param session the session
      * @return the model and view
      */
-    @GetMapping("/task/welfare/{userId}")
+    @GetMapping("welfare/{userId}")
     public ModelAndView taskWelfare(@PathVariable Long userId, Model model, HttpSession session) {
         model.addAttribute("userId", userId);
         try {
@@ -48,4 +56,30 @@ public class TaskController {
         }
         return new ModelAndView("buyers/task/welfare");
     }
+
+
+    /**
+     * Task normal model and view.
+     *
+     * @param userId the user id
+     * @param model  the model
+     * @return the model and view
+     */
+    @GetMapping("normal/{userId}")
+    public ModelAndView taskNormal(@PathVariable Long userId, Model model) throws Exception {
+        model.addAttribute("userId", userId);
+        final List<TbUser> tbUsers = this.tbUserManager.findTbUserNumByUserId(userId);
+
+        if (tbUsers != null && !tbUsers.isEmpty()) {
+            model.addAttribute("tbUser", tbUsers.get(0));
+        } else {
+            model.addAttribute("tbUser", null);
+        }
+        return new ModelAndView("buyers/task/active-task");
+    }
+
+    public List<?> taskList() {
+        return null;
+    }
+
 }

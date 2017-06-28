@@ -2,7 +2,9 @@ package domain.manager;
 
 import com.alibaba.fastjson.JSON;
 import com.wtf.BuyersApplication;
+import com.wtf.core.domain.model.TakeLog;
 import com.wtf.core.interfaces.manager.IDistrictManager;
+import com.wtf.core.interfaces.service.ITakeLogService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,6 +19,8 @@ public class DistrictManagerImplTest {
     @Resource
     private IDistrictManager districtManager;
 
+    @Resource
+    private ITakeLogService takeLogService;
     @Test
     public void districtTree() throws Exception {
         final Map<String, Object> maps = this.districtManager.districtTree();
@@ -24,4 +28,10 @@ public class DistrictManagerImplTest {
         System.out.println(string);
     }
 
+    @Test
+    public void test ()  throws Exception {
+        final TakeLog takeLog =  this.takeLogService.findById(6L);
+        takeLog.setFlag(1);
+        this.takeLogService.autoTake(takeLog);
+    }
 }

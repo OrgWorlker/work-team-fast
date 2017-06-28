@@ -4,6 +4,7 @@ import com.wtf.core.domain.event.ShortMsgEvent;
 import com.wtf.core.infrastructure.adapter.ControllerAdapter;
 import com.wtf.core.interfaces.manager.ITbUserManager;
 import com.wtf.core.interfaces.manager.IUserManager;
+import com.wtf.infsc.infrastructure.configure.FileServerConfigure;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +31,8 @@ public class IndexController extends ControllerAdapter {
 
     @Resource
     private ITbUserManager tbUserManager;
+    @Resource
+    private FileServerConfigure fileServerConfigure;
 
     /**
      * Main string.
@@ -43,8 +46,6 @@ public class IndexController extends ControllerAdapter {
         return new ModelAndView("buyers/" + path);
     }
 
-
-
     /**
      * User center model and view.
      *
@@ -56,10 +57,9 @@ public class IndexController extends ControllerAdapter {
     public ModelAndView userCenter(Model model, @PathVariable Long userId) {
         model.addAttribute("user", this.userManager.findById(userId));
         model.addAttribute("userId", userId);
+        model.addAttribute("fileServer", this.fileServerConfigure);
         return new ModelAndView("buyers/user/user-center");
     }
-
-
 
 
     /**

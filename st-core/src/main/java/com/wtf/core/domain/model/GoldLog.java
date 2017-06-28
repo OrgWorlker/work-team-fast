@@ -6,6 +6,6 @@ import lombok.Setter;
 @Setter
 @Getter
 public class GoldLog extends BaseModel {
-    private double count;
-    private int userId;
+    private Double count;
+    private Long userId;
 }

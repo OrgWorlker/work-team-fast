@@ -1,11 +1,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.wtf.event.infrastructure.repository.IIntegralLogMapper">
-    <insert id="insert">
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id" parameterType="com.wtf.event.infrastructure.model.IntegralLog">
         INSERT INTO
-        integral_log
-       (user_id, count , crt_time)
-       VALUES
-       (#{log.userId}, #{log.count}, #{log.crtTime})
+            integral_log
+            (user_id, count, crt_time)
+        VALUES
+            (#{pojo.userId}, #{pojo.count}, #{pojo.crtTime})
     </insert>
+
 </mapper>
 

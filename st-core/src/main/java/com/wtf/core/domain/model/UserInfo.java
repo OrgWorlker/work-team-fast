@@ -12,6 +12,8 @@ public class UserInfo extends BaseModel {
 
     private String realName;
 
+    private String txUrl;
+
     private String cid;
 
     private String cidImg1;

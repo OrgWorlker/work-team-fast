@@ -9,7 +9,14 @@ $(function () {
      */
     $("#confirm").click(function () {
         if (validate() > 0) {
-            console.log($count.val())
+            $.post("/level/take", {type: 0, count: $count.val(), userId : userId}, function (result) {
+                if (result == SUCCESS) {
+                    $.alert("提交成功，请等待后台审核");
+                    setTimeout(function () {
+                        location.href = "/user/user-center/" + userId;
+                    }, 2000)
+                }
+            });
         }
     });
 
@@ -19,8 +26,9 @@ $(function () {
      * @returns {*}
      */
     function validate() {
+        $isConfirm.val(1);
         var $count = $("#count").val();
-        if ($count <= 100) {
+        if ($count < 100) {
             $("#confirm").val("最低限额100");
             $isConfirm.val(0);
         } else if ($count > $allCount) {

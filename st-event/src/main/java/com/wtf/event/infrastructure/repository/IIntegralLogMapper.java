@@ -2,6 +2,7 @@ package com.wtf.event.infrastructure.repository;
 
 import com.wtf.event.infrastructure.model.IntegralLog;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * The interface Gold log mapper.
@@ -16,5 +17,5 @@ public interface IIntegralLogMapper {
      * @return the int
      * @throws Exception the exception
      */
-    int insert(IntegralLog log) throws Exception;
+    int insert(@Param("pojo") IntegralLog log) throws Exception;
 }

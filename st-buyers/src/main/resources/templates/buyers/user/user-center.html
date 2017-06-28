@@ -6,12 +6,12 @@
 <div class="container">
 
     <div class="header">
-        <a href="###"><i class="left icon iconfont icon-kefu"></i></a>
-        <div class="user"><a th:href="'/user/info/' + ${userId} +'/'"><img src="/static/images/bingo.jpg" alt=""></a><span
+        <!--<a href="###"><i class="left icon iconfont icon-kefu"></i></a>-->
+        <div class="user"><a th:href="'/user/info/' + ${userId} +'/'"><img  th:src="${fileServer.fileServerUrl + user.userInfo.txUrl}" alt=""></a><span
                 th:text="${user.name}">Bingo</span>
             <div><i class="icon iconfont icon-v1 v1"></i></div>
         </div>
-        <a href="###"><i class="right icon iconfont icon-shezhi"></i></a>
+        <!--<a href="###"><i class="right icon iconfont icon-shezhi"></i></a>-->
     </div>
     <div class="title">
         <div class="t_left"><a th:href="'/user/cash-withdrawals/'+${user.userLevel.gold}  + '/' + ${userId}"><i class="icon iconfont icon-meiyuanyuanquan-fill"></i></a><span

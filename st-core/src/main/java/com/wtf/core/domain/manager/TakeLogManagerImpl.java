@@ -33,4 +33,18 @@ public class TakeLogManagerImpl implements ITakeLogManager{
         }
         return this.takeLogService.findByUserIdAndType(userId, type) ;
     }
+
+    /**
+     * Save int.
+     *
+     * @param takeLog the take log
+     * @return the int
+     */
+    @Override
+    public int save(TakeLog takeLog) {
+        if (takeLog.getId() == null) {
+            return this.takeLogService.insert(takeLog);
+        }
+        return this.takeLogService.update(takeLog);
+    }
 }

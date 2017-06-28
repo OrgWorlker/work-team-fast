@@ -13,7 +13,7 @@ import java.util.Date;
 public class IntegralLog {
 
     private Long id;
-    private double count;
-    private int userId;
+    private Double count;
+    private Long userId;
     private Date crtTime;
 }

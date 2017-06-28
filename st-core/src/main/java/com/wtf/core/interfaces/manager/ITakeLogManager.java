@@ -14,10 +14,18 @@ public interface ITakeLogManager {
      *
      * @param userId   the user id
      * @param type     the type
-     * @param pageNum the page num
-     * @param pageSize   the page size
+     * @param pageNum  the page num
+     * @param pageSize the page size
      * @return the list
      * @throws Exception the exception
      */
     List<TakeLog> findByUserIdAndType(Long userId, String type, int pageNum, int pageSize) throws Exception;
+
+    /**
+     * Save int.
+     *
+     * @param takeLog the take log
+     * @return the int
+     */
+    int save(TakeLog takeLog);
 }

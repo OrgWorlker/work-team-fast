@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.wtf.core.interfaces.repository.IUserInfoMapper">
-    <cache/>
+    <cache />
     <!--auto generated Code-->
     <resultMap id="AllColumnMap" type="com.wtf.core.domain.model.UserInfo">
         <result column="real_name" property="realName"/>
         <result column="cid" property="cid"/>
+        <result column="tx_url" property="txUrl"/>
         <result column="cid_img_1" property="cidImg1"/>
         <result column="cid_img_2" property="cidImg2"/>
         <result column="birth_day" property="birthDay"/>
@@ -21,13 +22,14 @@
 
     <!--auto generated Code-->
     <sql id="all_column">
-        id,qq, real_name, cid, cid_img_1, cid_img_2, birth_day, sex, telphone, city, cid_flag, upd_time, crt_time
+        id, tx_url, qq, real_name, cid, cid_img_1, cid_img_2, birth_day, sex, telphone, city, cid_flag, upd_time, crt_time
     </sql>
 
     <!--auto generated Code-->
     <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id">
         INSERT INTO user_info (
             qq,
+            tx_url,
             real_name,
             cid,
             cid_img_1,
@@ -42,6 +44,7 @@
             crt_time
         ) VALUES (
             #{pojo.qq},
+            #{pojo.txUrl},
             #{pojo.realName},
             #{pojo.cid},
             #{pojo.cidImg1},
@@ -62,7 +65,8 @@
         INSERT INTO user_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="pojo.id!=null">id,</if>
-            <if test="pojo.id!=null">qq,</if>
+            <if test="pojo.qq!=null">qq,</if>
+            <if test="pojo.txUrl!=null">tx_url,</if>
             <if test="pojo.realName!=null">real_name,</if>
             <if test="pojo.cid!=null">cid,</if>
             <if test="pojo.cidImg1!=null">cid_img_1,</if>
@@ -78,7 +82,8 @@
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="pojo.id!=null">#{pojo.id},</if>
-            <if test="pojo.id!=null">#{pojo.qq},</if>
+            <if test="pojo.qq!=null">#{pojo.qq},</if>
+            <if test="pojo.txUrl!=null">#{pojo.txUrl},</if>
             <if test="pojo.realName!=null">#{pojo.realName},</if>
             <if test="pojo.cid!=null">#{pojo.cid},</if>
             <if test="pojo.cidImg1!=null">#{pojo.cidImg1},</if>
@@ -101,6 +106,7 @@
         <foreach collection="pojos" item="pojo" index="index" separator=",">
             (
             #{pojo.id},
+            #{pojo.txUrl},
             #{pojo.qq},
             #{pojo.realName},
             #{pojo.cid},
@@ -122,6 +128,7 @@
         UPDATE user_info
         <set>
             <if test="pojo.realName != null">real_name = #{pojo.realName},</if>
+            <if test="pojo.realName != null">tx_url = #{pojo.txUrl},</if>
             <if test="pojo.qq != null">qq = #{pojo.qq},</if>
             <if test="pojo.cid != null">cid = #{pojo.cid},</if>
             <if test="pojo.cidImg1 != null">cid_img1 = #{pojo.cidImg1},</if>

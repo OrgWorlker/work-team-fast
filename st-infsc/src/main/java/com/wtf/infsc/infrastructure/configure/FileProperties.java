@@ -29,12 +29,12 @@ public class FileProperties {
     /**
      *  linux path
      */
-    private String linuxPath = "/SPRING/FILE";
+    private String linuxPath = "/SPRING/FILE/";
 
     /**
      * window path
      */
-    private String windowPath ="C:/Users/SPRING/FILE";
+    private String windowPath ="C:/Users/SPRING/FILE/";
     /**
      * Gets file path.
      *

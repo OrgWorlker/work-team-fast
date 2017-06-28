@@ -40,7 +40,7 @@ $(function () {
         $("#text_label").val($selectLabValue);
         $(".dialog-1").removeClass("dialog-content-active");
         $(".dialog-mask").hide();
-    })
+    });
 
     $(".content li").on("click", function () {
         var clickedNum = $(".content li.back-green").length;
@@ -50,5 +50,56 @@ $(function () {
             if(clickedNum >= 3) return;
             $(this).addClass("back-green");
         }
-    })
-})
+    });
+
+  $(".submitButton").click(function(){
+    console.log($("form").serialize());
+
+    var flag = false;//true;
+
+
+
+    // $("form ul").find("input:text").each(function(index, contt){
+    //   if (!checkIsNotNull(contt.value)) {
+    //     flag = false;
+    //     $.alert("请补全信息！");
+    //     return;
+    //   }
+    // });
+    //
+    // var checkLength = /^[a-zA-Z0-9]{6,18}$/;
+    // var checkQQ = /^[0-9]{4,16}$/;
+    // var passWordCheck = $("form ul").find("input:password");
+    // if (!checkIsNotNull(passWordCheck[0].value) || !checkIsNotNull(passWordCheck[1].value)) {
+    //   $.alert("请补全信息！");
+    //   flag = false;
+    //   return;
+    // } else if (!checkQQ.test($("#qqCodeParam").val())) {
+    //   $.alert("QQ输入有误！");
+    //   flag = false;
+    //   return;
+    // } else if (!checkLength.test(passWordCheck[0].value) || !checkLength.test(passWordCheck[1].value)) {
+    //   $.alert("密码长度在6到18位，不能满足要求，重新修改！");
+    //   flag = false;
+    //   return;
+    // } else if (passWordCheck[0].value != passWordCheck[1].value) {
+    //   $.alert("密码和确认密码不一致，重新修改！");
+    //   flag = false;
+    //   return;
+    // }
+    //odifyCity/" + cityName + "/" + userId, f
+    //
+    if (flag) {
+      $.post("/user/updateTbUser/" + userId, $("form").serialize(), function (result) {
+        if (result == "success") {
+          $.alert("淘宝账号添加成功！");
+          location.href = "/user/user-center/" + userId;
+        } else {
+          $.alert("淘宝账号添加失败！");
+        }
+      });
+    }
+  });
+
+
+});

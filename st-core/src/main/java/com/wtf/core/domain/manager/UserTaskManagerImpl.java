@@ -27,4 +27,18 @@ public class UserTaskManagerImpl implements IUserTaskManager {
     public List<UserTask> findOrderByNullBuyerAndStartTime(Date statrTime) throws Exception {
         return this.userTaskService.findOrderByNullBuyersAndStartTime(statrTime);
     }
+
+    /**
+     * Find order by buyer id list.
+     *
+     * @param userId the user id
+     * @return the list
+     * @throws Exception the exception
+     */
+    @Override
+    public List<UserTask> findOrderByBuyerId(Long userId) throws Exception {
+        final UserTask userTask = new UserTask();
+        userTask.setBuyerId(userId);
+        return this.userTaskService.findAll(userTask);
+    }
 }

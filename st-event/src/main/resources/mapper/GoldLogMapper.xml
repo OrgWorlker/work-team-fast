@@ -1,11 +1,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.wtf.event.infrastructure.repository.IGoldLogMapper">
-    <insert id="insert">
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.id" parameterType="com.wtf.event.infrastructure.model.GoldLog">
         INSERT INTO
-        gold_log
-       (user_id, count , crt_time)
-       VALUES
-       (#{log.userId}, #{log.count}, #{log.crtTime})
+            gold_log
+            (id, user_id, count, crt_time)
+        VALUES
+            (#{pojo.id}, #{pojo.userId}, #{pojo.count}, #{pojo.crtTime})
     </insert>
+
+
 </mapper>
 
