@@ -56,7 +56,7 @@ public interface BaseMapper<T extends BaseModel> {
      * @param pojo the pojo
      * @return the list
      */
-    List<T> findAll(T pojo);
+    List<T> findAll(@Param("pojo") T pojo);
 
 
     /**

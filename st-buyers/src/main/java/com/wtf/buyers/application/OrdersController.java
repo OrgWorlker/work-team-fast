@@ -1,10 +1,9 @@
 package com.wtf.buyers.application;
 
 import com.wtf.core.interfaces.manager.IUserTaskManager;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -12,7 +11,7 @@ import java.util.Date;
 /**
  * The type Orders controller.
  */
-@Controller
+@RestController
 @RequestMapping("order")
 public class OrdersController {
     @Resource
@@ -28,9 +27,27 @@ public class OrdersController {
         return "auto-order";
     }
 
+    /**
+     * Order object.
+     *
+     * @param userId the user id
+     * @return the object
+     * @throws Exception the exception
+     */
     @RequestMapping("auto")
-    @ResponseBody
     public Object order(Long userId) throws Exception {
         return this.userTaskManager.findOrderByNullBuyerAndStartTime(new Date());
+    }
+
+    /**
+     * User task list object.
+     *
+     * @param userId the user id
+     * @return the object
+     * @throws Exception the exception
+     */
+    @RequestMapping("userTaskList")
+    public Object userTaskList(Long userId) throws Exception {
+        return  this.userTaskManager.findOrderByBuyerId(userId);
     }
 }

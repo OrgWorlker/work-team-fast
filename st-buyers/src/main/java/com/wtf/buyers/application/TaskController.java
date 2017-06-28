@@ -75,7 +75,11 @@ public class TaskController {
         } else {
             model.addAttribute("tbUser", null);
         }
-        return new ModelAndView("buyers/task/normal-task");
+        return new ModelAndView("buyers/task/active-task");
+    }
+
+    public List<?> taskList() {
+        return null;
     }
 
 }

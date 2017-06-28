@@ -43,12 +43,15 @@ public class LogMessageEvent {
     public void log(String json) throws Exception {
         final JSONObject jsonObject = JSON.parseObject(json);
         final String type = jsonObject.getString("type");
-        final Object context = jsonObject.get("context");
-        if (type.equals(GOLD)) {
-            this.goldLogMapper.insert((GoldLog) context);
+        final String context = jsonObject.getString("context");
+        System.out.println(json);
+        if (type.equals(GOLD) ) {
+            final GoldLog goldLog = JSON.parseObject(context, GoldLog.class);
+            this.goldLogMapper.insert(goldLog);
         }
         if (type.equals(INTEGRAL)) {
-            this.integralLogMapper.insert((IntegralLog) context);
+            final IntegralLog integralLog = JSON.parseObject(context, IntegralLog.class);
+            this.integralLogMapper.insert(integralLog);
         }
     }
 

@@ -10,6 +10,6 @@ import lombok.ToString;
 @ToString
 public class IntegralLog extends BaseModel {
 
-    private double count;
-    private int userId;
+    private Double count;
+    private Long userId;
 }

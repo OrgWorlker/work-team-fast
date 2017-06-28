@@ -19,4 +19,12 @@ public interface IUserTaskManager {
      */
     List<UserTask> findOrderByNullBuyerAndStartTime(Date statrTime) throws Exception;
 
+    /**
+     * Find order by buyer id list.
+     *
+     * @param userId the user id
+     * @return the list
+     * @throws Exception the exception
+     */
+    List<UserTask> findOrderByBuyerId(Long userId) throws Exception;
 }

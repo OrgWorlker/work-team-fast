@@ -86,8 +86,8 @@
             <if test="pojo.userId != null">user_id = #{pojo.userId},</if>
             <if test="pojo.count != null">count = #{pojo.count},</if>
             <if test="pojo.id != null">id = #{pojo.id},</if>
-            <if test="pojo.flag != null">id = #{pojo.flag},</if>
-            <if test="pojo.type != null">id = #{pojo.type},</if>
+            <if test="pojo.flag != null">flag = #{pojo.flag},</if>
+            <if test="pojo.type != null">type = #{pojo.type},</if>
             <if test="pojo.crtTime != null">crt_time = #{pojo.crtTime}</if>
         </set>
         WHERE id = #{pojo.id}
@@ -98,6 +98,12 @@
         <include refid="all_column"/>
         FROM take_log
         WHERE user_id = #{userId} AND type in ( #{type} ) ORDER BY crt_time DESC
+    </select>
+
+    <select id="findById" resultMap="AllColumnMap">
+        SELECT <include refid="all_column" />
+        FROM take_log
+        WHERE id = #{id}
     </select>
 </mapper>
 

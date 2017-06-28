@@ -2,6 +2,7 @@ package com.wtf.event.infrastructure.repository;
 
 import com.wtf.event.infrastructure.model.GoldLog;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 
 /**
@@ -17,5 +18,5 @@ public interface IGoldLogMapper {
      * @return the int
      * @throws Exception the exception
      */
-    int insert(GoldLog log) throws Exception;
+    int insert(@Param("pojo") GoldLog log) throws Exception;
 }

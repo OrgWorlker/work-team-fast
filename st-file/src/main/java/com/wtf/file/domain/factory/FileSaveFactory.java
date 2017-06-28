@@ -4,6 +4,7 @@ import com.wtf.infsc.infrastructure.configure.FileProperties;
 import com.wtf.infsc.infrastructure.stereotype.FactoryService;
 import com.wtf.infsc.infrastructure.util.MD5Util;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -69,6 +70,10 @@ public class FileSaveFactory {
      * @return the file path name
      */
     public String getFilePathName(String fileKey) {
-        return this.stringRedisTemplate.opsForValue().get(fileKey);
+        final String path = this.stringRedisTemplate.opsForValue().get(fileKey);
+        if (StringUtils.isNotBlank(path)) {
+            return path;
+        }
+        return this.fileProperties.getFilePath() + "vip.png";
     }
 }

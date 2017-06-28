@@ -135,8 +135,11 @@
         SELECT <include refid="all_column" />
         FROM user_task
         <where>
-            <if test="id != null">
+            <if test="pojo.id != null">
                 id = #{pojo.id}
+            </if>
+            <if test="pojo.buyerId != null">
+                buyer_id = #{pojo.buyerId}
             </if>
         </where>
     </select>
