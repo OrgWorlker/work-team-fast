@@ -30,7 +30,7 @@ public class DistrictManagerImplTest {
 
     @Test
     public void test ()  throws Exception {
-        final TakeLog takeLog =  this.takeLogService.findById(6L);
+        final TakeLog takeLog =  this.takeLogService.findById(3L);
         takeLog.setFlag(1);
         this.takeLogService.autoTake(takeLog);
     }

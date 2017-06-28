@@ -66,6 +66,10 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.wtf</groupId>
+            <artifactId>st-infsc</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
