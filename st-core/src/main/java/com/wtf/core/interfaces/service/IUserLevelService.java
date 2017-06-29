@@ -10,4 +10,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface IUserLevelService extends IBaseService<UserLevel> {
 
+    UserLevel findByUserId(Long userId);
 }

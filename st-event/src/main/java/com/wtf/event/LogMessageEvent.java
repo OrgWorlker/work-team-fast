@@ -13,6 +13,9 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
+import static com.wtf.infsc.infrastructure.enums.LogEventType.GOLD;
+import static com.wtf.infsc.infrastructure.enums.LogEventType.INTEGRAL;
+
 /**
  * The type Log message event.
  */
@@ -20,8 +23,6 @@ import javax.annotation.Resource;
 @Service
 @RabbitListener(queues = {"log-message"})
 public class LogMessageEvent {
-    private static final String GOLD = "G";
-    private static final String INTEGRAL = "I";
     /**
      * The Gold log mapper.
      */
@@ -45,11 +46,11 @@ public class LogMessageEvent {
         final String type = jsonObject.getString("type");
         final String context = jsonObject.getString("context");
         System.out.println(json);
-        if (type.equals(GOLD) ) {
+        if (type.equals(GOLD.getType()) ) {
             final GoldLog goldLog = JSON.parseObject(context, GoldLog.class);
             this.goldLogMapper.insert(goldLog);
         }
-        if (type.equals(INTEGRAL)) {
+        if (type.equals(INTEGRAL.getType())) {
             final IntegralLog integralLog = JSON.parseObject(context, IntegralLog.class);
             this.integralLogMapper.insert(integralLog);
         }
