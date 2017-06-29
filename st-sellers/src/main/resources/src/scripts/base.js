@@ -11,4 +11,9 @@ $(function () {
         $("#"+$(this).attr("class")).show();
         $(this).addClass("active");
     })
+    $(".filter button").on("click", function () {
+        $(".filter button.fiter-button").removeClass("fiter-button").addClass("btn-default");
+        $(this).removeClass("btn-default").addClass("fiter-button");
+        $(".filter input[type=hidden]").val($(this).attr("value"));
+    })
 })
