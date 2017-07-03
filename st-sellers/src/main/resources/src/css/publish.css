@@ -1,0 +1,79 @@
+.publish .step {
+  width: 100%;
+}
+.publish .step .step1 {
+  width: 260px;
+  height: 40px;
+  float: left;
+  background: url("../images/step1.png") no-repeat;
+}
+.publish .step .step2 {
+  width: 260px;
+  height: 40px;
+  float: left;
+  margin-left: -20px;
+  background: url("../images/step2.png") no-repeat;
+}
+.publish .step .step3 {
+  width: 260px;
+  height: 40px;
+  float: left;
+  margin-left: -20px;
+  background: url("../images/step3.png") no-repeat;
+}
+.publish .step .step4 {
+  width: 260px;
+  height: 40px;
+  float: left;
+  margin-left: -20px;
+  background: url("../images/step4.png") no-repeat;
+}
+.publish .step .text {
+  width: 150px;
+  height: 20px;
+  margin: 10px 0 0 40px;
+}
+.publish .step .text label {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  line-height: 20px;
+  text-align: center;
+}
+.publish .step .text span {
+  color: #fff;
+}
+.publish .step-title {
+  line-height: 60px;
+  font-size: 16px;
+}
+.publish .form-group label {
+  font-weight: normal;
+  text-align: right;
+  line-height: 30px;
+}
+.publish .form-group .unit {
+  width: 90%;
+  display: inline-block;
+}
+.publish .form-group .range {
+  width: 80%;
+  display: inline-block;
+}
+.publish .form-group .speci {
+  width: 50%;
+  display: inline-block;
+}
+.publish .form-group .integral {
+  width: 20%;
+  display: inline-block;
+}
+.publish .tip {
+  background-color: #faecd1;
+  text-align: center;
+  height: 35px;
+  line-height: 35px;
+}
+
+/*# sourceMappingURL=map/publish.css.map */

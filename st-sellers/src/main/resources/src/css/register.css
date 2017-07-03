@@ -1,0 +1,22 @@
+body {
+  background-color: #fcfcfc;
+}
+body .title {
+  width: 100%;
+  border-bottom: 1px solid #cdcdcd;
+}
+body label {
+  text-align: right;
+  font-weight: normal;
+  line-height: 32px;
+}
+body label::after {
+  content: "*";
+  color: red;
+}
+body .ps {
+  color: #cdcdcd;
+  line-height: 36px;
+}
+
+/*# sourceMappingURL=map/register.css.map */

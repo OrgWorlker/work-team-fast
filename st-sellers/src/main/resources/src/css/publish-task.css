@@ -1,0 +1,55 @@
+.publish-task .step-title {
+  line-height: 20px;
+  font-size: 16px;
+}
+.publish-task .form-group label {
+  font-weight: normal;
+  text-align: right;
+  line-height: 30px;
+}
+.publish-task .form-group .pay-integral {
+  font-size: 14px;
+  font-weight: bold;
+}
+.publish-task .form-group .btn-radio {
+  background: url("../images/btn-radio.png") no-repeat;
+}
+.publish-task .form-group .btn-radio2 {
+  background: url("../images/btn-radio2.png") no-repeat;
+  background-size: 100% 100%;
+}
+.publish-task .form-group .uploadImg img {
+  width: 80px;
+  height: 80px;
+}
+.publish-task .form-group .uploadImg button {
+  margin: 2px 0;
+}
+.publish-task .form-group .uploadImg input[type=file] {
+  position: relative;
+  width: 82px;
+  height: 34px;
+  top: -34px;
+  opacity: 0;
+  cursor: pointer;
+}
+.publish-task .form-group .review {
+  width: 100%;
+  height: 60px;
+  background-color: #fcfbf9;
+  line-height: 60px;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+.publish-task .form-group .review input {
+  height: 30px;
+  width: 50px;
+}
+.publish-task .form-group textarea {
+  margin-top: 10px;
+}
+.publish-task .uploadps {
+  margin-top: -40px;
+}
+
+/*# sourceMappingURL=map/publish-task.css.map */
