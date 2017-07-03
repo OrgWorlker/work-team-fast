@@ -19,6 +19,10 @@ target/
 nbproject/private/
 build/
 nbbuild/
-dist/
+dist
+less
+node_modules
 nbdist/
 .nb-gradle/
+gulpfile.js
+package.json

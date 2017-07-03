@@ -1,55 +1,50 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        .b{
-            display: block;
-            width: 145px;
-            height:30px;
-            background: url("../images/membershiplevel.jpg") no-repeat -96px -32px;
-            /*background-size:cover;*/
-        }
-        .c{
-            display: block;
-            width: 73px;
-            height: 14px;
-            background: url(../images/membershiplevel.png) no-repeat -40px 0px;
-            background-position: 5px -10px;
-        }
-    </style>
+    <title> New Document </title>
+    <meta charset="utf-8">
+    <script src="http://xuan.news.cn/cloudnews/xhcms_2014/js/jquery.min.js"></script>
 </head>
 <body>
-<input id="file_upload" type="file" />
-<div class="image_container">
-    <img id="preview" width="60" height="60">
-</div>
-<script src="../scripts/plugins/jquery-2.1.1.min.js"></script>
-<script>
-    $(function() {
-        $("#file_upload").change(function() {
-            var $file = $(this);
-            var fileObj = $file[0];
-            var windowURL = window.URL || window.webkitURL;
-            var dataURL;
-            var $img = $("#preview");
-
-            if(fileObj && fileObj.files && fileObj.files[0]){
-                dataURL = windowURL.createObjectURL(fileObj.files[0]);
-                $img.attr('src',dataURL);
-            }else{
-                dataURL = $file.val();
-                var imgObj = document.getElementById("preview");
-// 两个坑:
-// 1、在设置filter属性时，元素必须已经存在在DOM树中，动态创建的Node，也需要在设置属性前加入到DOM中，先设置属性在加入，无效；
-// 2、src属性需要像下面的方式添加，上面的两种方式添加，无效；
-                imgObj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
-                imgObj.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = dataURL;
-
+<form enctype="multipart/form-data" class="upload-form">
+    <dt class="img-cont">
+    <div class="trgger-upload">请选取一个图像文件:</div>
+    <input type = "file" id = "file" name = "fileImg" class="upload-btn" />
+    </dt>
+    <div class="form-datas">
+        <div class="form-list required">
+            <span class="cont-name">图片名称：</span>
+            <span class="cont-area">
+<input type="text" name="title" class="cont-area">
+</span>
+        </div>
+        <input type="submit" class="hidden">
+        <span class="submit-btn">提交</span>
+    </div>
+</form>
+<script type="text/javascript">
+    var postData = function( form , callback){
+        var formdata = new FormData( form );
+        $.ajax({
+            url: "",
+            type: "post",
+            data: formdata,    //处理表单数据
+            dataType: 'json',
+            processData: false,
+            contentType: false,
+            success: function(data){
+                console.log(data);
+            },
+            error: function(data){
+                console.log(data);
             }
-        });
-    });
+        })
+    }
+    $(".submit-btn").on("click",function(){
+        postData($(this).parents("form")[0]);
+    })
 </script>
 </body>
 </html>
+
