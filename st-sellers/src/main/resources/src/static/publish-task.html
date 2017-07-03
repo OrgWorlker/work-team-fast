@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发布任务</title>
+    <link rel="stylesheet" href="../css/plugins/normalize.css">
+    <link rel="stylesheet" href="../css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_h7kczcjmwyx2yb9.css">
+    <link rel="stylesheet" href="../css/publish-task.css">
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">首页</a></li>
+                <li><a href="#"><span class="red">ke6695</span></a></li>
+                <li><a href="#">积分&nbsp;<span class="red">0.00</span></a></li>
+                <li><a href="#">资金&nbsp;<span class="red">33.00</span></a></li>
+                <li><a href="#">会员到期时间 : <span class="red">2017-06-16</span><span>【续费】</span></a></li>
+                <li><a href="#">帮助中心</a></li>
+                <li><a href="#">通知<span class="badge">0</span></a></li>
+                <li><a href="#">退出</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid navMenu">
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">会员中心</a></li>
+                <li><a href="#">网站公告</a></li>
+                <li><a href="#">在线充值</a></li>
+                <li><a href="#">商家反馈</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="view clearfix">
+    <div class="left-menu">
+        <div class="menu-item">
+            <div class="menu-title">我是商家</div>
+            <ul>
+                <li class="active topMargin"><a href=""><i class="icon iconfont icon-icon10"></i>个人中心</a></li>
+                <li><a href=""><i class="icon iconfont icon-icon_yuyuegongdan"></i>绑定店铺</a></li>
+                <li><a href=""><i class="icon iconfont icon-gongdan"></i>我的工单</a></li>
+            </ul>
+            <div class="menu-title">任务</div>
+            <ul>
+                <li><a href=""><i class="icon iconfont icon-liebiao"></i>发布任务</a></li>
+                <li><a href=""><i class="icon iconfont icon-gongdan"></i>我的任务</a></li>
+                <li><a href=""><i class="icon iconfont icon-shenhe"></i>任务审核（<span class="red">1</span>）</a></li>
+            </ul>
+            <div class="menu-title">财务中心</div>
+            <ul>
+                <li><a href=""><i class="icon iconfont icon-caiwu"></i>财务中心</a></li>
+                <li><a href=""><i class="icon iconfont icon-tixian3"></i>提现管理</a></li>
+                <li><a href=""><i class="icon iconfont icon-huiyuan"></i>会员续费</a></li>
+                <li><a href=""><i class="icon iconfont icon-msnui-rmb"></i>资金记录</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <div class="content">
+            <div class="content-title">任务审核</div>
+            <div class="content-body">
+                <div class="publish-task">
+                    <div class="step-title">第三步 : 任务需求设置</div>
+                    <form action="" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-lg-2">订单留言</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2">是否聊天</label>
+                            <div class="col-lg-4 orderRadio">
+                                <button type="button" class="btn btn-danger" value="0">静默下单</button>
+                                <button type="button" class="btn btn-default" value="1">聊天下单</button>
+                                <input type="hidden" name="" value="0"/>
+                                <span class="pay-integral">支付<span class="red">0.5</span>积分</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2">收藏宝贝</label>
+                            <div class="col-lg-4 yesNoRadio">
+                                <button type="button" class="btn btn-radio" value="1">是</button>
+                                <button type="button" class="btn btn-default" value="0">否</button>
+                                <input type="hidden" value="1" name=""/>
+                                <span class="pay-integral">支付<span class="red">0.5</span>积分</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2">店内浏览商品</label>
+                            <div class="col-lg-5 yesNoRadio">
+                                <button type="button" class="btn btn-radio" value="1">是</button>
+                                <button type="button" class="btn btn-default" value="0">否</button>
+                                <input type="hidden" value="1" name=""/>
+                                每额外浏览一个商品需要&nbsp;&nbsp;<span class="pay-integral">支付<span class="red">0.5</span>积分</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2">店内浏览商品</label>
+                            <div class="col-lg-6 yesNoRadio">
+                                <button type="button" class="btn btn-radio" value="1">是</button>
+                                <button type="button" class="btn btn-default" value="0">否</button>
+                                <input type="hidden" value="1" name=""/>
+                                <span class="pay-integral">支付<span class="red">1</span>积分</span>
+                                <textarea class="form-control" name="" cols="30" rows="5" placeholder="此处填写您希望买家对任务商品的评价内容，例如：“商品质量很好，发货速度也很快，掌柜非常热情，感觉比图片上还要漂亮”。请不要填写“请带字好评”等引导的文字"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2">好评要晒图</label>
+                            <div class="col-lg-6 yesNoRadio">
+                                <button type="button" class="btn btn-radio" value="1">是</button>
+                                <button type="button" class="btn btn-default" value="0">否</button>
+                                <input type="hidden" value="1" name=""/>
+                                规定买家好评时，必须附带上传好评晒图证明好评内容
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <label class="col-lg-2"></label>
+                            <div class="col-lg-2 uploadImg">
+                                <img src="../images/upload.png" alt="">
+                                <button type="button" class="btn btn-default">上传图片</button>
+                                <input type="file" name=""/>
+                            </div>
+                            <div class="col-lg-2 uploadImg">
+                                <img src="../images/upload.png" alt="">
+                                <button type="button" class="btn btn-default">上传图片</button>
+                                <input type="file" name=""/>
+                            </div>
+                            <div class="col-lg-2 uploadImg">
+                                <img src="../images/upload.png" alt="">
+                                <button type="button" class="btn btn-default">上传图片</button>
+                                <input type="file" name=""/>
+                            </div>
+                            <div class="col-lg-2 uploadImg">
+                                <img src="../images/upload.png" alt="">
+                                <button type="button" class="btn btn-default">上传图片</button>
+                                <input type="file" name=""/>
+                            </div>
+                        </div>
+                        <p class="col-lg-offset-2 col-lg-6 uploadps">请上传要让买家好评时晒的图片，最多可以上传四张</p>
+                        <div class="form-group">
+                            <label class="col-lg-2">是否要追评</label>
+                            <div class="col-lg-10 yesNoRadio">
+                                <button type="button" class="btn btn-radio" value="1">是</button>
+                                <button type="button" class="btn btn-default" value="0">否</button>
+                                <input type="hidden" value="1" name=""/>
+                                <span class="pay-integral">支付<span class="red">4</span>积分</span>
+                                <p class="review">
+                                    要求买家好评结束后，过<input type="text" name=""/>天再追评，为了保证买家和卖家的安全，至少需要5天后才能追评
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2">是否要追评</label>
+                            <div class="col-lg-6 yesNoRadio">
+                                <button type="button" class="btn btn-radio" value="1">是</button>
+                                <button type="button" class="btn btn-default" value="0">否</button>
+                                <input type="hidden" value="1" name=""/>
+                                <span class="pay-integral">支付<span class="red">4</span>积分</span>
+                                <textarea class="form-control" name="" cols="30" rows="5" placeholder="此处填写您希望买家对任务商品的评价内容，例如：“用了几天后确实不错，下次还来买”。请不要填写“请带字好评”等引导的文字"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2"></label>
+                            <div class="col-lg-6 yesNoRadio2">
+                                <button type="button" class="btn btn-radio2" value="0">不允许</button>
+                                <button type="button" class="btn btn-default" value="1">允许信用卡</button>
+                                <button type="button" class="btn btn-default" value="2">允许花呗</button>
+                                <input type="hidden" value="0" name=""/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2">保存任务模板</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2"></label>
+                            <div class="col-lg-4">
+                                <button type="button" class="btn btn-danger">立即发布任务</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../scripts/plugins/jquery-2.1.1.min.js"></script>
+<script src="../scripts/plugins/bootstrap.min.js"></script>
+<script src="../scripts/base.js"></script>
+</body>
+</html>

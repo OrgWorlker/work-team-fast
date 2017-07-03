@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="../css/plugins/normalize.css">
+    <link rel="stylesheet" href="../css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/person.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2os0a8vr3sicc8fr.css">
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">首页</a></li>
+                <li><a href="#"><span class="red">ke6695</span></a></li>
+                <li><a href="#">积分&nbsp;<span class="red">0.00</span></a></li>
+                <li><a href="#">资金&nbsp;<span class="red">33.00</span></a></li>
+                <li><a href="#">会员到期时间 : <span class="red">2017-06-16</span><span>【续费】</span></a></li>
+                <li><a href="#">帮助中心</a></li>
+                <li><a href="#">通知<span class="badge">0</span></a></li>
+                <li><a href="#">退出</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid navMenu">
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">会员中心</a></li>
+                <li><a href="#">网站公告</a></li>
+                <li><a href="#">在线充值</a></li>
+                <li><a href="#">商家反馈</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="view clearfix">
+    <div class="left-menu">
+        <div class="menu-item">
+            <div class="menu-title">我是商家</div>
+            <ul>
+                <li class="active topMargin"><a href=""><i class="icon iconfont icon-icon10"></i>个人中心</a></li>
+                <li><a href=""><i class="icon iconfont icon-icon_yuyuegongdan"></i>绑定店铺</a></li>
+                <li><a href=""><i class="icon iconfont icon-gongdan"></i>我的工单</a></li>
+            </ul>
+            <div class="menu-title">任务</div>
+            <ul>
+                <li><a href=""><i class="icon iconfont icon-liebiao"></i>发布任务</a></li>
+                <li><a href=""><i class="icon iconfont icon-gongdan"></i>我的任务</a></li>
+                <li><a href=""><i class="icon iconfont icon-shenhe"></i>任务审核（<span class="red">1</span>）</a></li>
+            </ul>
+            <div class="menu-title">财务中心</div>
+            <ul>
+                <li><a href=""><i class="icon iconfont icon-caiwu"></i>财务中心</a></li>
+                <li><a href=""><i class="icon iconfont icon-tixian3"></i>提现管理</a></li>
+                <li><a href=""><i class="icon iconfont icon-huiyuan"></i>会员续费</a></li>
+                <li><a href=""><i class="icon iconfont icon-msnui-rmb"></i>资金记录</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <div class="content">
+            <div class="content-title">任务审核</div>
+            <div class="content-body">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active wait"><a>待发布任务</a></li>
+                    <li role="presentation" class="publish"><a>已发布任务</a></li>
+                    <li role="presentation" class="finish"><a>已完成任务</a></li>
+                    <li role="presentation" class="cancel"><a>已取消任务</a></li>
+                    <li role="presentation" class="all"><a>全部任务</a></li>
+                </ul>
+                <div id="wait" class="tab-content">
+                    <form action="" class="form-horizontal clearfix">
+                        <div class="row-item">
+                            <div class="form-element">
+                                <label>1店铺：</label><input placeholder="全部" type="text"/>
+                            </div>
+                            <div class="form-element">
+                                <label>任务号：</label><input type="text"/>
+                            </div>
+                            <div class="form-element">
+                                <label>子任务ID：</label><input type="text"/>
+                            </div>
+                            <div class="form-element">
+                                <label>订单时间：</label><input type="text"/>至<input type="text"/>
+                            </div>
+                            <div class="form-element">
+                                <button type="submit" class="btn btn-warning">查询</button>
+                            </div>
+                        </div>
+                    </form>
+                    <ul>
+                        <li>
+                            <div class="top">
+                                <div class="top-item">
+                                    <span>一品服饰男装</span>
+                                </div>
+                                <div class="top-item">
+                                    任务编号 : <span>68961[详情]</span>
+                                </div>
+                                <div class="top-item">
+                                </div>
+                                <div class="top-item">
+                                    创建时间 : <span>2017-04-10 18:13:00</span>
+                                </div>
+                                <div class="top-item">
+                                    任务状态 : <span>待审核</span>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <div class="col-lg-6">
+                                    <img src="../images/product.png" alt="">
+                                    <div class="product-desc">
+                                        <p>任务名称 : 爆款补单任务</p>
+                                        <p>商品名称 : 外套男穿几2017新款潮流男装韩版</p>
+                                        <p>修身休闲春装上衣春秋帅气薄夹克</p>
+                                        <p>单价 : ￥<span>68.00</span>,拍<span>1</span>件,深灰<span>L</span></p>
+                                    </div>
+                                    <div class="task-num">
+                                        <p>总任务 : <span>1</span></p>
+                                        <p>已接手 : <span class="red">1</span></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-offset-1 col-lg-3">
+                                    <p>是否聊天 : <span>否</span></p>
+                                    <p>快递方式 : <span>圆通快递</span></p>
+                                    <p>任务时间 : <span>1</span>点-<span>1</span>点</p>
+                                    <p>发布任务 : <span>2017-04-10 16:00:00</span></p>
+                                </div>
+                                <div class="col-lg-2">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="publish" class="tab-content">
+                    <form action="" class="form-horizontal clearfix">
+                        <div class="row-item">
+                            <div class="form-element">
+                                <label>2店铺：</label><input placeholder="全部" type="text"/>
+                            </div>
+                            <div class="form-element">
+                                <label>任务号：</label><input type="text"/>
+                            </div>
+                            <div class="form-element">
+                                <label>子任务ID：</label><input type="text"/>
+                            </div>
+                            <div class="form-element">
+                                <label>订单时间：</label><input type="text"/>至<input type="text"/>
+                            </div>
+                            <div class="form-element">
+                                <button type="submit" class="btn btn-warning">查询</button>
+                            </div>
+                        </div>
+                    </form>
+                    <ul>
+                        <li>
+                            <div class="top">
+                                <div class="top-item">
+                                    <span>一品服饰男装</span>
+                                </div>
+                                <div class="top-item">
+                                    任务编号 : <span>68961[详情]</span>
+                                </div>
+                                <div class="top-item">
+                                </div>
+                                <div class="top-item">
+                                    创建时间 : <span>2017-04-10 18:13:00</span>
+                                </div>
+                                <div class="top-item">
+                                    任务状态 : <span>待审核</span>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <div class="col-lg-6">
+                                    <img src="../images/product.png" alt="">
+                                    <div class="product-desc">
+                                        <p>任务名称 : 爆款补单任务</p>
+                                        <p>商品名称 : 外套男穿几2017新款潮流男装韩版</p>
+                                        <p>修身休闲春装上衣春秋帅气薄夹克</p>
+                                        <p>单价 : ￥<span>68.00</span>,拍<span>1</span>件,深灰<span>L</span></p>
+                                    </div>
+                                    <div class="task-num">
+                                        <p>总任务 : <span>1</span></p>
+                                        <p>已接手 : <span class="red">1</span></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-offset-1 col-lg-3">
+                                    <p>是否聊天 : <span>否</span></p>
+                                    <p>快递方式 : <span>圆通快递</span></p>
+                                    <p>任务时间 : <span>1</span>点-<span>1</span>点</p>
+                                    <p>发布任务 : <span>2017-04-10 16:00:00</span></p>
+                                </div>
+                                <div class="col-lg-2">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="finish" class="tab-content">
+                    <form action="" class="form-horizontal clearfix">
+                        <div class="row-item">
+                            <div class="form-element">
+                                <label>3店铺：</label><input placeholder="全部" type="text"/>
+                            </div>
+                            <div class="form-element">
+                                <label>任务号：</label><input type="text"/>
+                            </div>
+                            <div class="form-element">
+                                <label>子任务ID：</label><input type="text"/>
+                            </div>
+                            <div class="form-element">
+                                <label>订单时间：</label><input type="text"/>至<input type="text"/>
+                            </div>
+                            <div class="form-element">
+                                <button type="submit" class="btn btn-warning">查询</button>
+                            </div>
+                        </div>
+                    </form>
+                    <ul>
+                        <li>
+                            <div class="top">
+                                <div class="top-item">
+                                    <span>一品服饰男装</span>
+                                </div>
+                                <div class="top-item">
+                                    任务编号 : <span>68961[详情]</span>
+                                </div>
+                                <div class="top-item">
+                                </div>
+                                <div class="top-item">
+                                    创建时间 : <span>2017-04-10 18:13:00</span>
+                                </div>
+                                <div class="top-item">
+                                    任务状态 : <span>待审核</span>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <div class="col-lg-6">
+                                    <img src="../images/product.png" alt="">
+                                    <div class="product-desc">
+                                        <p>任务名称 : 爆款补单任务</p>
+                                        <p>商品名称 : 外套男穿几2017新款潮流男装韩版</p>
+                                        <p>修身休闲春装上衣春秋帅气薄夹克</p>
+                                        <p>单价 : ￥<span>68.00</span>,拍<span>1</span>件,深灰<span>L</span></p>
+                                    </div>
+                                    <div class="task-num">
+                                        <p>总任务 : <span>1</span></p>
+                                        <p>已接手 : <span class="red">1</span></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-offset-1 col-lg-3">
+                                    <p>是否聊天 : <span>否</span></p>
+                                    <p>快递方式 : <span>圆通快递</span></p>
+                                    <p>任务时间 : <span>1</span>点-<span>1</span>点</p>
+                                    <p>发布任务 : <span>2017-04-10 16:00:00</span></p>
+                                </div>
+                                <div class="col-lg-2">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="cancel" class="tab-content">
+                    <form action="" class="form-horizontal clearfix">
+                        <div class="row-item">
+                            <div class="form-element">
+                                <label>4店铺：</label><input placeholder="全部" type="text"/>
+                            </div>
+                            <div class="form-element">
+                                <label>任务号：</label><input type="text"/>
+                            </div>
+                            <div class="form-element">
+                                <label>子任务ID：</label><input type="text"/>
+                            </div>
+                            <div class="form-element">
+                                <label>订单时间：</label><input type="text"/>至<input type="text"/>
+                            </div>
+                            <div class="form-element">
+                                <button type="submit" class="btn btn-warning">查询</button>
+                            </div>
+                        </div>
+                    </form>
+                    <ul>
+                        <li>
+                            <div class="top">
+                                <div class="top-item">
+                                    <span>一品服饰男装</span>
+                                </div>
+                                <div class="top-item">
+                                    任务编号 : <span>68961[详情]</span>
+                                </div>
+                                <div class="top-item">
+                                </div>
+                                <div class="top-item">
+                                    创建时间 : <span>2017-04-10 18:13:00</span>
+                                </div>
+                                <div class="top-item">
+                                    任务状态 : <span>待审核</span>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <div class="col-lg-6">
+                                    <img src="../images/product.png" alt="">
+                                    <div class="product-desc">
+                                        <p>任务名称 : 爆款补单任务</p>
+                                        <p>商品名称 : 外套男穿几2017新款潮流男装韩版</p>
+                                        <p>修身休闲春装上衣春秋帅气薄夹克</p>
+                                        <p>单价 : ￥<span>68.00</span>,拍<span>1</span>件,深灰<span>L</span></p>
+                                    </div>
+                                    <div class="task-num">
+                                        <p>总任务 : <span>1</span></p>
+                                        <p>已接手 : <span class="red">1</span></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-offset-1 col-lg-3">
+                                    <p>是否聊天 : <span>否</span></p>
+                                    <p>快递方式 : <span>圆通快递</span></p>
+                                    <p>任务时间 : <span>1</span>点-<span>1</span>点</p>
+                                    <p>发布任务 : <span>2017-04-10 16:00:00</span></p>
+                                </div>
+                                <div class="col-lg-2">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="all" class="tab-content">
+                    <form action="" class="form-horizontal clearfix">
+                        <div class="row-item">
+                            <div class="form-element">
+                                <label>5店铺：</label><input placeholder="全部" type="text"/>
+                            </div>
+                            <div class="form-element">
+                                <label>任务号：</label><input type="text"/>
+                            </div>
+                            <div class="form-element">
+                                <label>子任务ID：</label><input type="text"/>
+                            </div>
+                            <div class="form-element">
+                                <label>订单时间：</label><input type="text"/>至<input type="text"/>
+                            </div>
+                            <div class="form-element">
+                                <button type="submit" class="btn btn-warning">查询</button>
+                            </div>
+                        </div>
+                    </form>
+                    <ul>
+                        <li>
+                            <div class="top">
+                                <div class="top-item">
+                                    <span>一品服饰男装</span>
+                                </div>
+                                <div class="top-item">
+                                    任务编号 : <span>68961[详情]</span>
+                                </div>
+                                <div class="top-item">
+                                </div>
+                                <div class="top-item">
+                                    创建时间 : <span>2017-04-10 18:13:00</span>
+                                </div>
+                                <div class="top-item">
+                                    任务状态 : <span>待审核</span>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <div class="col-lg-6">
+                                    <img src="../images/product.png" alt="">
+                                    <div class="product-desc">
+                                        <p>任务名称 : 爆款补单任务</p>
+                                        <p>商品名称 : 外套男穿几2017新款潮流男装韩版</p>
+                                        <p>修身休闲春装上衣春秋帅气薄夹克</p>
+                                        <p>单价 : ￥<span>68.00</span>,拍<span>1</span>件,深灰<span>L</span></p>
+                                    </div>
+                                    <div class="task-num">
+                                        <p>总任务 : <span>1</span></p>
+                                        <p>已接手 : <span class="red">1</span></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-offset-1 col-lg-3">
+                                    <p>是否聊天 : <span>否</span></p>
+                                    <p>快递方式 : <span>圆通快递</span></p>
+                                    <p>任务时间 : <span>1</span>点-<span>1</span>点</p>
+                                    <p>发布任务 : <span>2017-04-10 16:00:00</span></p>
+                                </div>
+                                <div class="col-lg-2">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../scripts/plugins/jquery-2.1.1.min.js"></script>
+<script src="../scripts/base.js"></script>
+</body>
+</html>
