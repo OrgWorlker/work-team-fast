@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>账号充值</title>
+    <link rel="stylesheet" href="../css/plugins/normalize.css">
+    <link rel="stylesheet" href="../css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/recharge.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2os0a8vr3sicc8fr.css">
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">首页</a></li>
+                <li><a href="#"><span class="red">ke6695</span></a></li>
+                <li><a href="#">积分&nbsp;<span class="red">0.00</span></a></li>
+                <li><a href="#">资金&nbsp;<span class="red">33.00</span></a></li>
+                <li><a href="#">会员到期时间 : <span class="red">2017-06-16</span><span>【续费】</span></a></li>
+                <li><a href="#">帮助中心</a></li>
+                <li><a href="#">通知<span class="badge">0</span></a></li>
+                <li><a href="#">退出</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid navMenu">
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">会员中心</a></li>
+                <li><a href="#">网站公告</a></li>
+                <li><a href="#">在线充值</a></li>
+                <li><a href="#">商家反馈</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="view clearfix">
+    <div class="left-menu">
+        <div class="menu-item">
+            <div class="menu-title">我是商家</div>
+            <ul>
+                <li class="active topMargin"><a href=""><i class="icon iconfont icon-icon10"></i>个人中心</a></li>
+                <li><a href=""><i class="icon iconfont icon-icon_yuyuegongdan"></i>绑定店铺</a></li>
+                <li><a href=""><i class="icon iconfont icon-gongdan"></i>我的工单</a></li>
+            </ul>
+            <div class="menu-title">任务</div>
+            <ul>
+                <li><a href=""><i class="icon iconfont icon-liebiao"></i>发布任务</a></li>
+                <li><a href=""><i class="icon iconfont icon-gongdan"></i>我的任务</a></li>
+                <li><a href=""><i class="icon iconfont icon-shenhe"></i>任务审核（<span class="red">1</span>）</a></li>
+            </ul>
+            <div class="menu-title">财务中心</div>
+            <ul>
+                <li><a href=""><i class="icon iconfont icon-caiwu"></i>财务中心</a></li>
+                <li><a href=""><i class="icon iconfont icon-tixian3"></i>提现管理</a></li>
+                <li><a href=""><i class="icon iconfont icon-huiyuan"></i>会员续费</a></li>
+                <li><a href=""><i class="icon iconfont icon-msnui-rmb"></i>资金记录</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <div class="content">
+            <div class="content-title">账号充值</div>
+            <div class="content-body">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active account"><a>账号充值</a></li>
+                    <li role="presentation" class="integral"><a>积分充值</a></li>
+                </ul>
+
+                <div id="account" class="tab-content recharge">
+                    <form action="" class="form-horizontal">
+                        <div class="form-group">
+                            <p>现有账户余额&nbsp;&nbsp;<span class="red">33.00</span>&nbsp;&nbsp;元</p>
+                            <p><label>本次充值金额&nbsp;&nbsp;</label><input type="text"/>元&nbsp;&nbsp;最低100元起充</p>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-warning">申请提现<span class="glyphicon glyphicon-chevron-right"></span></button>
+                        </div>
+                    </form>
+                    <ul class="nav nav-tabs son-tab">
+                        <li role="presentation" class="active alipay"><a>支付宝转账</a></li>
+                        <li role="presentation" class="integral"><a>银行转账</a></li>
+                    </ul>
+                    <div id="alipay" class="tab-content">
+                        <form action="" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-lg-2">支付宝二维码</label>
+                                <div class="col-lg-2"><img src="../images/qrcode.png" alt=""></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2">支付宝账号</label>
+                                <div class="col-lg-2">*********@qq.com</div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2">账号姓名</label>
+                                <div class="col-lg-2">VIP福利（小小）</div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2">充值金额</label>
+                                <div class="col-lg-2"><input class="form-control" type="text"/></div>
+                                <div class="col-lg-2">最低100元起充</div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2">备注信息</label>
+                                <div class="col-lg-6"><input class="form-control" type="text"/></div>
+                                <div class="col-lg-3">请备注转账账户【姓名】</div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2">转账截图</label>
+                                <div class="col-lg-2 screenshot">
+                                    <img src="" alt="">
+                                    <button class="btn btn-default">转账截图</button>
+                                    <input type="file"/>
+                                </div>
+                                <div class="col-lg-4">允许：jpg,png,gif.上传转账截图有助于快速审核。</div>
+                            </div>
+                            <div class="form-group">
+                            </div>
+                            <!--<div class="form-group">
+                                <button class="btn btn-warning">申请提现<span class="glyphicon glyphicon-chevron-right"></span></button>
+                            </div>-->
+                        </form>
+                    </div>
+                    <div id="integral" hidden class="tab-content clearfix">
+                        <ul class="pay-type">
+                            <li class="active"><input type="radio" checked="checked" name="payType"/><img src="../images/02.jpg" alt=""></li>
+                            <li><input type="radio" name="payType"/><img src="../images/03.jpg" alt=""></li>
+                            <li><input type="radio" name="payType"/><img src="../images/04.jpg" alt=""></li>
+                            <li><input type="radio" name="payType"/><img src="../images/05.jpg" alt=""></li>
+                            <li><input type="radio" name="payType"/><img src="../images/06.jpg" alt=""></li>
+                            <li><input type="radio" name="payType"/><img src="../images/07.jpg" alt=""></li>
+                            <li><input type="radio" name="payType"/><img src="../images/08.jpg" alt=""></li>
+                            <li><input type="radio" name="payType"/><img src="../images/09.jpg" alt=""></li>
+                            <li><input type="radio" name="payType"/><img src="../images/10.jpg" alt=""></li>
+                            <li><input type="radio" name="payType"/><img src="../images/02.jpg" alt=""></li>
+                            <li><input type="radio" name="payType"/><img src="../images/03.jpg" alt=""></li>
+                            <li><input type="radio" name="payType"/><img src="../images/04.jpg" alt=""></li>
+                            <li><input type="radio" name="payType"/><img src="../images/05.jpg" alt=""></li>
+                            <li><input type="radio" name="payType"/><img src="../images/06.jpg" alt=""></li>
+                            <li><input type="radio" name="payType"/><img src="../images/07.jpg" alt=""></li>
+                            <li><input type="radio" name="payType"/><img src="../images/08.jpg" alt=""></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../scripts/plugins/jquery-2.1.1.min.js"></script>
+<script src="../scripts/base.js"></script>
+</body>
+</html>

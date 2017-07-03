@@ -55,4 +55,16 @@ $(function () {
         $(this).removeClass("btn-default").addClass("btn-radio2");
         $(this).parent().find("input[type=hidden]").val($(this).attr("value"));
     })
+
+    $("#withdraw li").on("click", function () {
+        $("#withdraw li.active").removeClass("active");
+        $(this).addClass("active");
+    })
+
+    $(".pay-type li").on("click", function () {
+        $(".pay-type li").find("input[type=radio]").removeAttr("checked");
+        $(".pay-type li.active").removeClass("active");
+        $(this).addClass("active");
+        $(this).find("input[type=radio]").prop("checked", "checked");
+    })
 })

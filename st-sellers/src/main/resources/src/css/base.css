@@ -161,6 +161,9 @@ body .view .section .content .content-body .tab-content li .bottom .price {
 body .view .section .content .content-body .tab-content li .bottom .rep {
   margin-top: 20px;
 }
+body .view .section .content .content-body .tab-content .son-tab li {
+  border: none;
+}
 body .require::after {
   content: "*";
   color: red;
